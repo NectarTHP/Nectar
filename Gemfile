@@ -70,3 +70,5 @@ gem 'stripe'
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise'
 gem 'jquery-rails'
+
+gem 'rails_12factor', group: :production
