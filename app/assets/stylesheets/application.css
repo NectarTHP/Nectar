@@ -13,8 +13,5 @@
  *= require_tree .
  *= require_self
 
- *= require vendor
- *= require style
- *= require vendor.min
- *= 
+
  */
