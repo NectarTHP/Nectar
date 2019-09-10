@@ -1,0 +1,20 @@
+<div class="pricing-header px-3 py-3 pt-md-5 pb-md-4 mx-auto text-center">
+  <h1 class="display-4">A zoom on an artpiece</h1>
+</div>
+
+<br>
+<body>
+  
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+      <img class="card-img-top" src=<%= @artworks.pictures%> alt="Card image cap" style="max-width:100%">  
+    </div>
+    <div class="col-sm">
+      <h2><%= @artworks.name %></h2>
+                    <p><%= @products.description %></p>
+                    <hr>
+                    <h2 class="text-right"><%= @artworks.price %> € </h2>
+                    <%=link_to("Add to cart", new_product_line_item_path(product.id))%>
+                    <hr>
+    </div>
