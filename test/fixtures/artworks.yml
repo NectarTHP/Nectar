@@ -1,0 +1,27 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  name: MyString
+  description: MyText
+  price: 1
+  picture_url: MyString
+  type: 
+  categorie: MyString
+  weight: 1
+  size: 1
+  sale: 2019-09-10
+  tag: MyString
+
+two:
+  user: two
+  name: MyString
+  description: MyText
+  price: 1
+  picture_url: MyString
+  type: 
+  categorie: MyString
+  weight: 1
+  size: 1
+  sale: 2019-09-10
+  tag: MyString
