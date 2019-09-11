@@ -58,6 +58,7 @@
 <%= link_to 'New Artwork', new_artwork_path %>
 
 
+
     <!-- cover -->
     <section class="hero hero-with-header">
       <div class="container">
@@ -83,7 +84,7 @@
 						    </span>
                 </a>
 						</figure>
-						<a href= "", class="btn btn-white btn-lg btn-rounded px-5">More info / Buy</a>
+						<%= link_to "Buy", artwork_path(artwork.id)%>
 					</li>
           <%end%>
 				</ul>
