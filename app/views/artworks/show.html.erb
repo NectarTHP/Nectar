@@ -1,0 +1,54 @@
+bundle exec rake assets:precompile<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @artwork.user %>
+</p>
+
+<p>
+  <strong>Name:</strong>
+  <%= @artwork.name %>
+</p>
+
+<p>
+  <strong>Description:</strong>
+  <%= @artwork.description %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @artwork.price %>
+</p>
+
+<p>
+  <strong>Picture url:</strong>
+  <%= @artwork.picture_url %>
+</p>
+
+<p>
+  <strong>Categorie:</strong>
+  <%= @artwork.categorie %>
+</p>
+
+<p>
+  <strong>Weight:</strong>
+  <%= @artwork.weight %>
+</p>
+
+<p>
+  <strong>Size:</strong>
+  <%= @artwork.size %>
+</p>
+
+<p>
+  <strong>Sale:</strong>
+  <%= @artwork.sale %>
+</p>
+
+<p>
+  <strong>Tag:</strong>
+  <%= @artwork.tag %>
+</p>
+
+<%= link_to 'Edit', edit_artwork_path(@artwork) %> |
+<%= link_to 'Back', artworks_path %>
