@@ -10,6 +10,7 @@ class ArtworksController < ApplicationController
   # GET /artworks/1
   # GET /artworks/1.json
   def show
+    @artwork = Artwork.new
   end
 
   # GET /artworks/new
