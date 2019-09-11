@@ -7,16 +7,16 @@
 #   Character.create(name: 'Luke', movie: movies.first)
 require 'faker'
 
-# User.destroy_all
-# Artwork.destroy_all
-# Favorite.destroy_all
-# Cart.destroy_all
-# Transaction.destroy_all
-# Like.destroy_all
-# Comment.destroy_all
+Favorite.destroy_all
+Transaction.destroy_all
+Like.destroy_all
+Comment.destroy_all
+Cart.destroy_all
+Artwork.destroy_all
+User.destroy_all
 
 #A single test user
-user = User.create(email: "test44@test.com", password: "azerty")
+user = User.create(email: "tester@test.com", password: "azerty")
 artwork = Artwork.create(
   user_id: user.id,
   name: "La Joconde",
@@ -33,13 +33,13 @@ artwork = Artwork.create(
   #A complete seed
 
 10.times do 
-    User.create!(email: Faker::Internet.email, password: azerty)
+    User.create!(email: Faker::Internet.email, password: "azerty")
 end
 puts "10 users created"
 
 20.times do
   Artwork.create(
-  user_id: User.all.sample,
+  user_id: User.all.sample.id,
   name: Faker::Book.title,
   description: Faker::Quote.most_interesting_man_in_the_world,
   price: rand(10..10000),
@@ -52,10 +52,46 @@ puts "10 users created"
 end
 puts "20 artworks created"
 
+10.times do
+  Favorite.create(
+    user_id: User.all.sample.id,
+    artwork_id: Artwork.all.sample.id
+  )
+end
+puts "10 favorites created"
+
 30.times do
   Cart.create(
-    user_id: User.all.sample,
-    artwork_id: Artwork.all.sample
+    user_id: User.all.sample.id,
+    artwork_id: Artwork.all.sample.id
   )
 end
 puts "30 carts created"
+
+10.times do
+  Transaction.create(
+    user_id: User.all.sample.id,
+    artwork_id: Artwork.all.sample.id,
+    item_qty: rand(1..3),
+    order_number: 99,
+    tracking_number: "12COLIS4PERDU"
+  )
+end
+puts "10 transaction created"
+
+10.times do
+  Like.create(
+    user_id: User.all.sample.id,
+    artwork_id: Artwork.all.sample.id
+  )
+end
+puts "10 likes created"
+
+20.times do
+  Comment.create(
+    user_id: User.all.sample.id,
+    artwork_id: Artwork.all.sample.id,
+    comment: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false)
+  )
+end
+puts "20 comments created"
