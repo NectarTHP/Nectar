@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  user: one
+  artwork: one
+  item_qty: 1
+  order_number: 1
+  tracking_number: MyString
+
+two:
+  user: two
+  artwork: two
+  item_qty: 1
+  order_number: 1
+  tracking_number: MyString
