@@ -16,7 +16,7 @@ require 'faker'
 # Comment.destroy_all
 
 #A single test user
-user = User.create(email: test@test.com, password: azerty)
+user = User.create(email: "test44@test.com", password: "azerty")
 artwork = Artwork.create(
   user_id: user.id,
   name: "La Joconde",

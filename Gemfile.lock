@@ -257,7 +257,7 @@ DEPENDENCIES
   capybara (>= 2.15)
   chromedriver-helper
   coffee-rails (~> 4.2)
-  devise
+  devise (~> 4.7.1)
   dotenv
   faker
   jbuilder (~> 2.5)

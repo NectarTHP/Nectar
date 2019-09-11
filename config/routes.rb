@@ -1,10 +1,9 @@
 Rails.application.routes.draw do
 
-  resources :artworks
   root 'home#index'
-
   devise_for :users
-  
+
+  resources :artworks
   resources :users
   resources :likes
   resources :comments
