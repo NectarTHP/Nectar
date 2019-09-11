@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>User:</strong>
+  <%= @transaction.user %>
+</p>
+
+<p>
+  <strong>Artwork:</strong>
+  <%= @transaction.artwork %>
+</p>
+
+<p>
+  <strong>Item qty:</strong>
+  <%= @transaction.item_qty %>
+</p>
+
+<p>
+  <strong>Order number:</strong>
+  <%= @transaction.order_number %>
+</p>
+
+<p>
+  <strong>Tracking number:</strong>
+  <%= @transaction.tracking_number %>
+</p>
+
+<%= link_to 'Edit', edit_transaction_path(@transaction) %> |
+<%= link_to 'Back', transactions_path %>
