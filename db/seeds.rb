@@ -57,12 +57,5 @@ puts "20 artworks created"
     user_id: User.all.sample,
     artwork_id: Artwork.all.sample
   )
-
-create_table "carts", force: :cascade do |t|
-  t.bigint "user_id"
-  t.bigint "artwork_id"
-  t.datetime "created_at", null: false
-  t.datetime "updated_at", null: false
-  t.index ["artwork_id"], name: "index_carts_on_artwork_id"
-  t.index ["user_id"], name: "index_carts_on_user_id"
 end
+puts "30 carts created"
