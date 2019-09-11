@@ -52,3 +52,53 @@ bundle exec rake assets:precompile<p id="notice"><%= notice %></p>
 
 <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
 <%= link_to 'Back', artworks_path %>
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>GO - Hotel</title>
+    <link rel="stylesheet" href="../../assets/css/vendor.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+  </head>
+  <body>
+
+<!-- slider -->
+    <section class="component">
+      <div class="container">
+        <div class="row align-items-center">
+          <div class="col">
+            <h4>Slider</h4>
+          </div>
+        </div>
+      </div>
+      <div class="tab-content" id="component-1">
+
+        <div class="tab-pane show active" id="component-1-1" role="tabpanel" aria-labelledby="component-1-1">
+          <div class="component-example">
+            <div class="container">
+              <div class="row justify-content-between align-items-center">
+                <div class="col-md-5 pr-md-5">
+                  <span class="eyebrow">Special for you</span>
+                  <h2>Learn design with our new course.</h2>
+                  <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Eos tempore, inventore accusamus odio/p>
+                </div>
+                <div class="col-md-7">
+                  <div class="owl-carousel owl-carousel-single" data-items="[1]" data-nav="true" data-autoheight="true">
+                    <figure class="photo">
+                      <a href="<%=@artwork.picture_url%>" style="background-image: url(<%=@artwork.picture_url%>);">
+                    </figure>
+                    <figure class="photo">
+                      <img src="../assets/images/demo/image-square-2.jpg" alt="Image">
+                    </figure>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+    <!-- / slider -->
