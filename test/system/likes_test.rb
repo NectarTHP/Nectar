@@ -14,7 +14,7 @@ class LikesTest < ApplicationSystemTestCase
     visit likes_url
     click_on "New Like"
 
-    fill_in "Artwork belongs to", with: @like.artwork_belongs_to
+    fill_in "Artwork", with: @like.artwork_id
     fill_in "User", with: @like.user_id
     click_on "Create Like"
 
@@ -26,7 +26,7 @@ class LikesTest < ApplicationSystemTestCase
     visit likes_url
     click_on "Edit", match: :first
 
-    fill_in "Artwork belongs to", with: @like.artwork_belongs_to
+    fill_in "Artwork", with: @like.artwork_id
     fill_in "User", with: @like.user_id
     click_on "Update Like"
 
