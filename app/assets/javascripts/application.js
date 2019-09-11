@@ -14,3 +14,9 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+//= require cable
+//= require cable
+//= require vendor
+//= require vendor.min
+
+
