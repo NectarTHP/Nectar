@@ -22,7 +22,6 @@ class ArtworksTest < ApplicationSystemTestCase
     fill_in "Sale", with: @artwork.sale
     fill_in "Size", with: @artwork.size
     fill_in "Tag", with: @artwork.tag
-    fill_in "Type", with: @artwork.type
     fill_in "User", with: @artwork.user_id
     fill_in "Weight", with: @artwork.weight
     click_on "Create Artwork"
@@ -43,7 +42,6 @@ class ArtworksTest < ApplicationSystemTestCase
     fill_in "Sale", with: @artwork.sale
     fill_in "Size", with: @artwork.size
     fill_in "Tag", with: @artwork.tag
-    fill_in "Type", with: @artwork.type
     fill_in "User", with: @artwork.user_id
     fill_in "Weight", with: @artwork.weight
     click_on "Update Artwork"

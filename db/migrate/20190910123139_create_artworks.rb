@@ -6,7 +6,6 @@ class CreateArtworks < ActiveRecord::Migration[5.2]
       t.text :description
       t.integer :price
       t.string :picture_url
-      t.string :type
       t.string :categorie
       t.integer :weight
       t.integer :size

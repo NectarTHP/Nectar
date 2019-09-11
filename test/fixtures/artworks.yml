@@ -6,11 +6,10 @@ one:
   description: MyText
   price: 1
   picture_url: MyString
-  type: 
   categorie: MyString
   weight: 1
   size: 1
-  sale: 2019-09-10
+  sale: 2019-09-11
   tag: MyString
 
 two:
@@ -19,9 +18,8 @@ two:
   description: MyText
   price: 1
   picture_url: MyString
-  type: 
   categorie: MyString
   weight: 1
   size: 1
-  sale: 2019-09-10
+  sale: 2019-09-11
   tag: MyString
