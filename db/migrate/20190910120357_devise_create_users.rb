@@ -6,6 +6,23 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       ## Database authenticatable
       t.string :email,              null: false, default: ""
       t.string :encrypted_password, null: false, default: ""
+      t.text :comment
+      t.boolean :is_artist
+      t.boolean :is_admin
+      t.string :username
+      t.string :first_name
+      t.string :last_name
+      t.text :bio
+      t.string :avatarpicture
+      t.date :dateofbirth
+      t.string :siret
+      t.string :adress
+      t.string :zipcode
+      t.string :city
+      t.string :country
+      t.string :mobile
+      t.string :fb_user_ID
+      t.string :insta_user_ID
 
       ## Recoverable
       t.string   :reset_password_token
