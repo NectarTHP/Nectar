@@ -1,11 +1,10 @@
 class User < ApplicationRecord
-  after_create :welcome_send
 
-  puts "$"*60;puts "user.rb called";puts "$"*60
+  after_create :welcome_send
 
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
-
+  
   has_many :artworks
   has_many :carts
   has_many :transactions

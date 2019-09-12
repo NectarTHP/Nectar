@@ -35,6 +35,7 @@
     <% @artworks.each do |artwork| %>
       <tr>
         <td><%= artwork.user.id %></td>
+        <td><%= artwork.user.email %></td>
         <td><%= artwork.name %></td>
         <td><%= artwork.description %></td>
         <td><%= artwork.price %></td>
