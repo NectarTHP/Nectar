@@ -1,5 +1,6 @@
 class CartsController < ApplicationController
   before_action :set_cart, only: [:show, :edit, :update, :destroy, :index]
+  before_action :authenticate_user!
 
   # GET /carts
   # GET /carts.json
@@ -10,7 +11,8 @@ class CartsController < ApplicationController
   # GET /carts/1
   # GET /carts/1.json
   def show
-    @cart_line = Cart.find(params[:id])
+    #@cart_line = Cart.find(params[:id])
+    redirect_to carts_path
   end
 
   # GET /carts/new
