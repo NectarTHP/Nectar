@@ -1,4 +1,7 @@
+<<<<<<< HEAD
 <% if false %>
+=======
+>>>>>>> delivery
 <p id="notice"><%= notice %></p>
 
 <p>
@@ -53,7 +56,9 @@
 <% end %>
 
 <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
-<%= link_to 'Back', artworks_path %>
+<%= link_to 'Buy', new_cart_path(@artwork.id) %> |
+<!-- returns to previous navigated page -->
+<%= link_to "Back", request.referer.present? ? request.referer : root_path %>
 
 <!DOCTYPE html>
 <html lang="en">

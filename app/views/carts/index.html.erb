@@ -1,23 +1,24 @@
 <p id="notice"><%= notice %></p>
 
-<h1>Carts</h1>
+<h1>Your Cart</h1>
 
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>Cart ID</th>
+      <th>User ID</th>
       <th>Artwork</th>
       <th colspan="3"></th>
     </tr>
   </thead>
 
   <tbody>
-    <% @carts.each do |cart| %>
+    <% @cart.each do |cart| %>
       <tr>
-        <td><%= cart.user %></td>
-        <td><%= cart.artwork %></td>
-        <td><%= link_to 'Show', cart %></td>
-        <td><%= link_to 'Edit', edit_cart_path(cart) %></td>
+        <td><%= cart.id %></td>
+        <td><%= cart.user.id %></td>
+        <td><%= cart.artwork.name %></td>
+        <td><%= link_to 'Show', artwork_path(cart.artwork.id) %></td>
         <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
       </tr>
     <% end %>
@@ -26,4 +27,5 @@
 
 <br>
 
-<%= link_to 'New Cart', new_cart_path %>
+<!-- returns to previous navigated page -->
+<%= link_to "Back", request.referer.present? ? request.referer : root_path %>

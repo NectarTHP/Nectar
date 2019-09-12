@@ -1,13 +1,18 @@
 <p id="notice"><%= notice %></p>
 
 <p>
-  <strong>User:</strong>
-  <%= @cart.user %>
+  <strong>User ID :</strong>
+  <%= @cart_line.user.id %>
 </p>
 
 <p>
   <strong>Artwork:</strong>
-  <%= @cart.artwork %>
+  <%= @cart_line.artwork.name %>
+</p>
+
+<p>
+  <strong>Price:</strong>
+  <%= @cart_line.artwork.price %>
 </p>
 
 <%= link_to 'Edit', edit_cart_path(@cart) %> |

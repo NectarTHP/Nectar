@@ -2,8 +2,8 @@
 
 one:
   user: one
-  artwork_belongs_to: MyString
+  artwork: one
 
 two:
   user: two
-  artwork_belongs_to: MyString
+  artwork: two

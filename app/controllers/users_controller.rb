@@ -8,8 +8,9 @@ class UsersController < ApplicationController
     @users = User.all
   end
 
-
-  private
+  def show
+    @user = User.find(params[:id])
+  end
 
   def authenticate_user
     puts '$'*60; puts "users_controller#authenticate_user' has been called"; puts '$'*60
