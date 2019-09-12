@@ -1,13 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
-	<head>
-		<meta charset="utf-8">
-		<meta http-equiv="X-UA-Compatible" content="IE=edge">
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<title>GO - Photography</title>
-		<link rel="stylesheet" href="../../assets/css/vendor.css" />
-		<link rel="stylesheet" href="../../assets/css/style.css" />
-	</head>
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Presentation</title>
+    <link rel="stylesheet" href="../assets/css/vendor.css" />
+    <link rel="stylesheet" href="../assets/css/style.css" />
+  </head>
+  <body class="bg-light">
 
   
 <body>
@@ -18,11 +18,11 @@
 <table>
   <thead>
     <tr>
-      <th>User</th>
+      <th>User ID</th>
+      <th>User Email</th>
       <th>Name</th>
       <th>Description</th>
       <th>Price</th>
-      <th>Picture url</th>
       <th>Categorie</th>
       <th>Weight</th>
       <th>Size</th>
@@ -35,11 +35,11 @@
   <tbody>
     <% @artworks.each do |artwork| %>
       <tr>
+        <td><%= artwork.user.id %></td>
         <td><%= artwork.user.email %></td>
         <td><%= artwork.name %></td>
         <td><%= artwork.description %></td>
         <td><%= artwork.price %></td>
-        <td><%= artwork.picture_url %></td>
         <td><%= artwork.categorie %></td>
         <td><%= artwork.weight %></td>
         <td><%= artwork.size %></td>
@@ -47,7 +47,10 @@
         <td><%= artwork.tag %></td>
         <td><%= link_to 'Show', artwork %></td>
         <td><%= link_to 'Edit', edit_artwork_path(artwork) %></td>
-        <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+        <td><%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' } %>
+        <td><%= link_to 'Buy', new_cart_path(artwork.id) %></td>
+
+        </td>
       </tr>
     <% end %>
   </tbody>
