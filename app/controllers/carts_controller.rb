@@ -16,7 +16,7 @@ class CartsController < ApplicationController
   def new
     puts "$"*60; puts "cart#new called";puts "$"*60
     Cart.create(user_id: current_user.id, artwork_id: params[:format])
-    redirect_to cart_path(current_user.id)
+    redirect_to carts_path
   end
 
   # GET /carts/1/edit
