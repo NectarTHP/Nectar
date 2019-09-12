@@ -17,9 +17,19 @@ User.destroy_all
 
 #A single test user
 user = User.create(email: "tester@test.com", password: "azerty")
+
+20.times do 
+  User.create!(email: Faker::Internet.email, password: 123456,
+   is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
+   first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
+   avatarpicture: Faker::Avatar.image, dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
+   adress: Faker::Address.street_address, zipcode: Faker::Address.zip_code, city: Faker::Address.city, country: Faker::Address.country, 
+   mobile: Faker::PhoneNumber.phone_number, fb_user_ID: Faker::Number.number(digits: 5), insta_user_ID: Faker::Number.number(digits: 5) )
+end
+
+puts "10 users were created"
 artwork = Artwork.create(
   user_id: user.id,
-  name: "La Joconde",
   description: "A women staring at the viewer with a quirky smile",
   price: 12750,
   picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
