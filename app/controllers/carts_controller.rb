@@ -6,6 +6,7 @@ class CartsController < ApplicationController
   # GET /carts.json
   def index
     @cart = Cart.where(user_id: current_user.id)
+    @cart_total = cart_total
   end
 
   # GET /carts/1
@@ -72,6 +73,14 @@ class CartsController < ApplicationController
       format.html { redirect_to carts_url, notice: 'Cart was successfully destroyed.' }
       format.json { head :no_content }
     end
+  end
+
+  def cart_total
+    total=0
+    @cart.each do |cart_line|
+      total = total + cart_line.artwork.price
+    end
+    return total
   end
 
   private
