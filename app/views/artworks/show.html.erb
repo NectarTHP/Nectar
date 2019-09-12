@@ -1,65 +1,50 @@
-<<<<<<< HEAD
 <% if false %>
-=======
->>>>>>> delivery
-<p id="notice"><%= notice %></p>
-
-<p>
-  <strong>User:</strong>
-  <%= @artwork.user %>
-</p>
-
-<p>
-  <strong>Name:</strong>
-  <%= @artwork.name %>
-</p>
-
-<p>
-  <strong>Description:</strong>
-  <%= @artwork.description %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @artwork.price %>
-</p>
-
-<p>
-  <strong>Picture url:</strong>
-  <%= @artwork.picture_url %>
-</p>
-
-<p>
-  <strong>Categorie:</strong>
-  <%= @artwork.categorie %>
-</p>
-
-<p>
-  <strong>Weight:</strong>
-  <%= @artwork.weight %>
-</p>
-
-<p>
-  <strong>Size:</strong>
-  <%= @artwork.size %>
-</p>
-
-<p>
-  <strong>Sale:</strong>
-  <%= @artwork.sale %>
-</p>
-
-<p>
-  <strong>Tag:</strong>
-  <%= @artwork.tag %>
-</p>
+  <p id="notice"><%= notice %></p>
+  <p>
+    <strong>User:</strong>
+    <%= @artwork.user %>
+  </p>
+  <p>
+    <strong>Name:</strong>
+    <%= @artwork.name %>
+  </p>
+  <p>
+    <strong>Description:</strong>
+    <%= @artwork.description %>
+  </p>
+  <p>
+    <strong>Price:</strong>
+    <%= @artwork.price %>
+  </p>
+  <p>
+    <strong>Picture url:</strong>
+    <%= @artwork.picture_url %>
+  </p>
+  <p>
+    <strong>Categorie:</strong>
+    <%= @artwork.categorie %>
+  </p>
+  <p>
+    <strong>Weight:</strong>
+    <%= @artwork.weight %>
+  </p>
+  <p>
+    <strong>Size:</strong>
+    <%= @artwork.size %>
+  </p>
+  <p>
+    <strong>Sale:</strong>
+    <%= @artwork.sale %>
+  </p>
+  <p>
+    <strong>Tag:</strong>
+    <%= @artwork.tag %>
+  </p>
 <% end %>
-
 <%= link_to 'Edit', edit_artwork_path(@artwork) %> |
 <%= link_to 'Buy', new_cart_path(@artwork.id) %> |
 <!-- returns to previous navigated page -->
 <%= link_to "Back", request.referer.present? ? request.referer : root_path %>
-
 <!DOCTYPE html>
 <html lang="en">
   <head>
@@ -70,7 +55,6 @@
     <link rel="stylesheet" href="../../assets/css/style.css" />
   </head>
   <body>
-
     <!-- gallery -->
     <section class="bg-light">
       <div class="container">
@@ -91,53 +75,48 @@
                 <i class="icon-package fs-24 text-orange"></i>
                 <span><b>Weight:</b><%=  @artwork.weight %></span>
                 <li class="list-group-item d-flex align-items-center">
-                <i class="icon-package fs-24 text-orange"></i>
-                <span><b>Size:</b><%= @artwork.size %></span>
-              </li>
-            </ul>
-            <button type="button" class="btn btn-with-ico btn-orange text-white mt-3">Add to cart <i class="icon-shopping-cart2 fs-20"></i></button>
-          </div>
-
-          <div class="col-md-8">
-            <ul class="masonry gallery row gutter-1">
-              <li class="col-6" data-aos="zoom-in">
-                <figure class="photo equal equal-double">
-                  <a href="<%=@artwork.picture_url%>" 
+                  <i class="icon-package fs-24 text-orange"></i>
+                  <span><b>Size:</b><%= @artwork.size %></span>
+                </li>
+              </ul>
+              <a href="<%=new_cart_path(@artwork.id)%>"role="button" class="btn btn-with-ico btn-orange text-white mt-3">Add to cart <i class="icon-shopping-cart2 fs-20"></i></a>
+            </div>
+            <div class="col-md-8">
+              <ul class="masonry gallery row gutter-1">
+                <li class="col-6" data-aos="zoom-in">
+                  <figure class="photo equal equal-double">
+                    <a href="<%=@artwork.picture_url%>" 
 						        style="background-image: url(<%=@artwork.picture_url%>);">
-                    <span class="photo-caption">
-                      <span>Photo Caption</span>
-                    </span>
-                  </a>
-                </figure>
-              </li>
-              <li class="col-6" data-aos="zoom-in">
-                <figure class="photo equal">
-                  <a href="<%=@artwork.picture_url%>" 
+                      <span class="photo-caption">
+                        <span>Photo Caption</span>
+                      </span>
+                    </a>
+                  </figure>
+                </li>
+                <li class="col-6" data-aos="zoom-in">
+                  <figure class="photo equal">
+                    <a href="<%=@artwork.picture_url%>" 
 						        style="background-image: url(<%=@artwork.picture_url%>);">
-                    <span class="photo-caption">
-                      <span>Photo Caption</span>
-                    </span>
-                  </a>
-                </figure>
-              </li>
-              <li class="col-6" data-aos="zoom-in">
-                <figure class="photo equal">
-                  <a href="<%=@artwork.picture_url%>" 
+                      <span class="photo-caption">
+                        <span>Photo Caption</span>
+                      </span>
+                    </a>
+                  </figure>
+                </li>
+                <li class="col-6" data-aos="zoom-in">
+                  <figure class="photo equal">
+                    <a href="<%=@artwork.picture_url%>" 
 						        style="background-image: url(<%=@artwork.picture_url%>);">
-                    <span class="photo-caption">
-                      <span>Photo Caption</span>
-                    </span>
-                  </a>
-                </figure>
-              </li>
-            </ul>
+                      <span class="photo-caption">
+                        <span>Photo Caption</span>
+                      </span>
+                    </a>
+                  </figure>
+                </li>
+              </ul>
+            </div>
           </div>
         </div>
-      </div>
-    </section>
-
-     <script src="../../assets/js/vendor.js"></script>
-    <script src="../../assets/js/app.js"></script>
-
-  </body>
-</html>
+      </section>
+      <script src="../../assets/js/vendor.js"></script>
+      <script src="../../assets/js/app.js"></script>
