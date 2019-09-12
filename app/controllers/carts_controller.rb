@@ -4,6 +4,7 @@ class CartsController < ApplicationController
   # GET /carts
   # GET /carts.json
   def index
+    @cart = Cart.where(user_id: current_user.id)
   end
 
   # GET /carts/1
@@ -15,6 +16,13 @@ class CartsController < ApplicationController
   # GET /carts/new
   def new
     puts "$"*60; puts "cart#new called";puts "$"*60
+    @cart = Cart.where(user_id: current_user.id)
+    @selected_artwork = Cart.where(user_id: current_user.id).where(artwork_id: params[:format].to_i)
+    
+    if @selected_artwork.empty? == false
+      redirect_to(carts_path, alert: 'This artwork is already in your cart.')
+      return
+    end
     Cart.create(user_id: current_user.id, artwork_id: params[:format])
     redirect_to carts_path
   end
