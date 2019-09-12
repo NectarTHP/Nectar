@@ -1,3 +1,16 @@
+<!DOCTYPE html>
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		<meta http-equiv="X-UA-Compatible" content="IE=edge">
+		<meta name="viewport" content="width=device-width, initial-scale=1">
+		<title>GO - Photography</title>
+		<link rel="stylesheet" href="../../assets/css/vendor.css" />
+		<link rel="stylesheet" href="../../assets/css/style.css" />
+	</head>
+
+  
+<body>
 <p id="notice"><%= notice %></p>
 
 <h1>Artworks</h1>
@@ -43,3 +56,86 @@
 <br>
 
 <%= link_to 'New Artwork', new_artwork_path %>
+
+
+
+    <!-- cover -->
+    <section class="hero hero-with-header">
+      <div class="container">
+        <div class="row">
+          <div class="col-md-8">
+            <h1 data-swiper-parallax="-100%" class="display-3"><b>All kind of art,</b><br>for all kind of tastes.</h1>
+          </div>
+        </div>
+      </div>
+    </section>
+    <!-- / cover -->
+
+<section class="p-0 m-1">
+			<div class="container-full">
+				<ul class="masonry row gallery gutter-1 mb-0">
+          <% @artworks.each do |artwork| %>
+					<li class="col-6 col-md-4" data-aos="zoom-in">
+						<figure class="photo equal">
+            	  <a href="<%=artwork.picture_url%>" 
+						    style="background-image: url(<%=artwork.picture_url%>);">
+						    <span class="photo-caption">
+						      <span><%= artwork.name %></span>
+						    </span>
+                </a>
+						</figure>
+						<%= link_to "Buy", artwork_path(artwork.id)%>
+					</li>
+          <%end%>
+				</ul>
+				<div class="row" style="margin-top: 5px;">
+					<div class="col">
+						<a href="" class="btn btn-block btn-light btn-lg text-center">
+							Load More
+						</a>
+					</div>
+				</div>
+			</div>
+		</section>
+		<!-- / masonry -->
+
+
+		<!-- footer -->
+		<footer>
+		  <div class="container py-5">
+		    <div class="row justify-content-between align-items-center">
+		      <div class="col-md-5 text-center text-md-left">
+		        <ul class="nav">
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">Contacts</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">About Us</a>
+		          </li>
+		          <li class="nav-item">
+		            <a class="nav-link" href="#">Legal Information</a>
+		          </li>
+		        </ul>
+		      </div>
+		      <div class="col-md-2 text-center">
+		      	<img class="logo-sm" src="../../assets/images/demo/logo/logo-light.svg" alt="Logo">
+		      </div>
+		      <div class="col-md-5 text-center text-md-right">
+		        <ul class="socials">
+		          <li><a href="" class="icon-facebook text-muted fs-20"></a></li>
+		          <li><a href="" class="icon-instagram text-muted fs-20"></a></li>
+		          <li><a href="" class="icon-twitter text-muted fs-20"></a></li>
+		          <li><a href="" class="icon-linkedin text-muted fs-20"></a></li>
+		        </ul>
+		      </div>
+		    </div>
+		  </div>
+		</footer>
+		<!-- / footer -->
+
+		<script src="../../assets/js/vendor.js"></script>
+		<script src="../../assets/js/app.js"></script>
+
+	</body>
+</html>
+

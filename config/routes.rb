@@ -1,8 +1,8 @@
 Rails.application.routes.draw do
 
-  resources :likes
   root 'home#index'
   devise_for :users
+  resources :charges
 
   resources :artworks
   resources :users
@@ -10,5 +10,6 @@ Rails.application.routes.draw do
   resources :favorites
   resources :transactions
   resources :carts
+  resources :likes
   
 end
