@@ -5,7 +5,9 @@ Rails.application.routes.draw do
   resources :charges
 
   resources :artworks
-  resources :users
+  resources :users do
+    resources :avatars, only: [:create]
+  end
   resources :comments
   resources :favorites
   resources :transactions
