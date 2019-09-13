@@ -111,6 +111,7 @@ ActiveRecord::Schema.define(version: 2019_09_11_144029) do
     t.string "first_name"
     t.string "last_name"
     t.text "bio"
+    t.string "avatarpicture"
     t.date "dateofbirth"
     t.string "siret"
     t.string "adress"
