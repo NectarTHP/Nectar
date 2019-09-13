@@ -1,5 +1,4 @@
 class User < ApplicationRecord
-  after_create :welcome_send
   has_one_attached :avatar
 
   devise :database_authenticatable, :registerable,
