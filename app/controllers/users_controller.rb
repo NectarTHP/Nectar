@@ -9,11 +9,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @users = User.find(params[:id])
   end
 
+  def update
+    @users = User.find(params[:id])
+    @users.update(users_params)
+ end
+
   def edit
-    @user = User.find(params[:id])
+    @users = User.find(params[:id])
   end
 
   def authenticate_user
