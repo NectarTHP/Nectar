@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjetFinal</title>
+    <title><%= (yield(:title) + " - " unless yield(:title).blank?).to_s + "Nectar ProjetFinal" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
