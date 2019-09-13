@@ -73,14 +73,18 @@
 						    style="background-image: url(<%=artwork.picture_url%>);">
                     <span class="photo-caption">
                       <h4><%= artwork.name %></h4>
-                      <p>by <%= artwork.user.artistname %></p>
-                      <p><%= artwork.name %></p>
+                      <p class="text-light">by <%= artwork.user.artistname %></p>
+                      <p><%= artwork.description %></p>
+                      <p class="text-light"><%= number_with_delimiter(artwork.price, delimiter: " " ) %> €</p>
                     </span>
                   </a>
                 </figure>
-                <%= link_to "Buy", new_cart_path(artwork.id), class: "btn btn-success btn-sm mt-1"%>
-                <%= link_to "Show", artwork_path(artwork.id), class: "btn btn-secondary btn-sm mt-1"%>
-                <%= link_to 'Destroy', artwork, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-danger btn-sm mt-1"%>
+                <div class="text-center">
+                  <%= link_to 'Buy now', new_cart_path(artwork.id), class: "btn btn-outline-success btn-sm mt-1"%>
+                  <%= link_to 'Show me', artwork_path(artwork.id), class: "btn btn-outline-dark btn-sm mt-1"%>
+                  <%= link_to 'Edit details', edit_artwork_path(artwork), class: "btn btn-outline-dark btn-sm mt-1"%>
+                  <%= link_to 'Delete it', artwork, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm mt-1"%>
+                </div>
               </li>
             <%end%>
           </ul>
