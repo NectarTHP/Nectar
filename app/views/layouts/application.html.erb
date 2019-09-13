@@ -1,14 +1,14 @@
 <!DOCTYPE html>
 <html>
   <head>
-    <title>ProjetFinal</title>
+    <title>Nectar | Art for sale</title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   
-    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
+    
     <link rel="stylesheet" href="../vendor/css/vendor.css" />
     <link rel="stylesheet" href="../vendor/css/style.css" />
     
@@ -32,97 +32,33 @@
             <div class="collapse navbar-collapse" id="navbarSupportedContent">
               <ul class="navbar-nav align-items-center mr-auto">
                 <li class="nav-item">
-                  <a class="nav-link" href="../../index.html" role="button">
-                    Collections
+                  
+                  <a class="nav-link", role="button"> 
+                      <%= link_to "Collections", artworks_path %>
                   </a>
                 </li>
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Artists
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../../landing-pages.html">
-                      <span>Featured Artists</span>
-                      
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../../inner-pages.html">
-                      <span>Acclaimed Artists</span>
-                      
-                    </a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../../app-pages.html">
-                      <span>Emerging Artists</span>
-                    
-                    </a>
-                  </div>
-                </li>
-                <li class="nav-item dropdown dropdown-mega">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-1" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Artworks
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown-1">
-                    <div class="row">
-                      <div class="col">
-                        <ul class="mega-list">
-                          <li><a href="../../components/index.html" class="highlight">PAINTING</a></li>
-                          <li><a href="../../components/accordions.html">Everyday Life</a></li>
-                          <li><a href="../../components/backgrounds.html">Landscape</a></li>
-                          <li><a href="../../components/blog.html">Nude</a></li>
-                          <li><a href="../../components/boxes.html">Portrait</a></li>
-                          <li><a href="../../components/buttons.html">Still Life</a></li>
-                          <li><a href="../../components/cards.html">Street Art</a></li>
-                          <li><a href="../../components/carousels.html">See more</a></li>
-
-                        </ul>
-                      </div>
-                      <div class="col">
-                        <ul class="mega-list">
-                          <li><a href="../../components/footers.html"class="highlight">DRAWING</a></li>
-                          <li><a href="../../components/forms.html">Abstract</a></li>
-                          <li><a href="../../components/gallery.html">Figurative</a></li>
-                          <li><a href="../../components/lightbox.html">Landscape</a></li>
-                          <li><a href="../../components/maps.html">Portrait</a></li>
-                        </ul>
-                      </div>
-
-                      
-                    </div>
-                  </div>
-                </li>
-
-
-
               </ul>
   
   
   
               <ul class="navbar-nav align-items-center mr-0">
-                <li class="nav-item dropdown">
-                  <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                    Michael Doe
-                  </a>
-                  <div class="dropdown-menu" aria-labelledby="navbarDropdown">
-                    <a class="dropdown-item" href="../app/profile.html">Public Profile</a>
-                    <a class="dropdown-item" href="../app/connections.html">Connections</a>
-                    <a class="dropdown-item" href="../app/groups.html">Groups</a>
-                    <div class="dropdown-divider"></div>
-                    <a class="dropdown-item" href="../app/settings.html">Settings</a>
-                    <a class="dropdown-item" href="../app/payments.html">Payments</a>
-                  </div>
-                </li>
-
+                  <li class="nav-item">
+                      <a class="nav-link", role="button">
+                          <%= link_to "Sign in/ Sign up", user_session_path %>
+                      
+                      </a>
+                    </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../../index.html" role="button">
-                    My Favourites
+                  <a class="nav-link" , role="button">
+                    <%= link_to "Log out", destroy_user_session_path %>
+                    
                   </a>
                 </li>
                 <li class="nav-item">
-                  <a class="nav-link" href="../../index.html" role="button">
-                    Cart
+                  <a class="nav-link" , role="button">
+                    <%= link_to "Cart", carts_path %>
                   </a>
                 </li>
-
               </ul>
             </div>
           </nav>
@@ -133,6 +69,8 @@
       </header>
 
       <!------FIN NAVBAR-->
+
+
 
     
     <%= yield %>
@@ -192,8 +130,7 @@
     <!-- scripts -->
     <script src="../vendor/js/vendor.js"></script>
     <script src="../vendor/js/app.js"></script>
-    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
+
     <script>
       setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
       setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
