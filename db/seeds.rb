@@ -60,7 +60,7 @@ Artwork.create(
   User.create!(email: Faker::Internet.email, password: 123456,
    is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
    first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
-   avatarpicture: Faker::Avatar.image, dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
+   dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
    adress: Faker::Address.street_address, zipcode: Faker::Address.zip_code, city: Faker::Address.city, country: Faker::Address.country, 
    mobile: Faker::PhoneNumber.phone_number, fb_user_ID: Faker::Number.number(digits: 5), insta_user_ID: Faker::Number.number(digits: 5) )
 end
