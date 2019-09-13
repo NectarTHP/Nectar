@@ -47,7 +47,9 @@ The payment system uses an external service that provides a secure transaction f
 Thank you for your time and we hope that you will enjoy our application.
 
 
-The Nectar Team
+# The Nectar Team
+
+
 
 
 Thibault Collard
