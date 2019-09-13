@@ -13,7 +13,6 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
       t.string :first_name
       t.string :last_name
       t.text :bio
-      t.string :avatarpicture
       t.date :dateofbirth
       t.string :siret
       t.string :adress
@@ -57,5 +56,26 @@ class DeviseCreateUsers < ActiveRecord::Migration[5.2]
     add_index :users, :reset_password_token, unique: true
     # add_index :users, :confirmation_token,   unique: true
     # add_index :users, :unlock_token,         unique: true
+  end
+  def self.down
+
+    remove_column :users, :reset_password_token
+
+    remove_column :users, :reset_password_sent_at
+
+    remove_column :users, :remember_created_at
+
+    remove_index :users, :email
+
+    begin
+
+    remove_index :users, :reset_password_token
+
+    rescue
+
+    end
+
+    # raise ActiveRecord::IrreversibleMigration
+
   end
 end
