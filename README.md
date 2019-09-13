@@ -9,7 +9,6 @@ Staging link: https://nectar-staging.herokuapp.com/
 
 Project link: https://nectar-project.herokuapp.com/
 
-
 ## Presentation
 
 
@@ -81,7 +80,9 @@ Step 4: heroku run rake db:seed (if you have seed)
  - after_create for Sendgrid was dissactivated, as it created a conflict with the sign-up function.
 Dependencies and gems used :
 
+
 source 'https://rubygems.org'
+
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
 ruby '2.5.1'
 
