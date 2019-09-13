@@ -74,12 +74,13 @@ end
 puts "10 users created"
 
 20.times do
+  picsum_id = rand(1..100)
   Artwork.create(
   user_id: User.all.sample.id,
   name: Faker::Book.title,
   description: Faker::Quote.most_interesting_man_in_the_world,
   price: rand(10..10000),
-  picture_url: "#",
+  picture_url: "https://picsum.photos/id/#{picsum_id}/600/600",
   weight: 11,
   size: 111,
   sale: Date.today,
