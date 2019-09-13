@@ -9,7 +9,16 @@ class UsersController < ApplicationController
   end
 
   def show
-    @user = User.find(params[:id])
+    @users = User.find(params[:id])
+  end
+
+  def update
+    @users = User.find(params[:id])
+    @users.update(users_params)
+ end
+
+  def edit
+    @users = User.find(params[:id])
   end
 
   def authenticate_user
@@ -40,7 +49,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       # Deliver the signup email
-      UserNotifierMailer.send_signup_email(@user).deliver
+      # UserNotifierMailer.send_signup_email(@user).deliver
       redirect_to(@user, :notice => 'User created')
     else
       render :action => 'new'
