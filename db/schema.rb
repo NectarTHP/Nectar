@@ -103,6 +103,23 @@ ActiveRecord::Schema.define(version: 2019_09_11_144029) do
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
+    t.text "comment"
+    t.boolean "is_artist"
+    t.boolean "is_admin"
+    t.string "username"
+    t.string "first_name"
+    t.string "last_name"
+    t.text "bio"
+    t.string "avatarpicture"
+    t.date "dateofbirth"
+    t.string "siret"
+    t.string "adress"
+    t.string "zipcode"
+    t.string "city"
+    t.string "country"
+    t.string "mobile"
+    t.string "fb_user_ID"
+    t.string "insta_user_ID"
     t.string "reset_password_token"
     t.datetime "reset_password_sent_at"
     t.datetime "remember_created_at"
