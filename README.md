@@ -1,25 +1,69 @@
 *********
-# Nectar
+# NECTAR
 *********
+
+## Links
+
+Staging link: https://nectar-staging.herokuapp.com/
+
+Project link: https://nectar-project.herokuapp.com/
+
+## Presentation
+
 <------------------------------------------------------------------->
 Your artistic social network to Create, Share and Sell your artwork.
 <------------------------------------------------------------------->
 
-Our website is THE place for starting and confirmed artists that are looking to share, show and sell your artwork made easy. No middle man, no galleries, everything accessible from your pc, tablet or smartphone.    
+Our website is THE place for starting and confirmed artists that are looking to share, show and sell your artwork made easy. No middle man, no galleries, 
 
-To start the user has to create a profile by providing personal information. This information may be edited from the user page. During this process the user will have a choice to opt for a Standard profile or an Artist profile that will allow adding artworks and consequently, share and/or sell them. 
+everything accessible from your pc, tablet or smartphone.    
 
-Standard users have the ability to browse existing content of the site, comment, like and buy artworks. Artist users also have an access to "seller" function, simply allowing them to add and sell their artwork through our online store. 
+To start the user has to create a profile by providing personal information. This information may be edited from the user page. During this process the user 
+
+will have a choice to opt for a Standard profile or an Artist profile that will allow adding artworks and consequently, share and/or sell them. 
+
+Standard users have the ability to browse existing content of the site, comment, like and buy artworks. Artist users also have an access to "seller" function, 
+
+simply allowing them to add and sell their artwork through our online store. 
 
 New artwork pieces and existing ones can be added, eddited or deleted from within the Artists profile page. 
 
 The payment system uses an external service that provides a secure transaction for our users.
 
 Thank you for your time and we hope that you will enjoy our application.
+
 Nectar Team
 
 
+----------
+Installation:
+
+
+To start the application, launch the following commands:
+
+Step 1: bundle install
+Step 2: rails db:create
+Step 3: rails db:migrate
+Step 4: rails db:seed
+Step 5: rails server
+
+further:
+
+Step 1: heroku restart
+Step 2: heroku pg:reset DATABASE (no need to change the DATABASE)
+Step 3: heroku run rake db:migrate
+Step 4: heroku run rake db:seed (if you have seed)
+
+
+----------
+
+## Notes:
+
+ - after_create for Sendgrid was dissactivated, as it created a conflict with the sign-up function.
+
+
 Dependencies and gems used :
+
 
 source 'https://rubygems.org'
 git_source(:github) { |repo| "https://github.com/#{repo}.git" }
@@ -56,4 +100,5 @@ gem 'bootstrap', '~> 4.3.1'
 gem 'devise', '~>4.7.1'
 gem 'jquery-rails'
 gem 'aws-sdk-s3', require: false
+
 
