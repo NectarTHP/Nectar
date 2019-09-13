@@ -16,20 +16,12 @@ Artwork.destroy_all
 User.destroy_all
 
 #A single test user
-user = User.create(email: "tester@test.com", password: "azerty")
+user = User.create(email: "user@user.com", password: "azerty", is_admin: false)
+admin = User.create(email: "admin@admin.com", password: "azerty", is_admin: true)
 
-20.times do 
-  User.create!(email: Faker::Internet.email, password: 123456,
-   is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
-   first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
-   avatarpicture: Faker::Avatar.image, dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
-   adress: Faker::Address.street_address, zipcode: Faker::Address.zip_code, city: Faker::Address.city, country: Faker::Address.country, 
-   mobile: Faker::PhoneNumber.phone_number, fb_user_ID: Faker::Number.number(digits: 5), insta_user_ID: Faker::Number.number(digits: 5) )
-end
-
-puts "10 users were created"
 artwork = Artwork.create(
   user_id: user.id,
+  name: "Mona Lisa",
   description: "A women staring at the viewer with a quirky smile",
   price: 12750,
   picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
@@ -40,6 +32,40 @@ artwork = Artwork.create(
   tag: "A tag"
 )
 
+Artwork.create(
+  user_id: user.id,
+  name: "Vincent van Gogh",
+  description: Faker::Quote.most_interesting_man_in_the_world,
+  price: rand(10..10000),
+  picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg/800px-Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg",
+  weight: 11,
+  size: 111,
+  sale: Date.today,
+  tag: "A tag"
+  )
+
+  Artwork.create(
+    user_id: user.id,
+    name: "Narcisse",
+    description: Faker::Quote.most_interesting_man_in_the_world,
+    price: rand(10..10000),
+    picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Narcissus-Caravaggio_%281594-96%29.jpg/800px-Narcissus-Caravaggio_%281594-96%29.jpg",
+    weight: 11,
+    size: 111,
+    sale: Date.today,
+    tag: "A tag"
+    )
+
+20.times do 
+  User.create!(email: Faker::Internet.email, password: 123456,
+   is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
+   first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
+   avatarpicture: Faker::Avatar.image, dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
+   adress: Faker::Address.street_address, zipcode: Faker::Address.zip_code, city: Faker::Address.city, country: Faker::Address.country, 
+   mobile: Faker::PhoneNumber.phone_number, fb_user_ID: Faker::Number.number(digits: 5), insta_user_ID: Faker::Number.number(digits: 5) )
+end
+puts "10 users were created"
+
   #A complete seed
 
 10.times do 
@@ -48,12 +74,13 @@ end
 puts "10 users created"
 
 20.times do
+  picsum_id = rand(1..100)
   Artwork.create(
   user_id: User.all.sample.id,
   name: Faker::Book.title,
   description: Faker::Quote.most_interesting_man_in_the_world,
   price: rand(10..10000),
-  picture_url: "#",
+  picture_url: "https://picsum.photos/id/#{picsum_id}/600/600",
   weight: 11,
   size: 111,
   sale: Date.today,

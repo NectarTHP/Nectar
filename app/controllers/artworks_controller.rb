@@ -1,5 +1,7 @@
 class ArtworksController < ApplicationController
+  before_action :authenticate_user!, only: [:edit, :update, :destroy]
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
+  before_action :is_owner_or_admin, only: [:edit, :update, :destroy]
 
   # GET /artworks
   # GET /artworks.json
@@ -72,4 +74,12 @@ class ArtworksController < ApplicationController
     def artwork_params
       params.require(:artwork).permit(:user_id, :name, :description, :price, :picture_url, :categorie, :weight, :size, :sale, :tag)
     end
+
+    def is_owner_or_admin
+      unless current_user.id == @artwork.user_id || current_user.is_admin == true
+        flash[:alert] = "Only the artist owning this artwork can modify it."
+        redirect_to root_path
+      end
+    end
+
 end
