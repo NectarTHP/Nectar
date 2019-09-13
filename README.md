@@ -121,6 +121,10 @@ gem 'stripe'
 gem 'bootstrap', '~> 4.3.1'
 gem 'devise', '~>4.7.1'
 gem 'jquery-rails'
+<<<<<<< HEAD
 gem 'aws-sdk-s3', require: false
 
 
+=======
+gem 'aws-sdk-s3', require: false
+>>>>>>> e6b1132452284452ce7aba2ae3d973b43d5860a7
