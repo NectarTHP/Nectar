@@ -72,7 +72,9 @@
                   <a href="<%=artwork.picture_url%>" 
 						    style="background-image: url(<%=artwork.picture_url%>);">
                     <span class="photo-caption">
-                      <span><%= artwork.name %></span>
+                      <h4><%= artwork.name %></h4>
+                      <p>by <%= artwork.user.artistname %></p>
+                      <p><%= artwork.name %></p>
                     </span>
                   </a>
                 </figure>
