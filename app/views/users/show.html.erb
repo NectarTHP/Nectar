@@ -1,16 +1,55 @@
-<h1>Page Profil</h1>
+<<<<<<< HEAD
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <title>Settings</title>
+    <link rel="stylesheet" href="../../assets/css/vendor.css" />
+    <link rel="stylesheet" href="../../assets/css/style.css" />
+  </head>
+  <body>  
+
+<div class="container">
+  <div class="row">
+    <div class="col-sm">
+    <%=@users.avatarpicture%>
+    <%=@users.bio%>
+    </div>
+    <div class="col-sm">
+    <h4 class="card-subtitle mb-2 text-muted">@ <%=@users.username%></h4>
+    <h4 class="card-subtitle mb-2 text-muted"><%=@users.first_name%></h4>
+    <h4 class="card-subtitle mb-2 text-muted"><%=@users.last_name%></h4>
+    <h4 class="card-subtitle mb-2 text-muted"><%=@users.dateofbirth %></h4>
+    <h4 class="card-subtitle mb-2 text-muted"><%=@users.mobile %></h4>
+    <h4 class="card-subtitle mb-2 text-muted"><%=@users.email%></h4>
+    </div>
+    <div class="col-sm">
+    <h4 class="card-subtitle mb-2 text-muted"><%= @users.adress%></h4>
+    <h4 class="card-subtitle mb-2 text-muted"><%= @users.zipcode%></h4>
+    <h4 class="card-subtitle mb-2 text-muted"><%= @users.city%></h4>
+    <h4 class="card-subtitle mb-2 text-muted"><%= @users.country%></h4>
+    </div>
+    <hr>
+=======
+Hello
+
+<h1>Page Profile</h1>
 
 <p>Bienvenue sur la page d'ajout d'un avatar pour le User portant l'id : <%=@user.id%></p>
 <h3>Avatar actuel</h3>
 <%if @user.avatar.attached?%>
-  <%= image_tag @user.avatar, alt: 'avatar' %>
+  <%= image_tag @user.avatar.variant(resize: "300x300"), alt: 'avatar' %>
 <%else%>
   <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
 <%end%>
+>>>>>>> delivery
 
+</div>
 
-<h3>Create or update your avatar</h3>
-<%= form_tag user_avatars_path(@user), multipart: true do %>
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "mettre à jour" %>
-<% end %>
+<div>
+<a href="<%=edit_user_registration_path%>" class="btn btn-primary btn-sm">Manage account</a>
+<!-- a href="#" class="btn btn-primary btn-sm">Edit profile</a-->
+</div>
+</div>
+</div>

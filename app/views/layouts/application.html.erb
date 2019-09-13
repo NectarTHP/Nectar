@@ -8,14 +8,13 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   
-    <!-- css -->
+    <link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
     <link rel="stylesheet" href="../vendor/css/vendor.css" />
     <link rel="stylesheet" href="../vendor/css/style.css" />
-
-
-
+    
     </head>
 
+    
   <body>
     
       <%= render 'layouts/alerts' %>
@@ -25,8 +24,8 @@
         <div class="container">
           <nav class="navbar navbar-expand-lg navbar-dark">
             <a class="navbar-brand" href="../../index.html">
-              <img class="navbar-logo navbar-logo-light" src="../../assets/demo/logo/nectar-dark.png" alt="Logo">
-              <img class="navbar-logo navbar-logo-dark" src="../../assets/demo/logo/nectar-dark.png" alt="Logo">
+              <img class="navbar-logo navbar-logo-light" src="../../assets/demo/logo/nectar-light5.png" alt="Logo">
+              <img class="navbar-logo navbar-logo-dark" src="../../assets/demo/logo/nectar-dark5.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
   
@@ -154,7 +153,7 @@
       <div class="row">
         <div class="col-lg-4">
           <div class="mb-1">
-            <img class="logo-sm" src="../../assets/demo/logo/nectar-dark.png" alt="Logo">
+            <img class="logo-sm" src="../../assets/demo/logo/nectar-light5.png" alt="Logo">
           </div>
           <span class="copyright-text">&copy; Nectar. 2019 All Right Reserved</span>
         </div>
@@ -193,6 +192,8 @@
     <!-- scripts -->
     <script src="../vendor/js/vendor.js"></script>
     <script src="../vendor/js/app.js"></script>
+    <script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
     <script>
       setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
       setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
