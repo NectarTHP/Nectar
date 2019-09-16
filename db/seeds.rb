@@ -56,7 +56,7 @@ Artwork.create(
     tag: "A tag"
     )
 
-20.times do 
+10.times do 
   User.create!(email: Faker::Internet.email, password: 123456,
    is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
    first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
@@ -67,11 +67,6 @@ end
 puts "10 users were created"
 
   #A complete seed
-
-10.times do 
-    User.create!(email: Faker::Internet.email, password: "azerty")
-end
-puts "10 users created"
 
 20.times do
   picsum_id = rand(1..100)
