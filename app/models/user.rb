@@ -11,6 +11,7 @@ class User < ApplicationRecord
   has_many :favorites
 
   def welcome_send
+    after_create :welcome_send
     UserMailer.welcome_email(self).deliver_now
   end
 
