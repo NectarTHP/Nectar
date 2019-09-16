@@ -122,7 +122,6 @@ ActiveRecord::Schema.define(version: 2019_09_16_093003) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.string "name"
     t.text "comment"
     t.boolean "is_artist"
     t.boolean "is_admin"

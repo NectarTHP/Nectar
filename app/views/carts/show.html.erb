@@ -3,12 +3,7 @@
 <h2>Your cart</h2>
 <ul>
   <% @cart.line_items.each do |line_item| %>
-    <li>Item: <%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price) %>>
-    <ul>
-      <li>
-        <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
-      </li>
-    </ul>
+    <li>Item: <%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price) %> - <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
   <% end %>
 </ul>
 <h3>Sub total: <%= number_to_currency(@cart.cart_total) %></h3>

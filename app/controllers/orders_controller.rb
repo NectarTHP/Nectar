@@ -8,6 +8,8 @@ class OrdersController < ApplicationController
   end
 
   def new
+    @cart = Cart.find_by(user_id: current_user)
+
     @order = Order.new
   end
 
@@ -18,8 +20,6 @@ class OrdersController < ApplicationController
       item.cart_id = nil
     end
     @order.save
-    Cart.destroy(session[:cart_id])
-    session[:cart_id] = nil
     redirect_to root_path
   end
   

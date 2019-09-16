@@ -16,7 +16,7 @@ Artwork.destroy_all
 User.destroy_all
 
 #A single test user
-user = User.create(email: "user@user.com", password: "azerty", is_admin: false)
+user = User.create(email: "user@user.com", password: "azerty", is_admin: false, first_name: "John", last_name: "Doe", user_name:"Banski", adress:"23 rue du haque")
 admin = User.create(email: "admin@admin.com", password: "azerty", is_admin: true)
 
 artwork = Artwork.create(
@@ -56,15 +56,15 @@ Artwork.create(
     tag: "A tag"
     )
 
-10.times do 
-  User.create!(email: Faker::Internet.email, password: 123456,
-   is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
-   first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
-   dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
-   adress: Faker::Address.street_address, zipcode: Faker::Address.zip_code, city: Faker::Address.city, country: Faker::Address.country, 
-   mobile: Faker::PhoneNumber.phone_number, fb_user_ID: Faker::Number.number(digits: 5), insta_user_ID: Faker::Number.number(digits: 5) )
-end
-puts "10 users were created"
+#10.times do 
+#  User.create!(email: Faker::Internet.email, password: 123456,
+#   is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
+#   first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
+#   dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
+#   adress: Faker::Address.street_address, zipcode: Faker::Address.zip_code, city: Faker::Address.city, #country: Faker::Address.country, 
+#   mobile: Faker::PhoneNumber.phone_number, fb_user_ID: Faker::Number.number(digits: 5), insta_user_ID: #Faker::Number.number(digits: 5) )
+#end
+#puts "10 users were created"
 
 
 20.times do
