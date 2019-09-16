@@ -7,14 +7,8 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
     
-    <link rel="stylesheet" href="../vendor/css/vendor.css" />
-    <link rel="stylesheet" href="../vendor/css/style.css" />
-    
-    </head>
-
-    
+  </head>
   <body>
     
       <%= render 'layouts/alerts' %>
@@ -45,9 +39,6 @@
                     </a>
                   </li>
               </ul>
-  
-  
-  
               <ul class="navbar-nav align-items-center mr-0">
                   <li class="nav-item">
                       <a class="nav-link", role="button">
@@ -70,15 +61,9 @@
             </div>
           </nav>
         </div>
-     
-     
       </header>
 
       <!------FIN NAVBAR-->
-
-  
-  
-      
     
     <%= yield %>
 
@@ -120,23 +105,15 @@
     <!-- / footer -->
 
 
-
-
-
-
-
     <!-- scripts -->
-    <script src="../vendor/js/vendor.js"></script>
-    <script src="../vendor/js/app.js"></script>
-
-    
     <script src="../../assets/js/notif.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
+
 
     <script>
       setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
       setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
-  </script>
+    </script>
 
   </body>
 </html>
