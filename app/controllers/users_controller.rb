@@ -14,7 +14,11 @@ class UsersController < ApplicationController
 
   def update
     @users = User.find(params[:id])
-    @users.update(users_params)
+    permitted_columns = params.require(:user).permit(:username)
+    @users.update_attributes(permitted_columns)
+  
+    redirect_to users_path
+    @users.update(user_params)
  end
 
   def edit
