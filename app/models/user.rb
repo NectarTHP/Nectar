@@ -1,4 +1,5 @@
 class User < ApplicationRecord
+  after_create :welcome_send
   has_one_attached :avatar
 
   devise :database_authenticatable, :registerable,
@@ -16,9 +17,9 @@ class User < ApplicationRecord
 
   def artistname
     if username == nil
-      artistname = "#{first_name} #{last_name}"
+      artistname = "#{@first_name} #{@last_name}"
     else
-      artistname = username
+      artistname = @username
     end
     return artistname
   end
