@@ -14,11 +14,12 @@ class UsersController < ApplicationController
 
   def update
     @users = User.find(params[:id])
-    permitted_columns = params.require(:user).permit(:username)
-    @users.update_attributes(permitted_columns)
-  
-    redirect_to users_path
-    @users.update(user_params)
+
+      if @users.update(list_params)
+        redirect_to root_path
+      else
+        render :edit
+    end
  end
 
   def edit
@@ -53,6 +54,7 @@ class UsersController < ApplicationController
     @user = User.new(user_params)
     if @user.save
       redirect_to(@user, :notice => 'User created')
+    
     else
       render :action => 'new'
     end
@@ -60,7 +62,9 @@ class UsersController < ApplicationController
 
   private
 
-  def user_params
-    params.require(:user).permit(:name, :email, :login)
+
+  private
+  def list_params
+    params.require(:user).permit(:FB_user_ID, :insta_user_ID, :mobile, :country, :city, :comment, :is_artist, :is_admin, :avatarpicture, :siret, :username, :bio, :first_name, :last_name, :dateofbirth, :zipcode, :adress )
   end
 end
