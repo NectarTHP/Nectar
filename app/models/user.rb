@@ -15,10 +15,10 @@ class User < ApplicationRecord
   end
 
   def artistname
-    if username == nil
-      artistname = "#{first_name} #{last_name}"
+    if @username == nil
+      artistname = "#{@first_name} #{@last_name}"
     else
-      artistname = username
+      artistname = @username
     end
     return artistname
   end
