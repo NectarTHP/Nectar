@@ -9,6 +9,14 @@
   </head>
   <body>
 
+
+  <%= form_for @users do |f| %>
+    Username : <%= f.text_field :username %><br />
+
+
+    <%= f.submit %>
+  <% end %>
+  
     <section class="p-0 bg-light">
       <div class="image image-overlay image-cover" style="background-image: url(../../assets/images/demo/coworking/coworking-small-13.jpg);"
       data-top-top="transform: translateY(0px);" 
@@ -581,11 +589,12 @@
                       <div class="form-row">
                         <div class="col">
                           <div class="form-group">
+
+                            <%= form_for @users do |f| %>
+                              First name : <%= f.text_field :first_name %><br />
+                              <%= f.submit %>
+                            
                           
-                          <%= form_for(@users) do |f| %>
-                            <label>Post title:</label><br>
-                            <%= f.text_field :first_name %><br>
-                            <%= f.submit %>
                           <% end %>
                             <label for="firstName">First Name</label>
                             <input type="email" class="form-control" id="firstName" aria-describedby="firstName" placeholder="John">
