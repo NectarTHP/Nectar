@@ -40,7 +40,7 @@
                   </a>
                 </figure>
                 <div class="text-center">
-                  <%= link_to 'Buy now', new_cart_path(artwork.id), class: "btn btn-outline-success btn-sm mt-1"%>
+                  <%= link_to 'Add to cart', new_line_item_path(artwork.id), class: "btn btn-outline-success btn-sm mt-1"%>
                   <%= link_to 'Show me', artwork_path(artwork.id), class: "btn btn-outline-dark btn-sm mt-1"%>
                   <%= link_to 'Edit details', edit_artwork_path(artwork), class: "btn btn-outline-dark btn-sm mt-1"%>
                   <%= link_to 'Delete it', artwork, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm mt-1"%>

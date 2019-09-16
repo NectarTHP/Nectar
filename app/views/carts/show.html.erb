@@ -1,22 +1,20 @@
 <p id="notice"><%= notice %></p>
 
-<p>
-  <strong>User ID :</strong>
-  <%= @cart_line.user.id %>
-</p>
-
-<p>
-  <strong>Artwork:</strong>
-  <%= @cart_line.artwork.name %>
-</p>
-
-<p>
-  <strong>Price:</strong>
-  <%= @cart_line.artwork.price %>
-</p>
-
-<%= link_to 'Edit', edit_cart_path(@cart) %> |
-<%= link_to 'Back', carts_path %>
+<h2>Your cart</h2>
+<ul>
+  <% @cart.line_items.each do |line_item| %>
+    <li>Item: <%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price) %>>
+    <ul>
+      <li>
+        <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
+      </li>
+    </ul>
+  <% end %>
+</ul>
+<h3>Sub total: <%= number_to_currency(@cart.cart_total) %></h3>
+<%= link_to "Proceed to checkout", new_order_path %><br>
+<%= link_to "Empty cart", cart_path(@cart),method: :delete, data: {confirm: "Are you sure?"}%>
+<%= link_to 'Back', :back %>
 
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"

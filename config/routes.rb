@@ -10,8 +10,8 @@ Rails.application.routes.draw do
   end
   resources :comments
   resources :favorites
-  resources :transactions
+  resources :line_items
   resources :carts
   resources :likes
-  
+  resources :orders
 end

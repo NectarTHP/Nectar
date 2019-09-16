@@ -8,7 +8,7 @@
 require 'faker'
 
 Favorite.destroy_all
-Transaction.destroy_all
+LineItem.destroy_all
 Like.destroy_all
 Comment.destroy_all
 Cart.destroy_all
@@ -45,7 +45,7 @@ Artwork.create(
   )
 
   Artwork.create(
-    user_id: user.id,
+    user_id: admin.id,
     name: "Narcisse",
     description: Faker::Quote.most_interesting_man_in_the_world,
     price: rand(10..10000),
@@ -56,22 +56,19 @@ Artwork.create(
     tag: "A tag"
     )
 
-20.times do 
-  User.create!(email: Faker::Internet.email, password: 123456,
-   is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
-   first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
-   dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
-   adress: Faker::Address.street_address, zipcode: Faker::Address.zip_code, city: Faker::Address.city, country: Faker::Address.country, 
-   mobile: Faker::PhoneNumber.phone_number, fb_user_ID: Faker::Number.number(digits: 5), insta_user_ID: Faker::Number.number(digits: 5) )
-end
-puts "10 users were created"
+#Disable because of SendGrid
+#20.times do 
+#  User.create!(email: Faker::Internet.email, password: 123456,
+#   is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
+#   first_name: Faker::Name.first_name, last_name: Faker::Name.last_name, bio: Faker::Lorem.sentence,
+#   dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65), siret: Faker::Number.number(digits: 5),
+#   adress: Faker::Address.street_address, zipcode: Faker::Address.zip_code, city: Faker::Address.city, #country: Faker::Address.country, 
+#   mobile: Faker::PhoneNumber.phone_number, fb_user_ID: Faker::Number.number(digits: 5), insta_user_ID: #Faker::Number.number(digits: 5) )
+#end
+#puts "10 users were created"
 
-  #A complete seed
 
-10.times do 
-    User.create!(email: Faker::Internet.email, password: "azerty")
-end
-puts "10 users created"
+#A complete seed
 
 20.times do
   picsum_id = rand(1..100)
@@ -97,24 +94,16 @@ puts "20 artworks created"
 end
 puts "10 favorites created"
 
-30.times do
-  Cart.create(
-    user_id: User.all.sample.id,
-    artwork_id: Artwork.all.sample.id
-  )
-end
-puts "30 carts created"
-
 10.times do
-  Transaction.create(
-    user_id: User.all.sample.id,
+  LineItem.create(
     artwork_id: Artwork.all.sample.id,
-    item_qty: rand(1..3),
-    order_number: 99,
+    cart_id: Cart.all.sample.id,
+    order_id: nil,
+    quantity: rand(1..3),
     tracking_number: "12COLIS4PERDU"
   )
 end
-puts "10 transaction created"
+puts "10 line items created"
 
 10.times do
   Like.create(
