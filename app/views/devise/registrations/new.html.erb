@@ -1,19 +1,6 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Portal</title>
-    <link rel="stylesheet" href="../../assets/css/vendor.css" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
-  </head>
 
-  <body>
   <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
     <div class="viewport">
-
-    
-
       <div class="image image-overlay" style="background-image: url(../../assets/images/demo/coworking/coworking-small-3.jpg);"></div>
       <div class="container">
         <div class="row justify-content-center align-items-center vh-100">
@@ -68,8 +55,6 @@
                       
                       <div class="actions">
                         <%= f.submit "Sign up", class: "btn btn-primary btn-block" %>
-                        
-                        
                          </div>
                     </form>
                   </div>
@@ -81,10 +66,3 @@
       </div>
     </div>
     <% end %>
-
-
-
-    <script src="../../assets/js/vendor.js"></script>
-    <script src="../../assets/js/app.js"></script>
-  </body>
-</html>
