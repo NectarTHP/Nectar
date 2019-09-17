@@ -1,12 +1,10 @@
 <h1>All your orders</h1>
 
-<% @orders.each do |order| %>
-  <p>Name: <%= order.last_name %></p>
-  <p>Email: <%= order.email %></p>
-  <p>Line Items: </p>
+<% @user_orders.each do |order| %>
+  <p>Order #<%= order.id %> - <%= order.created_at.strftime("%F") %> - <%= order.first_name %> <%= order.last_name %></p>
   <ul>
     <% order.line_items.each do |item| %>
-    <li><%= item.quantity %> x <%= item.artwork.name %></li>
+    <li><%= item.artwork.name %> - <%= number_to_currency(item.artwork.price, unit:"€") %></li>
     <% end %>
   </ul>
 <% end %>

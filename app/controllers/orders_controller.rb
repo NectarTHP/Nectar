@@ -2,7 +2,7 @@ class OrdersController < ApplicationController
   before_action :authenticate_user!
 
   def index
-    @orders = Order.all
+    @user_orders = Order.all.where(user_id: current_user.id)
   end
 
   def show
@@ -18,5 +18,7 @@ class OrdersController < ApplicationController
     @cart = Cart.find_by(user_id: current_user)
     puts "$"*60;puts "beginning of orders#create";puts "$"*60
   end
+
+
 
 end
