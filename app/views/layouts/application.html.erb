@@ -8,7 +8,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
     
-  </head>
+    </head>
   <body>
     
       <%= render 'layouts/alerts' %>
@@ -16,9 +16,9 @@
   <!----NAVBAR-->
       <header class="header-sticky header-dark">
         <div class="container">
-          <nav class="navbar navbar-expand-lg navbar-dark-active-color">
-            <a class="navbar-brand" href="../../index.html">
-              <img class="navbar-logo navbar-logo-light" src="../../assets/demo/logo/nectar-light5.png" alt="Logo">
+          <nav class="navbar navbar-expand-lg navbar-light-active-color">
+            <a class="navbar-brand" href="../">
+              <img class="navbar-logo navbar-logo-light" src="../../assets/demo/logo/nectar-dark5.png" alt="Logo">
               <img class="navbar-logo navbar-logo-dark" src="../../assets/demo/logo/nectar-dark5.png" alt="Logo">
             </a>
             <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
@@ -49,7 +49,6 @@
                 <li class="nav-item">
                   <a class="nav-link" , role="button">
                     <%= link_to "Log out", destroy_user_session_path , :method => :delete  %>
-                    
                   </a>
                 </li>
                 <li class="nav-item">
@@ -68,6 +67,7 @@
     <%= yield %>
 
     <!-- footer -->
+    
     <footer class="bg-purple text-white">
       <div class="separator-bottom">
         <div class="container py-1 py-md-2">
