@@ -1,13 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-  <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-    <title>Portal</title>
-    <link rel="stylesheet" href="../../assets/css/vendor.css" />
-    <link rel="stylesheet" href="../../assets/css/style.css" />
-  </head>
-  <body>
   <div class="image image-overlay" style="background-image: url(../../assets/images/demo/coworking/coworking-small-13.jpg);"></div>
   <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
     <div class="viewport">
@@ -27,7 +17,7 @@
                         <label for="exampleFormControlInput1">Email address</label>
                         <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
                       </div>
-                      <%= f.submit "Log in", class: "btn btn-primary btn-block" %></br>
+                      <%= f.submit "Log in", class: "btn btn-primary btn-block" %><br/>
                       <h5><%= link_to "Sign up", new_registration_path(resource_name) %> or
                       <%= link_to "Log in", new_session_path(resource_name) %></p><br/>
                     </form>
@@ -40,9 +30,3 @@
       </div>
     </div>
   <% end %>
-
-
-    <script src="../../assets/js/vendor.js"></script>
-    <script src="../../assets/js/app.js"></script>
-  </body>
-</html>

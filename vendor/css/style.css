@@ -7,6 +7,20 @@
  * Copyright 2011-2018 Twitter, Inc.
  * Licensed under MIT (https://github.com/twbs/bootstrap/blob/master/LICENSE)
  */
+
+
+/*****CUSTOM-START********/
+
+.footer1 {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  height: 100%;
+  width: 100%;
+}
+
+/*****CUSTOM-END********/
+
 :root {
   --blue: #0030AE;
   --indigo: #6610f2;
