@@ -9,18 +9,28 @@ class UsersController < ApplicationController
   end
 
   def show
-    @users = User.find(params[:id])
+        @users = User.find(params[:id])
+    flash[:notice] = "Please complete your profil or press the skip button to complete your profil later"
   end
 
   def update
     @users = User.find(params[:id])
-
       if @users.update(list_params)
-        redirect_to root_path
+        redirect_to artworks_path
       else
         render :edit
     end
  end
+
+ def update_password
+  @users = User.find(params[:id])
+  if @users.update(list_params)
+    redirect_to artworks_path
+  else
+    render :edit
+end
+end
+
 
   def edit
     @users = User.find(params[:id])
@@ -65,6 +75,6 @@ class UsersController < ApplicationController
 
   private
   def list_params
-    params.require(:user).permit(:FB_user_ID, :insta_user_ID, :mobile, :country, :city, :comment, :is_artist, :is_admin, :avatarpicture, :siret, :username, :bio, :first_name, :last_name, :dateofbirth, :zipcode, :adress )
+    params.require(:user).permit(:FB_user_ID, :insta_user_ID, :mobile, :country, :city, :comment, :is_artist, :is_admin, :avatarpicture, :siret, :username, :bio, :first_name, :last_name, :dateofbirth, :zipcode, :adress, :password, :password_confirmation, :encrypted_password )
   end
 end
