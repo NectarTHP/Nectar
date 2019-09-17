@@ -8,51 +8,75 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    <!----NAVBAR-->
-    <header class="header-sticky header-dark">
-      <div class="container">
-        <nav class="navbar navbar-expand-lg navbar-light-active-color">
-          <a class="navbar-brand" href="../">
-            <img class="navbar-logo navbar-logo-light" src="../../assets/demo/logo/nectar-dark5.png" alt="Logo">
-            <img class="navbar-logo navbar-logo-dark" src="../../assets/demo/logo/nectar-dark5.png" alt="Logo">
-          </a>
-          <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
-          <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <ul class="navbar-nav align-items-center mr-auto">
-              <li class="nav-item">
+    
+      <%= render 'layouts/alerts' %>
+
+  <!----NAVBAR-->
+      <header class="header-sticky header-dark">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-light-active-color">
+            <a class="navbar-brand" href="../">
+              <img class="navbar-logo navbar-logo-light" src="../../assets/demo/logo/nectar-dark5.png" alt="Logo">
+              <img class="navbar-logo navbar-logo-dark" src="../../assets/demo/logo/nectar-dark5.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
+  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav align-items-center mr-auto">
+                <li class="nav-item">
+                  
+                  <a class="nav-link", role="button"> 
+                      <%= link_to "Home", root_path %>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                    <a class="nav-link", role="button"> 
+                        <%= link_to "Collections", artworks_path %>
+                    </a>
+                  </li>
+              </ul>
+
+              <% if user_signed_in?%>
+              <ul class="navbar-nav align-items-center mr-0">
+                  <li class="nav-item">
+                      <a class="nav-link", role="button">
+                          <%= link_to "Sign out", destroy_user_session_path , :method => :delete  %>
+                      </a>
+                  </li> 
+
+                <li class="nav-item">
+                  <a class="nav-link", role="button">
+                    <%= link_to "My profile", user_session_path %>
+                      </a>
+                    </li>
+
+               <li class="nav-item">
                 <a class="nav-link", role="button">
-                  <%= link_to "Home", root_path %>
+                  <%= link_to "Cart", carts_path %>
                 </a>
               </li>
-              <li class="nav-item">
-                <a class="nav-link", role="button">
-                  <%= link_to "Collections", artworks_path %>
-                </a>
-              </li>
-            </ul>
-            <ul class="navbar-nav align-items-center mr-0">
-              <li class="nav-item">
-                <a class="nav-link", role="button">
-                  <%= link_to "Sign in/ Sign up", user_session_path %>
-                </a>
-              </li>
-              <li class="nav-item">
-                <a class="nav-link" , role="button">
-                  <%= link_to "Log out", destroy_user_session_path , :method => :delete  %>
-                </a>
-              </li>
-              <%if user_signed_in?%>
-              <li class="nav-item">
-                <a class="nav-link" , role="button">
-                  <%= link_to "Cart", cart_path(current_user.cart.id) %>
-                </a>
-              </li>
+              </ul>
+              <%else%>
+              <ul class="navbar-nav align-items-center mr-0">
+                <li class="nav-item">
+                  <a class="nav-link" , role="button">
+                    <%= link_to "Sign in", user_session_path %>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" , role="button">
+                    <%= link_to "Sign Up", new_user_path %>
+                  </a>
+                </li>
+
+              </ul>
               <%end%>
-            </ul>
-          </div>
-        </nav>
-      </div>
-          <%= render 'layouts/alerts' %>
+            </div>
+          </nav>
+        </div>
+      </header>
 
     </header>
     <!------FIN NAVBAR-->
@@ -96,13 +120,18 @@
           </div>
         </div>
       </footer>
-      <!-- / footer -->
-      <!-- scripts -->
-      <script src="../../assets/js/notif.js"></script>
-      <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
-      <script>
-        setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
-        setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
-      </script>
-    </body>
-  </html>
+    <!-- / footer -->
+
+
+    <!-- scripts -->
+    <script src="../../vendor/js/notif.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
+
+
+    <script>
+      setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
+      setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
+    </script>
+
+  </body>
+</html>
