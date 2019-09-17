@@ -10,10 +10,3 @@
 <%= link_to "Proceed to checkout", new_order_path %><br>
 <%= link_to "Empty cart", cart_path(@cart),method: :delete, data: {confirm: "Are you sure?"}%>
 <%= link_to 'Back', :back %>
-
-<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-data-description="A month's subscription"
-data-amount="500"
-data-currency="eur"
-data-locale="auto"></script>
