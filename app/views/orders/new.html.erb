@@ -1,4 +1,4 @@
-<h1>Checkout / order</h1>
+<h1>Checkout page</h1>
 <h4>Your order will be shipped to this adress :</h4>
 <p>
   <%= current_user.first_name %> <%= current_user.last_name %><br>
@@ -23,7 +23,8 @@
     <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
           data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
           data-description="Artworks from Nectar website"
-          data-amount="<%=@cart.cart_total%>"
+          data-amount="<%=@cart.cart_total*100%>"
           data-currency="eur"
-          data-locale="auto"></script>
+          data-locale="auto"
+          data-label="Pay now!"></script>
   <% end %>
