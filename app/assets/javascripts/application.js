@@ -14,3 +14,8 @@
 //= require activestorage
 //= require turbolinks
 //= require_tree .
+
+//= require js/vendor.js
+//= require js/app.js
+
+

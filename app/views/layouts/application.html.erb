@@ -7,47 +7,113 @@
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
-  
     
-    <link rel="stylesheet" href="../vendor/css/vendor.css" />
-    <link rel="stylesheet" href="../vendor/css/style.css" />
-    
-    </head>
-
-    
+  </head>
   <body>
     
       <%= render 'layouts/alerts' %>
 
-      
+  <!----NAVBAR-->
+      <header class="header-sticky header-dark">
+        <div class="container">
+          <nav class="navbar navbar-expand-lg navbar-dark-active-color">
+            <a class="navbar-brand" href="../../index.html">
+              <img class="navbar-logo navbar-logo-light" src="../../assets/demo/logo/nectar-light5.png" alt="Logo">
+              <img class="navbar-logo navbar-logo-dark" src="../../assets/demo/logo/nectar-dark5.png" alt="Logo">
+            </a>
+            <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation"><span class="burger"><span></span></span></button>
   
-  
-  
+            <div class="collapse navbar-collapse" id="navbarSupportedContent">
+              <ul class="navbar-nav align-items-center mr-auto">
+                <li class="nav-item">
+                  
+                  <a class="nav-link", role="button"> 
+                      <%= link_to "Home", root_path %>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  
+                    <a class="nav-link", role="button"> 
+                        <%= link_to "Collections", artworks_path %>
+                    </a>
+                  </li>
+              </ul>
+              <ul class="navbar-nav align-items-center mr-0">
+                  <li class="nav-item">
+                      <a class="nav-link", role="button">
+                          <%= link_to "Sign in/ Sign up", user_session_path %>
+                      
+                      </a>
+                    </li>
+                <li class="nav-item">
+                  <a class="nav-link" , role="button">
+                    <%= link_to "Log out", destroy_user_session_path , :method => :delete  %>
+                    
+                  </a>
+                </li>
+                <li class="nav-item">
+                  <a class="nav-link" , role="button">
+                    <%= link_to "Cart", carts_path %>
+                  </a>
+                </li>
+              </ul>
+            </div>
+          </nav>
+        </div>
       </header>
 
       <!------FIN NAVBAR-->
-
-
-
     
     <%= yield %>
 
- 
-
-
-
-
-
+    <!-- footer -->
+    <footer class="bg-purple text-white">
+      <div class="separator-bottom">
+        <div class="container py-1 py-md-2">
+          <div class="row">
+            <div class="col-lg-4">
+              <div class="mb-1">
+                <img class="logo-sm" src="../../assets/demo/logo/nectar-light5.png" alt="Logo">
+              </div>
+              <span class="copyright-text">&copy; Nectar. 2019 All Right Reserved</span>
+            </div>
+            <div class="col col-lg-2">
+              <ul class="list-group list-group-minimal">
+                <li class="list-group-item"><h6 href="">Customer services</h6></li>
+                <li class="list-group-item"><a href="">Contact us</a></li>
+                <li class="list-group-item"><a href="">Legal notices</a></li>
+                <li class="list-group-item"><a href="">General Terms and Conditions</a></li>
+              </ul>
+            </div>
+            <div class="col col-lg-2">
+              <ul class="list-group list-group-minimal">
+                  <li class="list-group-item"><h6 href="">Who are we?</h6></li>
+                <li class="list-group-item"><a href="">About us</a></li>
+                <li class="list-group-item"><a href="">The team</a></li>
+                <li class="list-group-item"><a href="">FAQ </a></li>
+                <li class="list-group-item"><a href="">Jobs </a></li>
+                <li class="list-group-item"><a href="">Contact </a></li>
+              </ul>
+            </div>
+            <div class="col-lg-4 text-lg-right">
+              <a href="tel:+33635389512 " class="phone bordered">+33 (0) 635 389 512</a>
+            </div>
+          </div>
+        </div>
+      </footer>
+    <!-- / footer -->
 
 
     <!-- scripts -->
-    <script src="../vendor/js/vendor.js"></script>
-    <script src="../vendor/js/app.js"></script>
+    <script src="../../assets/js/notif.js"></script>
+    <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
+
 
     <script>
       setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
       setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
-  </script>
+    </script>
 
   </body>
 </html>
