@@ -33,30 +33,48 @@
                 </li>
 
                 <li class="nav-item">
-                  
                     <a class="nav-link", role="button"> 
                         <%= link_to "Collections", artworks_path %>
                     </a>
                   </li>
               </ul>
+
+              <% if user_signed_in?%>
               <ul class="navbar-nav align-items-center mr-0">
                   <li class="nav-item">
                       <a class="nav-link", role="button">
-                          <%= link_to "Sign in/ Sign up", user_session_path %>
-                      
+                          <%= link_to "Sign out", destroy_user_session_path , :method => :delete  %>
+                      </a>
+                  </li> 
+
+                <li class="nav-item">
+                  <a class="nav-link", role="button">
+                    <%= link_to "My profile", user_session_path %>
                       </a>
                     </li>
-                <li class="nav-item">
-                  <a class="nav-link" , role="button">
-                    <%= link_to "Log out", destroy_user_session_path , :method => :delete  %>
-                  </a>
-                </li>
-                <li class="nav-item">
-                  <a class="nav-link" , role="button">
-                    <%= link_to "Cart", carts_path %>
-                  </a>
-                </li>
+
+               <li class="nav-item">
+                <a class="nav-link", role="button">
+                  <%= link_to "Cart", carts_path %>
+                </a>
+              </li>
               </ul>
+              <%else%>
+              <ul class="navbar-nav align-items-center mr-0">
+                <li class="nav-item">
+                  <a class="nav-link" , role="button">
+                    <%= link_to "Sign in", user_session_path %>
+                  </a>
+                </li>
+
+                <li class="nav-item">
+                  <a class="nav-link" , role="button">
+                    <%= link_to "Sign Up", new_user_path %>
+                  </a>
+                </li>
+
+              </ul>
+              <%end%>
             </div>
           </nav>
         </div>
@@ -106,7 +124,7 @@
 
 
     <!-- scripts -->
-    <script src="../../assets/js/notif.js"></script>
+    <script src="../../vendor/js/notif.js"></script>
     <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
 
 
