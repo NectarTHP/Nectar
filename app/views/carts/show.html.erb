@@ -1,11 +1,28 @@
+<section class="p-0 bg-light">
+  <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-17.jpg)"
+      data-top-top="transform: translateY(0px);" 
+      data-top-bottom="transform: translateY(-250px);"></div>
+  <div class="container">
+    <div class="row justify-content-center align-items-end vh-60 mb-5">
+      <div class="col col-md-10 col-lg-8">
+        <div class="row align-items-center">
+          <div class="col-4 col-lg-3">
+            
+            <h2 mt-5>Your cart</h2>
+            <ul>
+              <% @cart.line_items.each do |line_item| %>
+                <li>Item: <%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price) %> - <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
+                <% end %>
+              </ul>
+              <h3>Subd total: <%= number_to_currency(@cart.cart_total) %></h3>
+              <%= link_to "Proceed to checkout", new_order_path %><br>
+              <%= link_to "Empty cart", cart_path(@cart),method: :delete, data: {confirm: "Are you sure?"}%><br>
+              <%= link_to 'Back', :back %>
 
-<h2>Your cart</h2>
-<ul>
-  <% @cart.line_items.each do |line_item| %>
-    <li>Item: <%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price) %> - <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
-  <% end %>
-</ul>
-<h3>Sub total: <%= number_to_currency(@cart.cart_total) %></h3>
-<%= link_to "Proceed to checkout", new_order_path %><br>
-<%= link_to "Empty cart", cart_path(@cart),method: :delete, data: {confirm: "Are you sure?"}%><br>
-<%= link_to 'Back', :back %>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
