@@ -322,27 +322,33 @@
       <div class="row justify-content-center">
         <div class="col-md-10 col-lg-8">
           <div class="container">
-            <table class="table table-hover table-light">
-              <thead>
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Date</th>
-                  <th scope="col">Details</th>
-                  <th scope="col">Amount</th>
-                </tr>
-              </thead>
-              <tbody>
-              <%current_user.orders.each do |order|%>
-                <tr onclick="window.location='#';">
-                  <th scope="row"><%=order.id%></th>
-                  <td><%=order.created_at%></td>
-                  <td><%=order.line_items[0].artwork.name%></td>
-                  <td><%=order.order_total%></td>
-                </tr>
-              <%end%>
+            <%current_user.orders.each do |order|%>
+              <div class="card">
 
-              </tbody>
-            </table>
+                <div class="card-body">
+                  <h5 class="card-title  text-center">Order #<%=order.id%> - <%=order.created_at.strftime("%F")%> - <%=number_to_currency(order.order_total, unit: "€")%>
+                  </h5>
+
+                  <p class="card-text">
+                  
+                  <table class="table table-sm table-secondary">
+                <tbody>
+                  <%order.line_items.each do |line|%>
+                    <tr>
+                      <th scope="row"><%=line.artwork.name%></th>
+                      <td><%=line.artwork.user.artistname%></td>
+                      <td class="text-right"><%=number_to_currency(line.artwork.price, unit: "€")%></td>
+                    </tr>
+                    <%end%>
+                  </tbody>
+                </table>
+                  
+                  
+                  </p>
+
+                </div>
+              </div>
+            <%end%>
           </div>
         </div>
       </div>
