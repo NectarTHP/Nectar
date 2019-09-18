@@ -16,7 +16,7 @@ class ArtworksController < ApplicationController
   end
 
   def edit
-    #Already set by set_artwork
+    @artwork = Artwork.find(params[:id])
   end
 
   def create
