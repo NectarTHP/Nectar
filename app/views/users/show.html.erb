@@ -324,28 +324,22 @@
           <div class="container">
             <%current_user.orders.each do |order|%>
               <div class="card">
-
                 <div class="card-body">
                   <h5 class="card-title  text-center">Order #<%=order.id%> - <%=order.created_at.strftime("%F")%> - <%=number_to_currency(order.order_total, unit: "€")%>
                   </h5>
-
                   <p class="card-text">
-                  
-                  <table class="table table-sm table-secondary">
-                <tbody>
-                  <%order.line_items.each do |line|%>
-                    <tr>
-                      <th scope="row"><%=line.artwork.name%></th>
-                      <td><%=line.artwork.user.artistname%></td>
-                      <td class="text-right"><%=number_to_currency(line.artwork.price, unit: "€")%></td>
-                    </tr>
-                    <%end%>
-                  </tbody>
-                </table>
-                  
-                  
+                    <table class="table table-sm table-secondary">
+                      <tbody>
+                        <%order.line_items.each do |line|%>
+                          <tr>
+                            <th scope="row"><%=line.artwork.name%></th>
+                            <td><%=line.artwork.user.artistname%></td>
+                            <td class="text-right"><%=number_to_currency(line.artwork.price, unit: "€")%></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
                   </p>
-
                 </div>
               </div>
             <%end%>
