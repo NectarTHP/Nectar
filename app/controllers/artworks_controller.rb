@@ -4,7 +4,7 @@ class ArtworksController < ApplicationController
   before_action :is_owner_or_admin, only: [:edit, :update, :destroy]
 
   def index
-    @artworks = Artwork.all
+    @artworks = Artwork.unsold
   end
 
   def show
