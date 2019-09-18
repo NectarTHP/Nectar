@@ -1,5 +1,5 @@
 <p id="notice"><%= notice %></p>
-
+<br><br><br><br><br><br>
 <p>
   <strong>User ID :</strong>
   <%= @cart_line.user.id %>
@@ -17,6 +17,7 @@
 
 <%= link_to 'Edit', edit_cart_path(@cart) %> |
 <%= link_to 'Back', carts_path %>
+<br>
 
 <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
