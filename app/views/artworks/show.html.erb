@@ -22,7 +22,7 @@
                   <span><b>Size:</b><%= @artwork.size %></span>
                 </li>
               </ul>
-              <a href="<%=new_cart_path(@artwork.id)%>"role="button" class="btn btn-with-ico btn-orange text-white mt-3">Add to cart <i class="icon-shopping-cart2 fs-20"></i></a>
+              <a href="<%=new_line_item_path(@artwork.id)%>"role="button" class="btn btn-with-ico btn-orange text-white mt-3">Add to cart <i class="icon-shopping-cart2 fs-20"></i></a>
             </div>
             <div class="col-md-8">
               <ul class="masonry gallery row gutter-1">
