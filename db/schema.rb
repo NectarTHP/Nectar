@@ -55,8 +55,10 @@ ActiveRecord::Schema.define(version: 2019_09_18_100353) do
 
   create_table "carts", force: :cascade do |t|
     t.bigint "user_id"
+    t.bigint "artwork_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_carts_on_artwork_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -115,6 +117,18 @@ ActiveRecord::Schema.define(version: 2019_09_18_100353) do
     t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
+  create_table "transactions", force: :cascade do |t|
+    t.bigint "user_id"
+    t.bigint "artwork_id"
+    t.integer "item_qty"
+    t.integer "order_number"
+    t.string "tracking_number"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_transactions_on_artwork_id"
+    t.index ["user_id"], name: "index_transactions_on_user_id"
+  end
+
   create_table "users", force: :cascade do |t|
     t.string "email", default: "", null: false
     t.string "encrypted_password", default: "", null: false
@@ -123,6 +137,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_100353) do
     t.datetime "remember_created_at"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.string "name"
     t.text "comment"
     t.boolean "is_artist"
     t.boolean "is_admin"
@@ -146,6 +161,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_100353) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "artworks", "users"
+  add_foreign_key "carts", "artworks"
   add_foreign_key "carts", "users"
   add_foreign_key "comments", "artworks"
   add_foreign_key "comments", "users"
@@ -157,4 +173,6 @@ ActiveRecord::Schema.define(version: 2019_09_18_100353) do
   add_foreign_key "line_items", "carts"
   add_foreign_key "line_items", "orders"
   add_foreign_key "orders", "users"
+  add_foreign_key "transactions", "artworks"
+  add_foreign_key "transactions", "users"
 end
