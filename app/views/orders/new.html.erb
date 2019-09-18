@@ -1,11 +1,12 @@
 <h1>Checkout page</h1>
-<h4>Your order will be shipped to this adress :</h4>
+
+<h4><i class="icon-map-pin2 fs-40 mb-1 text-purple"></i>Your order will be shipped to this adress :</h4>
 <p>
   <%= current_user.first_name %> <%= current_user.last_name %><br>
   <%= current_user.adress %><br>
   <%= current_user.zipcode %> <%= current_user.city %>
 </p>
-<h4>You order contains the following :</h4>
+<h4><i class="icon-check-circle2 fs-24 mr-2 text-primary"></i>You order contains the following :</h4>
 <ul>
   <% @cart.line_items.each do |line_item| %>
     <li><%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price, unit: "€") %>

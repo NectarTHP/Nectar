@@ -7,7 +7,7 @@
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
-  <body>
+ 
     
       <%= render 'layouts/alerts' %>
 
@@ -53,7 +53,7 @@
 
                <li class="nav-item">
                 <a class="nav-link", role="button">
-                  <%= link_to "Cart", cart_path(current_user.cart.id) %>
+                  <%= link_to "Cart", carts_path %>
                 </a>
               </li>
               </ul>
@@ -78,9 +78,10 @@
 </header>
        <!------FIN NAVBAR-->
     
-<%=yield%>
 
-
+ <body>
+ 
+</body>
     <!----------- Footer ------------>
     <footer class="footer-bs">
         <div class="row">
@@ -136,5 +137,5 @@
       setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
     </script>
 
-  </body>
+  
 </html>
