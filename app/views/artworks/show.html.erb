@@ -3,6 +3,7 @@
   <div class="container">
     <div class="row align-items-center justify-content-between">
       <div class="col-md-4">
+        <%if @artwork.is_sold?%>
         <div class="card mb-2 mt-4">
           <div class="card-header text-center">
             <h4 class="font-weight-bold">ARTWORK SOLD</h4>
@@ -11,6 +12,7 @@
             <p class="card-text">This artwork has been sold on <%=@artwork.line_items[0].updated_at.strftime("%F at %H:%M")%> to <%=@artwork.line_items[0].order.user.first_name%> <%=@artwork.line_items[0].order.user.last_name%>.</p>
           </div>
         </div>
+        <%end%>
         <h2 class="h1"><b><%= @artwork.name %></b></h2>
         <h3 class="h3"><b>By: <%=@artwork.user.artistname %></b></h3>
         <ul class="list-group list-group-line">
