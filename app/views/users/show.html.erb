@@ -1,380 +1,357 @@
-
-    <hr>
-    </br>
-
-
-
-
-    <section class="p-0 bg-light">
-      <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-11.jpg)"
+<hr>
+</br>
+<section class="p-0 bg-light">
+  <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-11.jpg)"
       data-top-top="transform: translateY(0px);" 
       data-top-bottom="transform: translateY(-250px);"></div>
-      <div class="container">
-        <div class="row justify-content-center align-items-end vh-50 mb-5">
-          <div class="col col-md-10 col-lg-8">
+  <div class="container">
+    <div class="row justify-content-center align-items-end vh-50 mb-5">
+      <div class="col col-md-10 col-lg-8">
+        <div class="row align-items-center">
+          <div class="col-4 col-lg-3">
+            <%if @users.avatar.attached?%>
+              <%= image_tag @user.avatar, alt: 'avatar', class:'mr-3 avatar avatar-xl rounded' %>
+            <%else%>
+              <p>No avatar </p>
+            <%end%>
+          </div>
+          <div class="col">
             <div class="row align-items-center">
-              <div class="col-4 col-lg-3">
-
-              <%if @users.avatar.attached?%>
-                <%= image_tag @user.avatar, alt: 'avatar', class:'mr-3 avatar avatar-xl rounded' %>
-              <%else%>
-                <p>No avatar </p>
-              <%end%>
-
+              <div class="col-md-8">
+                <h2 class="mb-0"><b><%= @users.first_name %> </b> <%= @users.last_name %> </h2>
+                <span class="text-muted"><%= @users.bio %> </span>
               </div>
-              <div class="col">
-                <div class="row align-items-center">
-                  <div class="col-md-8">
-                    <h2 class="mb-0"><b><%= @users.first_name %> </b> <%= @users.last_name %> </h2>
-                    <span class="text-muted"><%= @users.bio %> </span>
-                  </div>
-                  <div class="col-md-4 text-left text-md-right">
-                    <button type="button" class="btn btn-rounded btn-ico btn-white" data-toggle="tooltip" data-placement="top" title="Add Friend"><i class="icon-plus2 fs-20"></i></button>
-                  </div>
-                </div>
+              <div class="col-md-4 text-left text-md-right">
+                <button type="button" class="btn btn-rounded btn-ico btn-white" data-toggle="tooltip" data-placement="top" title="Add Friend"><i class="icon-plus2 fs-20"></i></button>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </section>
-
-
-    <section class="bg-light p-0">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col col-md-10 col-lg-8">
-            <div class="nav nav-tabs mb-1">
-              <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-1">Profile</a>
-              <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Avatar</a>
-              <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Password</a>
-              <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-4"> Settings </a>
-              
-            </div>
-          </div>
-        </div>
-      </div>
-    </section>
-
-
-
-    <section class="bg-light pt-2">
-
-      <div class="container">
-        <div class="tab-content" id="demo-2">
-
-          <!-- tab info -->
-          <div class="tab-pane" id="demo-2-1" role="tabpanel" aria-labelledby="demo-2-1">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                
-                <!-- stats -->
-                <div class="row gutter-1 mb-2">
-                  <div class="col-6 col-md-4 col-lg-3">
-                    <div class="equal">
-                      <div class="boxed bg-primary text-white">
-                        <div class="equal-header">
-                          <b class="h2">89</b>
-                        </div>
-                        <div class="equal-footer">
-                          <span class="text-muted">friends</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6 col-md-4 col-lg-3">
-                    <div class="equal">
-                      <div class="boxed">
-                        <div class="equal-header">
-                          <b class="h2">14</b>
-                        </div>
-                        <div class="equal-footer">
-                          <span class="text-muted">likes</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6 col-md-4 col-lg-3">
-                    <div class="equal">
-                      <div class="boxed">
-                        <div class="equal-header">
-                          <b class="h2">9</b>
-                        </div>
-                        <div class="equal-footer">
-                          <span class="text-muted">articles</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="col-6 col-md-4 col-lg-3">
-                    <div class="equal">
-                      <div class="boxed">
-                        <div class="equal-header">
-                          <b class="h2">119</b>
-                        </div>
-                        <div class="equal-footer">
-                          <span class="text-muted">following</span>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                </div>
-                <!-- / stats -->
-
-                <!-- post -->
-                <div class="row mb-1">
-                  <div class="col">
-                    <article class="card">
-                      <div class="card-header">
-                        <div class="row align-items-center">
-                          <div class="col-6">
-                            <div class="media align-items-center">
-                              <img class="avatar rounded mr-1" src="../../assets/images/demo/user-2.jpg" alt="Image">
-                              <div class="media-body">
-                                <span class="mt-0">Michael Doe</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-6 text-right">
-                            <small class="text-mute">2 hours ago</small>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-body overflow-hidden">
-                        <div class="owl-carousel gallery visible" data-items="[2,2]" data-margin="10" data-nav="true">
-                          <figure class="photo equal equal-double">
-                            <a href="../../assets/images/demo/image-square-1.jpg" title="Image title">
-                              <img src="../../assets/images/demo/image-square-1.jpg" alt="Image">
-                            </a>
-                          </figure>
-                          <figure class="photo equal equal-double">
-                            <a href="../../assets/images/demo/image-square-2.jpg" title="Image title">
-                              <img src="../../assets/images/demo/image-square-2.jpg" alt="Image">
-                            </a>
-                          </figure>
-                          <figure class="photo equal equal-double">
-                            <a href="../../assets/images/demo/image-square-3.jpg" title="Image title">
-                              <img src="../../assets/images/demo/image-square-3.jpg" alt="Image">
-                            </a>
-                          </figure>
-                        </div>
-                      </div>
-                      <div class="card-footer">
-                        <div class="row">
-                          <div class="col">
-                            <a href="" class="btn btn-ico btn-sm rounded btn-outline-light text-red"><i class="icon-heart2 fs-22"></i></a>
-                          </div>
-                          <div class="col text-right">
-                            <div class="dropdown">
-                              <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="icon-more-vertical fs-22"></i>
-                              </a>
-
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                                <a class="dropdown-item" href="#">Make Primary</a>
-                                <a class="dropdown-item" href="#">Remove</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-                <!-- / post -->
-
-                <!-- post -->
-                <div class="row">
-                  <div class="col">
-                    <article class="card">
-                      <div class="card-header">
-                        <div class="row align-items-center">
-                          <div class="col-6">
-                            <div class="media align-items-center">
-                              <img class="avatar rounded mr-1">
-                              <%= @users.avatar %>
-                              
-                              <div class="media-body">
-                                <span class="mt-0">Michael Doe</span>
-                              </div>
-                            </div>
-                          </div>
-                          <div class="col-6 text-right">
-                            <small class="text-mute">2 hours ago</small>
-                          </div>
-                        </div>
-                      </div>
-                      <div class="card-body overflow-hidden">
-                        <blockquote class="blockquote">
-                          <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
-                          <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
-                        </blockquote>
-                      </div>
-                      <div class="card-footer">
-                        <div class="row">
-                          <div class="col">
-                            <a href="" class="btn btn-ico btn-sm rounded btn-outline-light text-red"><i class="icon-heart2 fs-22"></i></a>
-                          </div>
-                          <div class="col text-right">
-                            <div class="dropdown">
-                              <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <i class="icon-more-vertical fs-22"></i>
-                              </a>
-
-                              <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-2">
-                                <a class="dropdown-item" href="#">Make Primary</a>
-                                <a class="dropdown-item" href="#">Remove</a>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </article>
-                  </div>
-                </div>
-                <!-- / post -->
-
-              </div>
-            </div>
-          </div>
-          <!-- / tab -->
-
-
-          <!-- tab connections -->
-          <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2"
-          <h3>Avatar actuel</h3>
-
-
-<%if @users.avatar.attached?%>
-  <%= image_tag @users.avatar, alt: 'avatar' %>
-<%else%>
-  <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
-<%end%>
-<%= form_tag user_avatars_path(@users), multipart: true do %>
-  <%= file_field_tag :avatar %>
-  <%= submit_tag "mettre à jour" %>
-  <%=@users.last_name%>
-<% end %>
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="row gutter-1">
-                  <div class="col-12">
-                    <div class="boxed p-2">
-                      <div class="row align-items-center justify-content-between">
-                        <div class="col-10">
-                          <div class="media align-items-center">
-                            <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
-                            <div class="media-body">
-                              <h5 class="mb-0"> Create or update your avatar </h5>
-                              <span class="text-muted">Senior UI Designer</span>
-                            </div>
-                          </div>
-                        </div>
-                        <div class="col-2 text-md-right">
-                          <div class="dropdown">
-                            <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                              <i class="icon-more-vertical fs-22"></i>
-                            </a>
-
-                            <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-3">
-                              <a class="dropdown-item" href="#">Make Primary</a>
-                              <a class="dropdown-item" href="#">Remove</a>
-                            </div>
-                          </div>
-                        </div>
-                      </div>
-                    </div>
-                  </div>
-                  
-                
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- / tab -->
-
-          <!-- tab groups -->
-
-          
-        
-
-          <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="row gutter-2">
-                  <%= render "devise/passwords/password" %>  
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- / tab -->
-
-          <!-- tab settings -->
-          <div class="tab-pane show active" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="container">
-
-    <%= form_for @users do |f| %>
-      
-      <label for="exampleFormControlInput3">Username</label>
-      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
-      
-      <label for="exampleFormControlInput3">First name</label>
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "username", class: "form-control" %>
-      
-      <label for="exampleFormControlInput3">Last name</label>
-      <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control" %>
-      
-      <label for="exampleFormControlInput3">Birthday ( ex: 1987-09-18) </label>
-      <%= f.text_area :dateofbirth, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Biography</label>
-      <%= f.text_area :bio, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Mobile</label>
-      <%= f.phone_field :mobile, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">E-mail</label>
-      <%= f.email_field :email, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Adress</label>
-      <%= f.text_area :adress, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Zipcode</label>
-      <%= f.text_field :zipcode, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Siret</label>
-      <%= f.text_field :siret, autofocus: true, autocomplete: "username", class: "form-control" %>
-
     </div>
-      <div class="container">
-        <div class="row">
-
-          <div class="col-6">
-            <%= f.submit "Save change", class: "btn btn-primary btn-block" %>
-            </br>
-          </div>
-
-          <div class="col-6">
-            <div class ="btn btn-primary text-white col-12">
-              <%= link_to "Skip this step", artworks_path %>
+  </div>
+</section>
+<section class="bg-light p-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-md-10 col-lg-8">
+        <div class="nav nav-tabs mb-1">
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-1">Profile</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Avatar</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Password</a>
+          <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-4"> Settings </a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-5"> My orders </a>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+<section class="bg-light pt-2">
+  <div class="container">
+    <div class="tab-content" id="demo-2">
+      <!-- tab info -->
+      <div class="tab-pane" id="demo-2-1" role="tabpanel" aria-labelledby="demo-2-1">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <!-- stats -->
+            <div class="row gutter-1 mb-2">
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed bg-primary text-white">
+                    <div class="equal-header">
+                      <b class="h2">89</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">friends</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2">14</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">likes</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2">9</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">articles</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
+              <div class="col-6 col-md-4 col-lg-3">
+                <div class="equal">
+                  <div class="boxed">
+                    <div class="equal-header">
+                      <b class="h2">119</b>
+                    </div>
+                    <div class="equal-footer">
+                      <span class="text-muted">following</span>
+                    </div>
+                  </div>
+                </div>
+              </div>
             </div>
+            <!-- / stats -->
+            <!-- post -->
+            <div class="row mb-1">
+              <div class="col">
+                <article class="card">
+                  <div class="card-header">
+                    <div class="row align-items-center">
+                      <div class="col-6">
+                        <div class="media align-items-center">
+                          <img class="avatar rounded mr-1" src="../../assets/images/demo/user-2.jpg" alt="Image">
+                          <div class="media-body">
+                            <span class="mt-0">Michael Doe</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 text-right">
+                        <small class="text-mute">2 hours ago</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body overflow-hidden">
+                    <div class="owl-carousel gallery visible" data-items="[2,2]" data-margin="10" data-nav="true">
+                      <figure class="photo equal equal-double">
+                        <a href="../../assets/images/demo/image-square-1.jpg" title="Image title">
+                          <img src="../../assets/images/demo/image-square-1.jpg" alt="Image">
+                        </a>
+                      </figure>
+                      <figure class="photo equal equal-double">
+                        <a href="../../assets/images/demo/image-square-2.jpg" title="Image title">
+                          <img src="../../assets/images/demo/image-square-2.jpg" alt="Image">
+                        </a>
+                      </figure>
+                      <figure class="photo equal equal-double">
+                        <a href="../../assets/images/demo/image-square-3.jpg" title="Image title">
+                          <img src="../../assets/images/demo/image-square-3.jpg" alt="Image">
+                        </a>
+                      </figure>
+                    </div>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row">
+                      <div class="col">
+                        <a href="" class="btn btn-ico btn-sm rounded btn-outline-light text-red"><i class="icon-heart2 fs-22"></i></a>
+                      </div>
+                      <div class="col text-right">
+                        <div class="dropdown">
+                          <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-more-vertical fs-22"></i>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink">
+                            <a class="dropdown-item" href="#">Make Primary</a>
+                            <a class="dropdown-item" href="#">Remove</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <!-- / post -->
+            <!-- post -->
+            <div class="row">
+              <div class="col">
+                <article class="card">
+                  <div class="card-header">
+                    <div class="row align-items-center">
+                      <div class="col-6">
+                        <div class="media align-items-center">
+                          <img class="avatar rounded mr-1">
+                          <%= @users.avatar %>
+                          <div class="media-body">
+                            <span class="mt-0">Michael Doe</span>
+                          </div>
+                        </div>
+                      </div>
+                      <div class="col-6 text-right">
+                        <small class="text-mute">2 hours ago</small>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="card-body overflow-hidden">
+                    <blockquote class="blockquote">
+                      <p class="mb-0">Lorem ipsum dolor sit amet, consectetur adipiscing elit. Integer posuere erat a ante.</p>
+                      <footer class="blockquote-footer">Someone famous in <cite title="Source Title">Source Title</cite></footer>
+                    </blockquote>
+                  </div>
+                  <div class="card-footer">
+                    <div class="row">
+                      <div class="col">
+                        <a href="" class="btn btn-ico btn-sm rounded btn-outline-light text-red"><i class="icon-heart2 fs-22"></i></a>
+                      </div>
+                      <div class="col text-right">
+                        <div class="dropdown">
+                          <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-2" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            <i class="icon-more-vertical fs-22"></i>
+                          </a>
+                          <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-2">
+                            <a class="dropdown-item" href="#">Make Primary</a>
+                            <a class="dropdown-item" href="#">Remove</a>
+                          </div>
+                        </div>
+                      </div>
+                    </div>
+                  </div>
+                </article>
+              </div>
+            </div>
+            <!-- / post -->
           </div>
         </div>
       </div>
-
-
+      <!-- / tab -->
+      <!-- tab connections -->
+      <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2"
+          <h3>Avatar actuel</h3>
+      <%if @users.avatar.attached?%>
+        <%= image_tag @users.avatar, alt: 'avatar' %>
+      <%else%>
+        <p>=== Il n'y a pas encore d'avatar lié à cet utilisateur ===</p>
+      <%end%>
+      <%= form_tag user_avatars_path(@users), multipart: true do %>
+        <%= file_field_tag :avatar %>
+        <%= submit_tag "mettre à jour" %>
+        <%=@users.last_name%>
+      <% end %>
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="row gutter-1">
+            <div class="col-12">
+              <div class="boxed p-2">
+                <div class="row align-items-center justify-content-between">
+                  <div class="col-10">
+                    <div class="media align-items-center">
+                      <img src="../../assets/images/demo/user-5.jpg" alt="Avatar" class="avatar avatar-lg rounded mr-3">
+                      <div class="media-body">
+                        <h5 class="mb-0"> Create or update your avatar </h5>
+                        <span class="text-muted">Senior UI Designer</span>
+                      </div>
+                    </div>
+                  </div>
+                  <div class="col-2 text-md-right">
+                    <div class="dropdown">
+                      <a class="btn btn-ico btn-outline-light text-dark rounded btn-sm" href="#" role="button" id="dropdownMenuLink-3" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                        <i class="icon-more-vertical fs-22"></i>
+                      </a>
+                      <div class="dropdown-menu" aria-labelledby="dropdownMenuLink-3">
+                        <a class="dropdown-item" href="#">Make Primary</a>
+                        <a class="dropdown-item" href="#">Remove</a>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
             </div>
           </div>
-          <!-- / tab -->
         </div>
       </div>
-    </section>
-    
-    
-    <% end %>
+    </div>
+    <!-- / tab -->
+    <!-- tab groups -->
+    <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="row gutter-2">
+            <%= render "devise/passwords/password" %>
+          </div>
+        </div>
+      </div>
+    </div>
+    <!-- / tab -->
+    <!-- tab settings -->
+    <div class="tab-pane show active" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="container">
+            <%= form_for @users do |f| %>
+              <label for="exampleFormControlInput3">Username</label>
+              <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">First name</label>
+              <%= f.text_field :first_name, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">Last name</label>
+              <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">Birthday ( ex: 1987-09-18) </label>
+              <%= f.text_area :dateofbirth, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">Biography</label>
+              <%= f.text_area :bio, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">Mobile</label>
+              <%= f.phone_field :mobile, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">E-mail</label>
+              <%= f.email_field :email, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">Adress</label>
+              <%= f.text_area :adress, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">Zipcode</label>
+              <%= f.text_field :zipcode, autofocus: true, autocomplete: "username", class: "form-control" %>
+              <label for="exampleFormControlInput3">Siret</label>
+              <%= f.text_field :siret, autofocus: true, autocomplete: "username", class: "form-control" %>
+            </div>
+            <div class="container">
+              <div class="row">
+                <div class="col-6">
+                  <%= f.submit "Save change", class: "btn btn-primary btn-block" %>
+                </br>
+              </div>
+              <div class="col-6">
+                <div class ="btn btn-primary text-white col-12">
+                  <%= link_to "Skip this step", artworks_path %>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="tab-pane show active" id="demo-2-5" role="tabpanel" aria-labelledby="demo-2-5">
+      <div class="row justify-content-center">
+        <div class="col-md-10 col-lg-8">
+          <div class="container">
+            <%current_user.orders.each do |order|%>
+              <div class="card">
+                <div class="card-body">
+                  <h5 class="card-title  text-center">Order #<%=order.id%> - <%=order.created_at.strftime("%F")%> - <%=number_to_currency(order.order_total, unit: "€")%>
+                  </h5>
+                  <p class="card-text">
+                    <table class="table table-sm table-secondary">
+                      <tbody>
+                        <%order.line_items.each do |line|%>
+                          <tr>
+                            <th scope="row"><%=line.artwork.name%></th>
+                            <td><%=line.artwork.user.artistname%></td>
+                            <td class="text-right"><%=number_to_currency(line.artwork.price, unit: "€")%></td>
+                          </tr>
+                        <%end%>
+                      </tbody>
+                    </table>
+                  </p>
+                </div>
+              </div>
+            <%end%>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</div>
+<!-- / tab -->
+</div>
+</div>
+</section>
+<% end %>

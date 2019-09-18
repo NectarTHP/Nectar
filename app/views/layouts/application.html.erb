@@ -8,82 +8,63 @@
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
   </head>
   <body>
-    
-      <%= render 'layouts/alerts' %>
-
-<!-- scripts -->
-
-    <script src="../../vendor/js/notif.js"></script>
-    <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
-    <script src="https://kit.fontawesome.com/63ca932e46.js"></script>
-
-      <!------FIN NAVBAR-->
-            <header class="header-sticky header-dark">
-              <nav class="navbar navbar-expand-lg navbar-light bg-light">
-              <a class="navbar-brand" href="#">
-                <img src="../../assets/demo/logo/nectar-dark5.png"" width="80" height="40" class="d-inline-block align-top" alt="">
+    <!------DEBUT NAVBAR-->
+    <header class="header-sticky header-dark">
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img src="../../assets/demo/logo/nectar-dark5.png"" width="80" height="40" class="d-inline-block align-top" alt="">
+        </a>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+          <ul class="navbar-nav mr-auto">
+            <li class="nav-item active">
+              <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="<%=artworks_path%>">Collections</a>
+            </li>
+          </ul>
+        </div>
+        <% if user_signed_in?%>
+          <ul class="navbar-nav align-items-center mr-0">
+            <li class="nav-item">
+              <a class="nav-link", role="button">
+                <%= link_to "Sign out", destroy_user_session_path , :method => :delete  %>
               </a>
-              <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
-                <span class="navbar-toggler-icon"></span>
-              </button>
-
-              <div class="collapse navbar-collapse" id="navbarSupportedContent">
-                <ul class="navbar-nav mr-auto">
-                  <li class="nav-item active">
-                    <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
-                  </li>
-                  <li class="nav-item">
-                    <a class="nav-link" href="<%=artworks_path%>">Collections</a>
-                  </li>
-                </ul>
-              </div>
-                <% if user_signed_in?%>
-              <ul class="navbar-nav align-items-center mr-0">
-                  <li class="nav-item">
-                      <a class="nav-link", role="button">
-                          <%= link_to "Sign out", destroy_user_session_path , :method => :delete  %>
-                      </a>
-                  </li> 
-
-                <li class="nav-item">
-                  <a class="nav-link", role="button">
-                    <%= link_to "My profile", user_session_path %>
-                      </a>
-                    </li>
-
-               <li class="nav-item">
-                <a class="nav-link", role="button">
-                  <%= link_to "Cart", carts_path %>
-                </a>
-              </li>
-              </ul>
-              <%else%>
-              <ul class="navbar-nav align-items-center mr-0">
-                <li class="nav-item">
-                  <a class="nav-link" , role="button">
-                    <%= link_to "Sign in", user_session_path %>
-                  </a>
-                </li>
-
-                <li class="nav-item">
-                  <a class="nav-link" , role="button">
-                    <%= link_to "Sign Up", new_user_path %>
-                  </a>
-                </li>
-
-              </ul>
-              <%end%>
-
-</nav>
-</header>
-       <!------FIN NAVBAR-->
-    
-
-
+            </li>
+            <li class="nav-item">
+              <a class="nav-link", role="button">
+                <%= link_to "My profile", user_session_path %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link", role="button">
+                <%= link_to "Cart", cart_path(current_user.cart.id) %>
+              </a>
+            </li>
+          </ul>
+        <%else%>
+          <ul class="navbar-nav align-items-center mr-0">
+            <li class="nav-item">
+              <a class="nav-link" , role="button">
+                <%= link_to "Sign in", user_session_path %>
+              </a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" , role="button">
+                <%= link_to "Sign Up", new_user_path %>
+              </a>
+            </li>
+          </ul>
+        <%end%>
+      </nav>
+    </header>
+    <!------FIN NAVBAR-->
+    <%= render 'layouts/alerts' %>
     <%= yield %>
-                                                     
     <!-- footer -->
-                                                     
     <footer class="bg-purple text-white">
       <div class="separator-bottom">
         <div class="container py-1 py-md-2">
@@ -122,15 +103,14 @@
           </div>
         </div>
       </footer>
-    <!-- / footer -->
-
-
-    <!-- scripts -->
-
-    <script>
-      setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
-      setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
-    </script>
-
-  </body>
-</html>
+      <!-- / footer -->
+      <!-- scripts -->
+      <script>
+        setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
+        setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
+      </script>
+      <script src="../../vendor/js/notif.js"></script>
+      <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
+      <script src="https://kit.fontawesome.com/63ca932e46.js"></script>
+    </body>
+  </html>
