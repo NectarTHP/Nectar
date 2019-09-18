@@ -9,14 +9,16 @@ class UsersController < ApplicationController
   end
 
   def show
-        @users = User.find(params[:id])
-    flash[:notice] = "Please complete your profil or press the skip button to complete your profil later"
+        @user = User.find(params[:id])
+        @artworks = @user.artworks
+        @artwork = Artwork.find(params[:id])
+        
   end
 
   def update
     @users = User.find(params[:id])
       if @users.update(list_params)
-        redirect_to artworks_path
+        redirect_to user_path
       else
         render :edit
     end
@@ -30,7 +32,6 @@ class UsersController < ApplicationController
     render :edit
 end
 end
-
 
   def edit
     @users = User.find(params[:id])
