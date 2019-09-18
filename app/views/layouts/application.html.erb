@@ -53,7 +53,7 @@
 
                <li class="nav-item">
                 <a class="nav-link", role="button">
-                  <%= link_to "Cart", carts_path %>
+                  <%= link_to "Cart", cart_path(current_user.cart.id) %>
                 </a>
               </li>
               </ul>
@@ -78,7 +78,7 @@
 </header>
        <!------FIN NAVBAR-->
     
-
+<%=yield%>
 
 
     <!----------- Footer ------------>

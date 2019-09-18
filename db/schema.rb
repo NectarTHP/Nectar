@@ -49,7 +49,7 @@ ActiveRecord::Schema.define(version: 2019_09_18_100353) do
     t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.boolean "is_sold"
+    t.boolean "is_sold", default: false, null: false
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
