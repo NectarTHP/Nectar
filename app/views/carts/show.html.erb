@@ -7,28 +7,49 @@
       <div class="col col-md-10 col-lg-8">
         <div class="row align-items-center">
           <div class="col-4 col-lg-12">
-            
             <h2>Your cart</h2>
             <%if @cart.line_items == []%>
-            <div class="text-center">Your cart is empty, but you can...</div>
-            <div class="text-center"><%= link_to "Browse artwork collection", artworks_path, class: "btn btn-primary btn-sm"%></div>
+              <div class="text-center">Your cart is empty, but you can...</div>
+              <div class="text-center"><%= link_to "Browse artwork collection", artworks_path, class: "btn btn-primary btn-sm"%></div>
             </div>
-            <%end%>
-
-            <ul>
-              <% @cart.line_items.each do |line_item| %>
-                <li>Item: <%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price) %> - <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
+          <%else%>
+            <table class="table">
+              <thead>
+                <tr class="font-weight-bold">
+                  <th class="font-weight-bold" scope="col">Artwork</th>
+                  <th class="font-weight-bold" scope="col">Artist</th>
+                  <th class="font-weight-bold" scope="col">Price</th>
+                  <th class="font-weight-bold" scope="col">Action</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @cart.line_items.each do |line_item| %>
+                  <tr>
+                    <th scope="row"><%= line_item.artwork.name %></th>
+                    <td><%= line_item.artwork.user.artistname %></td>
+                    <td><%= number_to_currency(line_item.artwork.price, unit: "€") %></td>
+                    <td><%= link_to "Remove item", line_item_path(line_item), method: :delete %></td>
+                  </tr>
                 <% end %>
-              </ul>
-              <div>Sub total: <%= number_to_currency(@cart.cart_total) %></div>
-              <%= link_to "Proceed to checkout", new_order_path %><br>
-              <%= link_to "Empty cart", cart_path(@cart),method: :delete, data: {confirm: "Are you sure?"}%><br>
-              <%= link_to 'Back', :back %>
+                <tr>
+              <th scope="row"><%= link_to '<< Back to collection', artworks_path %></th>
+              <td class="font-weight-bold">Cart total:</td>
+                            <td class="font-weight-bold"><%= number_to_currency(@cart.cart_total, unit: "€") %></td>
+              <td><%= link_to "Proceed to checkout >>", new_order_path, class: "btn btn-warning btn-sm" %></td>
 
-            </div>
+              </tr>
+              </tbody>
+            </table>
+
+              
+
+
+
+            <%end%>
           </div>
         </div>
       </div>
     </div>
   </div>
+</div>
 </section>
