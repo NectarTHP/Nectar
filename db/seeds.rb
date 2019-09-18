@@ -8,7 +8,7 @@
 require 'faker'
 
 Favorite.destroy_all
-Transaction.destroy_all
+LineItem.destroy_all
 Like.destroy_all
 Comment.destroy_all
 Cart.destroy_all
@@ -16,7 +16,7 @@ Artwork.destroy_all
 User.destroy_all
 
 #A single test user
-user = User.create(email: "user@user.com", password: "azerty", is_admin: false)
+user = User.create(email: "user@user.com", password: "azerty", is_admin: false, first_name: "John", last_name: "Doe", username:"Banski", adress:"23 rue du haque", city: "Paris" )
 admin = User.create(email: "admin@admin.com", password: "azerty", is_admin: true)
 
 artwork = Artwork.create(
@@ -45,7 +45,7 @@ Artwork.create(
   )
 
   Artwork.create(
-    user_id: user.id,
+    user_id: admin.id,
     name: "Narcisse",
     description: Faker::Quote.most_interesting_man_in_the_world,
     price: rand(10..10000),
@@ -66,7 +66,6 @@ Artwork.create(
 end
 puts "10 users were created"
 
-  #A complete seed
 
 20.times do
   picsum_id = rand(1..100)
@@ -92,24 +91,16 @@ puts "20 artworks created"
 end
 puts "10 favorites created"
 
-30.times do
-  Cart.create(
-    user_id: User.all.sample.id,
-    artwork_id: Artwork.all.sample.id
-  )
-end
-puts "30 carts created"
-
 10.times do
-  Transaction.create(
-    user_id: User.all.sample.id,
+  LineItem.create(
     artwork_id: Artwork.all.sample.id,
-    item_qty: rand(1..3),
-    order_number: 99,
+    cart_id: Cart.all.sample.id,
+    order_id: nil,
+    quantity: rand(1..3),
     tracking_number: "12COLIS4PERDU"
   )
 end
-puts "10 transaction created"
+puts "10 line items created"
 
 10.times do
   Like.create(
