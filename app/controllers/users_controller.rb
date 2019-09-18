@@ -10,15 +10,15 @@ class UsersController < ApplicationController
 
   def show
         @user = User.find(params[:id])
-        @artworks = @user.artworks 
-            flash[:notice] = "Please complete your profil or press the skip button to complete your profil later"
-             
+        @artworks = @user.artworks
+        @artwork = Artwork.find(params[:id])
+        
   end
 
   def update
     @users = User.find(params[:id])
       if @users.update(list_params)
-        redirect_to artworks_path
+        redirect_to user_path
       else
         render :edit
     end

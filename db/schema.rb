@@ -82,9 +82,10 @@ ActiveRecord::Schema.define(version: 2019_09_16_093003) do
 
   create_table "likes", force: :cascade do |t|
     t.bigint "user_id"
-    t.string "artwork_belongs_to"
+    t.bigint "artwork_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.index ["artwork_id"], name: "index_likes_on_artwork_id"
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
@@ -137,6 +138,7 @@ ActiveRecord::Schema.define(version: 2019_09_16_093003) do
   add_foreign_key "comments", "users"
   add_foreign_key "favorites", "artworks"
   add_foreign_key "favorites", "users"
+  add_foreign_key "likes", "artworks"
   add_foreign_key "likes", "users"
   add_foreign_key "transactions", "artworks"
   add_foreign_key "transactions", "users"

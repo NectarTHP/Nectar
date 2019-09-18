@@ -5,11 +5,11 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
-  has_many :artworks
-  has_many :carts
-  has_many :transactions
-  has_many :comments
-  has_many :favorites
+  has_many :artworks, dependent: :destroy
+  has_many :carts, dependent: :destroy
+  has_many :transactions, dependent: :destroy
+  has_many :comments, dependent: :destroy
+  has_many :favorites, dependent: :destroy
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now

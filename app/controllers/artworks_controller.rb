@@ -22,6 +22,7 @@ class ArtworksController < ApplicationController
 
   # GET /artworks/1/edit
   def edit
+    @artwork = Artwork.find(params[:id])
   end
 
   # POST /artworks

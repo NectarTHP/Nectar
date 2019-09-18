@@ -98,6 +98,8 @@
                     </div>
                     
                   </div>
+                  <%= link_to 'Edit', edit_artwork_path(@artwork), method: :get %>
+                  <%= link_to 'Delete', artwork_path(@artwork), method: :delete %>
                   <a href="" class="card-footer">                  
                   </a>
                   </div>
@@ -191,22 +193,51 @@
 
     <%= form_for @user do |f| %>
       
-      <label for="exampleFormControlInput3">Username</label>
-      <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+      <div class="accordion-group accordion-group-highlight" data-accordion-group>
+              <div class="accordion open" data-accordion data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                <div class="accordion-control" data-control>
+                  <h5 style="font-size: 1rem">General informations</h5>
+                </div>
+                <div class="accordion-content" data-content>
+                  <div class="accordion-content-wrapper">
+                  <label for="exampleFormControlInput3">Username</label>
+                  <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+                  
+                  <label for="exampleFormControlInput3">Biography</label>
+                  <%= f.text_area :bio, autofocus: true, autocomplete: "username", class: "form-control" %>
+                  </div>
+                </div>
+              </div>
+           </div> 
+            
+        <div class="accordion-group accordion-group-highlight" data-accordion-group>
+           <div class="accordion" data-accordion data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+             <div class="accordion-control" data-control>
+               <h5 style="font-size: 1rem">More about me </h5>
+             </div>
+             <div class="accordion-content" data-content>
+               <div class="accordion-content-wrapper">
+               <label for="exampleFormControlInput3">First name</label>
+                  <%= f.text_field :first_name, autofocus: true, autocomplete: "username", class: "form-control" %>
       
-      <label for="exampleFormControlInput3">First name</label>
-      <%= f.text_field :first_name, autofocus: true, autocomplete: "username", class: "form-control" %>
+                   <label for="exampleFormControlInput3">Last name</label>
+                  <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control" %>
       
-      <label for="exampleFormControlInput3">Last name</label>
-      <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control" %>
-      
-      <label for="exampleFormControlInput3">Birthday ( ex: 1987-09-18) </label>
-      <%= f.text_area :dateofbirth, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Biography</label>
-      <%= f.text_area :bio, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Mobile</label>
+                  <label for="exampleFormControlInput3">Birthday ( ex: 1987-09-18) </label>
+                  <%= f.text_area :dateofbirth, autofocus: true, autocomplete: "username", class: "form-control" %>
+               </div>
+             </div>
+           </div>
+        </div> 
+    
+        <div class="accordion-group accordion-group-highlight" data-accordion-group>
+        <div class="accordion" data-accordion data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+          <div class="accordion-control" data-control>
+            <h5 style="font-size: 1rem"> Contact informations </h5>
+          </div>
+          <div class="accordion-content" data-content>
+            <div class="accordion-content-wrapper">
+            <label for="exampleFormControlInput3">Mobile</label>
       <%= f.phone_field :mobile, autofocus: true, autocomplete: "username", class: "form-control" %>
 
       <label for="exampleFormControlInput3">E-mail</label>
@@ -217,9 +248,17 @@
 
       <label for="exampleFormControlInput3">Zipcode</label>
       <%= f.text_field :zipcode, autofocus: true, autocomplete: "username", class: "form-control" %>
-
+            
       <label for="exampleFormControlInput3">Siret</label>
       <%= f.text_field :siret, autofocus: true, autocomplete: "username", class: "form-control" %>
+            </div>
+          </div>
+        </div>
+     </div> 
+
+      
+
+      
 
     </div>
       <div class="container">
@@ -232,7 +271,7 @@
 
           <div class="col-6">
             <div class ="btn btn-primary text-white col-12">
-              <%= link_to "Skip this step", artworks_path %>
+              <%= link_to "Go to the homepage", artworks_path %>
             </div>
           </div>
         </div>
