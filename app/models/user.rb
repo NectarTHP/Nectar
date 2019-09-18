@@ -5,11 +5,13 @@ class User < ApplicationRecord
   devise :database_authenticatable, :registerable,
          :recoverable, :rememberable, :validatable
   
+  has_one :cart, dependent: :destroy
   has_many :artworks, dependent: :destroy
-  has_many :carts, dependent: :destroy
-  has_many :transactions, dependent: :destroy
+  has_many :orders, dependent: :destroy
   has_many :comments, dependent: :destroy
   has_many :favorites, dependent: :destroy
+
+  after_create :create_cart
 
   def welcome_send
     UserMailer.welcome_email(self).deliver_now
@@ -22,6 +24,10 @@ class User < ApplicationRecord
       artistname = username
     end
     return artistname
+  end
+
+  def create_cart
+    Cart.create!(user_id: self.id)
   end
 
 end

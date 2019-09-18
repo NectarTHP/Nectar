@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_09_16_093003) do
+ActiveRecord::Schema.define(version: 2019_09_18_100353) do
 
   # These are extensions that must be enabled in order to support this database
   enable_extension "plpgsql"
@@ -49,15 +49,14 @@ ActiveRecord::Schema.define(version: 2019_09_16_093003) do
     t.string "tag"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
+    t.boolean "is_sold", default: false, null: false
     t.index ["user_id"], name: "index_artworks_on_user_id"
   end
 
   create_table "carts", force: :cascade do |t|
     t.bigint "user_id"
-    t.bigint "artwork_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artwork_id"], name: "index_carts_on_artwork_id"
     t.index ["user_id"], name: "index_carts_on_user_id"
   end
 
@@ -89,16 +88,31 @@ ActiveRecord::Schema.define(version: 2019_09_16_093003) do
     t.index ["user_id"], name: "index_likes_on_user_id"
   end
 
-  create_table "transactions", force: :cascade do |t|
-    t.bigint "user_id"
+  create_table "line_items", force: :cascade do |t|
+    t.bigint "cart_id"
     t.bigint "artwork_id"
-    t.integer "item_qty"
-    t.integer "order_number"
+    t.bigint "order_id"
+    t.integer "quantity"
     t.string "tracking_number"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
-    t.index ["artwork_id"], name: "index_transactions_on_artwork_id"
-    t.index ["user_id"], name: "index_transactions_on_user_id"
+    t.index ["artwork_id"], name: "index_line_items_on_artwork_id"
+    t.index ["cart_id"], name: "index_line_items_on_cart_id"
+    t.index ["order_id"], name: "index_line_items_on_order_id"
+  end
+
+  create_table "orders", force: :cascade do |t|
+    t.string "first_name"
+    t.string "last_name"
+    t.string "email"
+    t.string "mobile"
+    t.string "adress"
+    t.string "city"
+    t.string "country"
+    t.bigint "user_id"
+    t.datetime "created_at", null: false
+    t.datetime "updated_at", null: false
+    t.index ["user_id"], name: "index_orders_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
@@ -132,7 +146,6 @@ ActiveRecord::Schema.define(version: 2019_09_16_093003) do
 
   add_foreign_key "active_storage_attachments", "active_storage_blobs", column: "blob_id"
   add_foreign_key "artworks", "users"
-  add_foreign_key "carts", "artworks"
   add_foreign_key "carts", "users"
   add_foreign_key "comments", "artworks"
   add_foreign_key "comments", "users"
@@ -140,6 +153,8 @@ ActiveRecord::Schema.define(version: 2019_09_16_093003) do
   add_foreign_key "favorites", "users"
   add_foreign_key "likes", "artworks"
   add_foreign_key "likes", "users"
-  add_foreign_key "transactions", "artworks"
-  add_foreign_key "transactions", "users"
+  add_foreign_key "line_items", "artworks"
+  add_foreign_key "line_items", "carts"
+  add_foreign_key "line_items", "orders"
+  add_foreign_key "orders", "users"
 end
