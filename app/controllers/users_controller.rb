@@ -9,8 +9,10 @@ class UsersController < ApplicationController
   end
 
   def show
-        @users = User.find(params[:id])
-    flash[:notice] = "Please complete your profil or press the skip button to complete your profil later"
+        @user = User.find(params[:id])
+        @artworks = @user.artworks 
+            flash[:notice] = "Please complete your profil or press the skip button to complete your profil later"
+             
   end
 
   def update
@@ -30,7 +32,6 @@ class UsersController < ApplicationController
     render :edit
 end
 end
-
 
   def edit
     @users = User.find(params[:id])
