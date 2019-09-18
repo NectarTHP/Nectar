@@ -30,9 +30,9 @@ class ChargesController < ApplicationController
     @cart.line_items.each do |item|
       item.update(order_id: @order.id)
       item.update(cart_id: nil)
-      puts item
+      item.artwork.update(is_sold: true)
     end
-    
+        
     flash[:notice] = 'You payment was successfuly processed'
 
     redirect_to artworks_path
