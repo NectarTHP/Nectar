@@ -13,8 +13,8 @@ class Cart < ApplicationRecord
     return sum
   end
   
-  def current_cart
-    Cart.where(user_id: current_user.id)
+  def self.current_cart_id
+    self.all.find_by(user_id: current_user.id)
   end
 
   def destroy

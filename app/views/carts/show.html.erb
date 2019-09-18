@@ -3,18 +3,24 @@
       data-top-top="transform: translateY(0px);" 
       data-top-bottom="transform: translateY(-250px);"></div>
   <div class="container">
-    <div class="row justify-content-center align-items-end vh-60 mb-5">
+    <div class="row justify-content-center align-items-end mt-10 mb-5">
       <div class="col col-md-10 col-lg-8">
         <div class="row align-items-center">
-          <div class="col-4 col-lg-3">
+          <div class="col-4 col-lg-12">
             
-            <h2 mt-5>Your cart</h2>
+            <h2>Your cart</h2>
+            <%if @cart.line_items == []%>
+            <div class="text-center">Your cart is empty, but you can...</div>
+            <div class="text-center"><%= link_to "Browse artwork collection", artworks_path, class: "btn btn-primary btn-sm"%></div>
+            </div>
+            <%end%>
+
             <ul>
               <% @cart.line_items.each do |line_item| %>
                 <li>Item: <%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price) %> - <%= link_to "Remove item", line_item_path(line_item), method: :delete %>
                 <% end %>
               </ul>
-              <h3>Subd total: <%= number_to_currency(@cart.cart_total) %></h3>
+              <div>Sub total: <%= number_to_currency(@cart.cart_total) %></div>
               <%= link_to "Proceed to checkout", new_order_path %><br>
               <%= link_to "Empty cart", cart_path(@cart),method: :delete, data: {confirm: "Are you sure?"}%><br>
               <%= link_to 'Back', :back %>
