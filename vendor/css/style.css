@@ -7162,7 +7162,7 @@ a.text-dark:hover, a.text-dark:focus {
   overflow: hidden; }
 
 .bg-blue {
-  background-color: #333033 !important; }
+  background-color: #0030AE !important; }
 
 a.bg-blue:hover, a.bg-blue:focus,
 button.bg-blue:hover,
@@ -7178,7 +7178,7 @@ button.bg-indigo:focus {
   background-color: #510bc4 !important; }
 
 .bg-purple {
-  background-color: #333033!important; }
+  background-color: #4829B2 !important; }
 
 a.bg-purple:hover, a.bg-purple:focus,
 button.bg-purple:hover,
@@ -14740,7 +14740,7 @@ section[class*="small"] {
     margin-bottom: 1.875rem; } }
 
 .logo-sm {
-  max-height: 3rem; }
+  max-height: 2rem; }
 
 img {
   max-width: 100%; }
@@ -15213,7 +15213,7 @@ footer {
   padding-right: 0; }
 
 .navbar-brand {
-  height: 90px;
+  height: 46px;
   margin-top: .5rem;
   margin-bottom: .5rem;
   margin-right: 3rem; }
