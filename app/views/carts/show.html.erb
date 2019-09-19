@@ -35,7 +35,7 @@
               <th scope="row"><%= link_to '<< Back to collection', artworks_path %></th>
               <td class="font-weight-bold">Cart total:</td>
                             <td class="font-weight-bold"><%= number_to_currency(@cart.cart_total, unit: "€") %></td>
-              <td><%= link_to "Proceed to checkout >>", new_order_path, class: "btn btn-warning btn-sm" %></td>
+              <td><%= link_to "Checkout now >>", new_order_path, class: "btn btn-primary" %></td>
 
               </tr>
               </tbody>
