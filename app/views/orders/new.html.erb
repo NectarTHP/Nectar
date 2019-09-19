@@ -1,31 +1,62 @@
-<h1>Checkout page</h1>
 
-<h4><i class="icon-map-pin2 fs-40 mb-1 text-purple"></i>Your order will be shipped to this adress :</h4>
-<p>
-  <%= current_user.first_name %> <%= current_user.last_name %><br>
-  <%= current_user.adress %><br>
-  <%= current_user.zipcode %> <%= current_user.city %>
-</p>
-<h4><i class="icon-check-circle2 fs-24 mr-2 text-primary"></i>You order contains the following :</h4>
-<ul>
-  <% @cart.line_items.each do |line_item| %>
-    <li><%= line_item.artwork.name %>/ Price: <%= number_to_currency(line_item.artwork.price, unit: "€") %>
-    <% end %>
-  </ul>
-  <%= form_tag charges_path do %>
-    <article>
-      <% if flash[:error].present? %>
-        <div id="error_explanation">
-          <p><%= flash[:error] %></p>
+  <section class="p-0 bg-light">
+  <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-11.jpg)"
+      data-top-top="transform: translateY(0px);" 
+      data-top-bottom="transform: translateY(-250px);"></div><br>
+  <div class="container">
+    <div class="row justify-content-center align-items-end mt-10 mb-5">
+      <div class="col col-md-10 col-lg-8">
+        <div class="row align-items-center">
+          <div class="col-4 col-lg-12">
+            <h2>Checkout and payment </h2><br>
+            <tr>
+            </div>
+            <h3><i class="icon-map-pin2 fs-25 mr-2 text-purple"></i>Your order will be shipped to this adress : </h3>
+            <h2><%= current_user.adress%> </h2><br>
+            <h3><i class="icon-check-circle2 fs-25 mr-2 text-primary"></i>You order contains the following items:</h3>
+            <table class="table">
+              <thead>
+                <tr class="font-weight-bold">
+                  <th class="font-weight-bold" scope="col">Artwork</th>
+                  <th class="font-weight-bold" scope="col">Artist</th>
+                  <th class="font-weight-bold" scope="col">Price</th>
+                </tr>
+              </thead>
+              <tbody>
+                <% @cart.line_items.each do |line_item| %>
+                  <tr>
+                    <th scope="row"><%= line_item.artwork.name %></th>
+                    <td><%= line_item.artwork.user.artistname %></td>
+                    <td><%= number_to_currency(line_item.artwork.price, unit: "€") %></td>
+                  </tr>
+                <tr>
+              <td class="font-weight-bold">Cart total:</td>
+                            <td class="font-weight-bold"><%= number_to_currency(@cart.cart_total, unit: "€") %></td>
+              <td>
+              <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+                data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+                data-description="Artworks from Nectar website"
+                data-amount="<%=@cart.cart_total*100%>"
+                data-currency="eur"
+                data-locale="auto"
+                data-label="Pay now!">
+              </script>
+             </td>
+
+              </tr>
+              </tbody>
+            </table>
+
+              
+
+
+
+            <%end%>
+          </div>
         </div>
-      <% end %>
-      <h4>Total: <%= number_to_currency(@cart.cart_total) %></h4>
-    </article>
-    <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
-          data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
-          data-description="Artworks from Nectar website"
-          data-amount="<%=@cart.cart_total*100%>"
-          data-currency="eur"
-          data-locale="auto"
-          data-label="Pay now!"></script>
-  <% end %>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
