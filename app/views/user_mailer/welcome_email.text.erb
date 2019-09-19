@@ -1,8 +1,11 @@
-Hello <%= @user.email %> and welcome here !
-==========================================================
- 
-You've suscribe on this website using this email adress : <%= @user.email %>.
- 
-To connect to your profile, connect with : <%= @url %>.
- 
-See you soon on monsite.fr !
+Hello <%= @user.first_name %> and welcome to our artist community !
+
+
+You are subscribed with the following email : <%= @user.email %>.
+
+To access your user profile, click the following link : <%= user_session(@user.id) %>.
+
+The Nectar Team
+© NECTAR. 2019 ALL RIGHT RESERVED
+
++33 (0) 635 389 512

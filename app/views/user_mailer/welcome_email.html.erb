@@ -4,13 +4,18 @@
     <meta content='text/html; charset=UTF-8' http-equiv='Content-Type' />
   </head>
   <body>
-    <h1>Salut <%= @user.email %> et bienvenue chez nous !</h1>
+    <h1>Hello <%= @user.first_name %> and welcome to our artist community !</h1>
     <p>
-      Tu t'es inscrit sur monsite.fr en utilisant l'e-mail suivant : <%= @user.email %>.
+      You are subscribed with the following email : <%= @user.email %>.
     </p>
     <p>
-      Pour accéder à ton espace client, connecte-toi via : <%= @url %>.
+      To access your user profile, click the following link : <%= user_session(@user.id) %>.
     </p>
-    <p> À très vite sur monsite.fr !
+     <p>The Nectar Team</p>
+
+    <p><img class="navbar-logo navbar-logo-dark" src="../../assets/demo/logo/nectar-dark6.png" alt="Logo"></p>
+    <p>© NECTAR. 2019 ALL RIGHT RESERVED</p>
+
+    <p>+33 (0) 635 389 512</p>
   </body>
 </html>
