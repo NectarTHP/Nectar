@@ -24,7 +24,11 @@
           <ul class="navbar-nav align-items-center mr-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%=current_user.first_name%> <%=current_user.last_name%>
+                <%if current_user.first_name == nil%>
+                  Menu
+                <%else%>
+                  <%=current_user.first_name%> <%=current_user.last_name%>
+                <%end%>
               </a>
               <div class="dropdown-menu" aria-labelledby="navbarDropdown">
                 <a class="dropdown-item" href="<%=edit_user_path(current_user.id)%>"> <i class="fas fa-user"></i>  My profile</a>
