@@ -31,7 +31,7 @@
                   </tr>
                 <tr>
               <td class="font-weight-bold">Cart total:</td>
-                            <td class="font-weight-bold"><%= number_to_currency(@cart.cart_total, unit: "€") %></td>
+                  <td class="font-weight-bold"><%= number_to_currency(@cart.cart_total, unit: "€") %></td>
               <td>
               <script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
                 data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
@@ -42,16 +42,10 @@
                 data-label="Pay now!">
               </script>
              </td>
-
               </tr>
               </tbody>
+              <%end%>
             </table>
-
-              
-
-
-
-            <%end%>
           </div>
         </div>
       </div>
