@@ -14,4 +14,10 @@ Rails.application.routes.draw do
   resources :carts
   resources :likes
   resources :orders
+
+  # routes for static_pages :
+
+  get "/contact_us", to: "static_pages#contact_us", :as => 'contact'
+  get "/about_us", to: "static_pages#about_us", :as => 'about'
+  get "/faq", to: "static_pages#faq", :as => 'faq'
 end
