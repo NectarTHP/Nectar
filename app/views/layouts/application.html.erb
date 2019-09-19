@@ -1,3 +1,4 @@
+ 
 <!DOCTYPE html>
 <html>
   <head>
@@ -9,8 +10,10 @@
   </head>
  
     
-      <%= render 'layouts/alerts' %>
+  <%= render 'layouts/alerts' %>
+  <%= render 'layouts/navbar' %>
 
+<<<<<<< HEAD
 <!-- scripts -->
 
     <script src="../../vendor/js/notif.js"></script>
@@ -133,12 +136,20 @@
 <!-- Footer -->
 <% end %>
 
+=======
+<%=yield%>
+
+<%= render 'layouts/footer' %>
+>>>>>>> 1f9fe91d666132a072adaa8a23025f4e44e1c300
     <!-- scripts -->
 
     <script>
       setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
       setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
     </script>
+    <script src="../../assets/javascripts/application.js"></script>
+    <script src="../../assets/stylesheets/application.css"></script>
+    <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
 
   
 </html>

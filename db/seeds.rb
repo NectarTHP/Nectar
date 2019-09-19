@@ -17,7 +17,7 @@ User.destroy_all
 
 #A single test user
 user = User.create(email: "user@user.com", password: "azerty", is_admin: false, first_name: "John", last_name: "Doe", username:"Banski", adress:"23 rue du haque", city: "Paris" )
-admin = User.create(email: "admin@admin.com", password: "azerty", is_admin: true)
+admin = User.create(email: "admin@admin.com", password: "azerty", is_admin: true, first_name: "David", last_name: "Etjonathan", username:"Hutch", adress:"1 allée Vouzan", city: "Marseille")
 
 artwork = Artwork.create(
   user_id: user.id,
