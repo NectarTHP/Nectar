@@ -7,17 +7,18 @@
     <%= csp_meta_tag %>
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
+
   </head>
   <body>
     
-  <%= render 'layouts/alerts' %>
+<header>
   <%= render 'layouts/navbar' %>
-
-<%=yield%>
-
+</header>
+<%= render 'layouts/alerts' %>
+    <%=yield%>
 <%= render 'layouts/footer' %>
-    <!-- scripts -->
 
+<!-- scripts -->
     <script>
       setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
       setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
@@ -25,6 +26,7 @@
     <script src="../../assets/javascripts/application.js"></script>
     <script src="../../assets/stylesheets/application.css"></script>
     <script src="https://use.fontawesome.com/releases/v5.10.2/js/all.js" data-auto-replace-svg="nest"></script>
-
+    <script src="https://kit.fontawesome.com/2b6f635bf2.js"></script>
+<!-- /scripts -->
   </body>
 </html>
