@@ -72,3 +72,4 @@ gem 'devise', '~>4.7.1'
 gem 'jquery-rails'
 gem 'aws-sdk-s3', require: false
 gem 'faker'
+gem 'font-awesome-sass', '~> 5.10.2'
