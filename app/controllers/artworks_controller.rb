@@ -22,6 +22,11 @@ class ArtworksController < ApplicationController
   def create
     @artwork = Artwork.new(artwork_params)
 
+    @user = User.find(params[:user_id])
+    @user.artwork.attach(params[:artwork])
+    redirect_to(user_path(@user))
+
+
     respond_to do |format|
       if @artwork.save
         format.html { redirect_to @artwork, notice: 'Artwork was successfully created.' }
