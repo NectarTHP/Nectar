@@ -5,7 +5,6 @@ class ArtworksController < ApplicationController
 
   def index
     @artworks = Artwork.unsold
-    @artwork = Artwork.new
   end
 
   def show
