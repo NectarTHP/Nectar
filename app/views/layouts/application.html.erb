@@ -1,9 +1,20 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>ProjetFinal</title>
+    <title><%= (yield(:title) + " - " unless yield(:title).blank?).to_s + "Nectar FinalProject" %></title>
     <%= csrf_meta_tags %>
     <%= csp_meta_tag %>
+<<<<<<< HEAD
+    <%= stylesheet_link_tag    'application', media: 'all' %>
+    <%= javascript_include_tag 'application' %>
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+  </head>
+  <body class="bg-light">
+    <%= render 'layouts/navbar' %>
+    <%=yield%>
+    <%= render 'layouts/footer' %>
+=======
 
     <%= stylesheet_link_tag    'application', media: 'all', 'data-turbolinks-track': 'reload' %>
     <%= javascript_include_tag 'application', 'data-turbolinks-track': 'reload' %>
@@ -17,8 +28,12 @@
   <body>
     <%= yield %>
 
+>>>>>>> master
     <!-- scripts -->
-    <script src="../vendor/js/vendor.js"></script>
-    <script src="../vendor/js/app.js"></script>
+    <script>
+      setTimeout("$('.error_msgs').fadeOut('slow')", 6000)
+      setTimeout("$('.success_msgs').fadeOut('slow')", 3000)
+    </script>
+    <!-- /scripts -->
   </body>
 </html>

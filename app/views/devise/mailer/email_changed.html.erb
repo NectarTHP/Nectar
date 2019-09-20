@@ -1,0 +1,16 @@
+<p>Hello <p><%= @user.first_name %> !</p>
+
+<p>We would like to send you a small reminder, considering your recent profile modifications.</p>
+<% if @resource.try(:unconfirmed_email?) %>
+  <p>Your that your email is being changed to <%= @resource.unconfirmed_email %>.</p>
+<% else %>
+  <p>Your that your email has been changed to <%= @resource.email %>.</p>
+<% end %>
+ <p>In case it was not you please immediately contact our client service !</p>
+
+ <p>The Nectar Team</p>
+
+<p><img class="navbar-logo navbar-logo-dark" src="../../assets/demo/logo/nectar-dark6.png" alt="Logo"></p>
+<p>© NECTAR. 2019 ALL RIGHT RESERVED</p>
+
+<p>+33 (0) 635 389 512</p>

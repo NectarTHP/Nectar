@@ -1,0 +1,5 @@
+<small>Order #<%= @order.id %> - <%= @order.created_at.strftime("%F") %> - <%= @order.first_name %>
+<%= @order.last_name %></small>
+<% @line_items.each do |line| %>
+  <p> <%=line.artwork.name%> - <%=line.artwork.user.artistname%> - <%=number_to_currency(line.artwork.price, unit:"€")%></p>
+  <%end%>

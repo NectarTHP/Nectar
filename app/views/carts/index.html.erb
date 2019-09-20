@@ -1,0 +1,47 @@
+<section>
+<p id="notice"><%= notice %></p>
+<br> <br> <br>
+<h3>Your Cart</h3>
+<section>
+<table>
+  <thead>
+    <tr>
+      <th>Cart ID</th>
+      <th>User ID</th>
+      <th>Artwork</th>
+      <th>Price</th>
+
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @cart.each do |cart| %>
+      <tr>
+        <td><%= cart.id %></td>
+        <td><%= cart.user.id %></td>
+        <td><%= cart.artwork.name %></td>
+        <td><%= cart.artwork.price %></td>
+</section>
+<section>
+        <td><%= link_to 'Show', artwork_path(cart.artwork.id) %></td>
+        <td><%= link_to 'Destroy', cart, method: :delete, data: { confirm: 'Are you sure?' } %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+</section>
+<br>
+
+<p><strong>TOTAL PRICE : <%=@cart_total%></strong></p>
+<br>
+
+<script src="https://checkout.stripe.com/checkout.js" class="stripe-button"
+data-key="<%= Rails.configuration.stripe[:publishable_key] %>"
+data-description="Artwork from Nectar website"
+data-amount="<%=@cart_total*100%>"
+data-currency="eur"
+data-locale="auto"></script>
+<!-- returns to previous navigated page -->
+<%= link_to "Back", request.referer.present? ? request.referer : root_path %>
+</section>

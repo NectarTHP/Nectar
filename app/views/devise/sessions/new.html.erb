@@ -1,0 +1,39 @@
+  <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
+    <div class="viewport">
+      <div class="image image-overlay" style="background-image: url(../../assets/images/demo/coworking/coworking-small-11.jpg);"></div>
+      <div class="container">
+        <div class="row justify-content-center align-items-center vh-100">
+          <div class="col-md-6 col-lg-5">
+            <div class="accordion-group accordion-group-portal" data-accordion-group>
+              <div class="accordion open" data-accordion>
+                <div class="accordion-control" data-control>
+                  <h5>Welcome Back</h5>
+                </div>
+                <div class="accordion-content" data-content>
+                  <div class="accordion-content-wrapper">
+                    <form>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput1">Email address</label>
+                        <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control" %>
+                      </div>
+                      <div class="form-group">
+                        <label for="exampleFormControlInput2">Password</label>
+                        <%= f.password_field :password, autocomplete: "current-password", class: "form-control" %>
+                      </div>
+                      <%= f.submit "Sign in", class: "btn btn-primary btn-block" %>
+                      <br>
+                      <h5><%= link_to "Forgot your password?", new_password_path(resource_name) %></h5>
+                      <h5><%= link_to "Create account", new_user_registration_path %></h5>
+
+                    </form>
+                  </div>
+                </div>
+                <% end %>
+              </div>
+
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+   
