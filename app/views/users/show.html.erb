@@ -35,6 +35,53 @@
           <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Avatar</a>
           <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Password</a>
           <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-4"> Settings </a>
+    </section>
+
+
+
+    <section class="bg-light pt-2">
+
+      <div class="container">
+        <div class="tab-content" id="demo-2">
+
+          <!-- tab info -->
+          <div class="tab-pane" id="demo-2-1" role="tabpanel" aria-labelledby="demo-2-1">
+            <div class="row justify-content-center">
+              <div class="col-md-10 col-lg-8">
+
+              <!-- pricing -->
+              
+
+                                               
+    <section class="bg-light">
+      <div class="container">
+        <div class="row justify-content-center">
+            
+              <% @artworks.each do |u| %>
+                <div class="col-md-6">
+
+                <div class="card card-price rising mb-5">
+                  <div class="card-body">
+                    <img src="<%=u.picture_url%>" alt="Image">
+                    <h5 class="card-title pt-1"><%= u.name %> | <%= u.price %> € </h5>
+                    <div class="card-title font-italic" style="margin-top: -1em">in <%= u.categorie %> </div>
+                    <ul class="list-group list-group-minimal pt-0 pb-0">
+                      <li class="list-group-item text-muted"><%= u.description %> </li>
+                      <li class="list-group-item text-orange"> -> <%= u.weight %> grams -> <%= u.size %> cm</li>
+                    </ul>
+                    
+                    
+                    <div class="tag-cloud pt-2">
+                      <a href=""> <%= u.tag %> </a>
+                    </div>
+                    
+                  </div>
+                  </div>
+                
+              </div>
+              <% end %> 
+
+
         </div>
       </div>
     </div>
