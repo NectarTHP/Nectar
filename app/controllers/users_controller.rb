@@ -11,7 +11,10 @@ class UsersController < ApplicationController
   def show
         @user = User.find(params[:id])
         @artworks = @user.artworks
-        @artwork = Artwork.find(params[:id])
+        if current_user.is_artist
+          @artwork = Artwork.find(params[:id])
+        end
+        @artwork = nil
         
   end
 
