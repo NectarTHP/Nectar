@@ -11,51 +11,173 @@ Favorite.destroy_all
 LineItem.destroy_all
 Like.destroy_all
 Comment.destroy_all
+Order.destroy_all
 Cart.destroy_all
 Artwork.destroy_all
 User.destroy_all
 
-#A single test user
-user = User.create(email: "user@user.com", password: "azerty", is_admin: false, first_name: "John", last_name: "Doe", username:"Banski", adress:"23 rue du haque", city: "Paris" )
-admin = User.create(email: "admin@admin.com", password: "azerty", is_admin: true, first_name: "David", last_name: "Etjonathan", username:"Hutch", adress:"1 allée Vouzan", city: "Marseille")
-
-artwork = Artwork.create(
+#Full dataset for artist 1.
+user = User.create(
+  email: "artist1@artist.com", 
+  password: "azerty", 
+  comment: Faker::Quote.famous_last_words,
+  is_admin: false, 
+  is_artist: true, 
+  username:"Banski", 
+  first_name: "John", 
+  last_name: "Doe", 
+  bio: Faker::Lorem.paragraph,
+  dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65),
+  siret: "THP6765CR",
+  adress:"23 rue du haque",
+  zipcode: "92100", 
+  city: "Paris",
+  country: "France",
+  mobile: Faker::PhoneNumber.phone_number
+  )
+Artwork.create(
   user_id: user.id,
   name: "Mona Lisa",
   description: "A women staring at the viewer with a quirky smile",
-  price: 12750,
+  price: 3750,
   picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
-  categorie: "A category",
+  categorie: "Oil on canvas",
   weight: 23,
   size: 9500,
   sale: Date.today,
-  tag: "A tag"
-)
-
+  tag: "Portrait"
+  )
 Artwork.create(
   user_id: user.id,
   name: "Vincent van Gogh",
   description: Faker::Quote.most_interesting_man_in_the_world,
-  price: rand(10..10000),
+  price: rand(10..5000),
   picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg/800px-Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg",
+  categorie: "Oil on canvas",
   weight: 11,
   size: 111,
   sale: Date.today,
-  tag: "A tag"
+  tag: "Portrait",
   )
-
+Artwork.create(
+  user_id: user.id,
+  name: "Narcisse",
+  description: Faker::Quote.most_interesting_man_in_the_world,
+  price: rand(10..5000),
+  picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Narcissus-Caravaggio_%281594-96%29.jpg/800px-Narcissus-Caravaggio_%281594-96%29.jpg",
+  categorie: "Oil on canvas",
+  weight: 11,
+  size: 111,
+  sale: Date.today,
+  tag: "Oil on wood"
+  )
+  #Create 5 more random artworks for artist 
+5.times do
+  picsum_id = rand(1..1000)
   Artwork.create(
-    user_id: admin.id,
-    name: "Narcisse",
+    user_id: user.id,
+    name: Faker::Book.title,
     description: Faker::Quote.most_interesting_man_in_the_world,
-    price: rand(10..10000),
-    picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Narcissus-Caravaggio_%281594-96%29.jpg/800px-Narcissus-Caravaggio_%281594-96%29.jpg",
+    price: rand(10..5000),
+    picture_url: "https://picsum.photos/id/#{picsum_id}/600/600",
+    categorie: Faker::Hacker.adjective,
     weight: 11,
     size: 111,
     sale: Date.today,
-    tag: "A tag"
+    tag: Faker::Hacker.adjective
     )
+end
+puts "Dataset for artist 1 created"
+#Full dataset for artist 1 /
 
+#Create 9 random artists
+9.times do
+  User.create(
+    email: Faker::Internet.email, 
+    password: "azerty", 
+    comment: Faker::Quote.famous_last_words,
+    is_admin: false, 
+    is_artist: true, 
+    username: Faker::FunnyName.name, 
+    first_name: Faker::Name.first_name, 
+    last_name: Faker::Name.last_name, 
+    bio: Faker::Lorem.paragraph,
+    dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65),
+    siret: "THP6765CR",
+    adress: Faker::Address.street_address,
+    zipcode: Faker::Address.zip_code, 
+    city: Faker::Address.city,
+    country: Faker::Address.country,
+    mobile: Faker::PhoneNumber.phone_number
+    )
+end
+puts "9 random artists created"
+
+#Create 30 random artworks 
+30.times do
+  picsum_id = rand(1..1000)
+  Artwork.create(
+    user_id: User.all.sample.id,
+    name: Faker::Book.title,
+    description: Faker::Quote.most_interesting_man_in_the_world,
+    price: rand(10..5000),
+    picture_url: "https://picsum.photos/id/#{picsum_id}/600/600",
+    categorie: Faker::Hacker.adjective,
+    weight: 11,
+    size: 111,
+    sale: Date.today,
+    tag: Faker::Hacker.adjective
+    )
+end
+puts "30 artworks created"
+
+#Full dataset for user 1
+user = User.create(
+  email: "user1@user.com", 
+  password: "azerty", 
+  comment: Faker::Quote.famous_last_words,
+  is_admin: false, 
+  is_artist: true, 
+  username:"Johnny", 
+  first_name: "John", 
+  last_name: "Doe", 
+  bio: Faker::Lorem.paragraph,
+  dateofbirth: Faker::Date.birthday(min_age: 18, max_age: 65),
+  siret: "THP6765CR",
+  adress:"1 allée Vouzan",
+  zipcode: "13009", 
+  city: "Marseille",
+  country: "France",
+  mobile: Faker::PhoneNumber.phone_number
+  )
+3.times do
+  Order.create(
+    user_id: user.id,
+    first_name: user.first_name,
+    last_name: user.last_name,
+    email: user.email,
+    mobile: user.mobile,
+    adress: user.adress,
+    city: user.city,
+    country: user.country,
+  )
+end
+10.times do
+  LineItem.create(
+    artwork_id: Artwork.all.sample.id,
+    order_id: Order.all.sample.id,
+    quantity: 1,
+    tracking_number: "12COLIS4PERDU"
+  )
+end
+puts "10 line items created"
+#Full dataset for user 1 /
+
+#Full dataset for artist 1
+
+
+
+#Create random users 
 10.times do 
   User.create!(email: Faker::Internet.email, password: 123456,
    is_artist: Faker::Boolean.boolean, is_admin: Faker::Boolean.boolean, username: Faker::FunnyName.name,
@@ -67,29 +189,6 @@ end
 puts "10 users were created"
 
 
-20.times do
-  picsum_id = rand(1..100)
-  Artwork.create(
-  user_id: User.all.sample.id,
-  name: Faker::Book.title,
-  description: Faker::Quote.most_interesting_man_in_the_world,
-  price: rand(10..10000),
-  picture_url: "https://picsum.photos/id/#{picsum_id}/600/600",
-  weight: 11,
-  size: 111,
-  sale: Date.today,
-  tag: "A tag"
-  )
-end
-puts "20 artworks created"
-
-10.times do
-  Favorite.create(
-    user_id: User.all.sample.id,
-    artwork_id: Artwork.all.sample.id
-  )
-end
-puts "10 favorites created"
 
 10.times do
   LineItem.create(
@@ -102,19 +201,5 @@ puts "10 favorites created"
 end
 puts "10 line items created"
 
-10.times do
-  Like.create(
-    user_id: User.all.sample.id,
-    artwork_id: Artwork.all.sample.id
-  )
-end
-puts "10 likes created"
 
-20.times do
-  Comment.create(
-    user_id: User.all.sample.id,
-    artwork_id: Artwork.all.sample.id,
-    comment: Faker::Lorem.paragraph_by_chars(number: 256, supplemental: false)
-  )
-end
-puts "20 comments created"
+
