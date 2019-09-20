@@ -17,5 +17,3 @@
 
 //= require js/vendor.js
 //= require js/app.js
-
-
