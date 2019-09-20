@@ -1,7 +1,7 @@
 # NECTAR
 
 
-## Links
+### Links
 
 
 Staging link: https://nectar-staging.herokuapp.com/
@@ -30,8 +30,8 @@ New artwork pieces and existing ones can be added, eddited or deleted from withi
 The payment system uses an external service that provides a secure transaction for our users.
 Thank you for your time and we hope that you will enjoy our application.
 
-
-# The Nectar Team
+----------
+### The Nectar Team
 
 Thibault Collard
 
@@ -39,7 +39,7 @@ Frédéric Lugbull
 
 Jerome Lena
 
-Azzedine MENGUIT
+Azzedine Menguit
 
 José Polit
 
@@ -64,6 +64,7 @@ Step 5: rails server
 
 
 further:
+
 Step 1: heroku restart
 
 Step 2: heroku pg:reset DATABASE (no need to change the DATABASE)
@@ -78,6 +79,8 @@ Step 4: heroku run rake db:seed (if you have seed)
 
 
  - after_create for Sendgrid was dissactivated, as it created a conflict with the sign-up function.
+
+
 Dependencies and gems used :
 
 ```
