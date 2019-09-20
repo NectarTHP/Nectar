@@ -14,4 +14,7 @@ Rails.application.routes.draw do
   resources :carts
   resources :likes
   resources :orders
+
+
 end
+

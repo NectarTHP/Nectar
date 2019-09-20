@@ -1,62 +1,40 @@
-
-    <hr>
-    </br>
-
-    
-      <tr>
-
-
-        
-      </tr>
-    
-
-
-    <section class="p-0 bg-light">
-      <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-11.jpg)"
+<section class="p-0 bg-light">
+  <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-11.jpg)"
       data-top-top="transform: translateY(0px);" 
       data-top-bottom="transform: translateY(-250px);"></div>
-        <div class="container">
-          <div class="row justify-content-center align-items-end vh-50 mb-5">
-            <div class="col col-md-10 col-lg-8">
-              <div class="row align-items-center">
-                <div class="col-4 col-lg-3">
-
-              <%if @user.avatar.attached?%>
-                <%= image_tag @user.avatar, alt: 'avatar', class:'mr-3 avatar avatar-xl rounded' %>
-              <%else%>
-                <p>No avatar </p>
-              <%end%>
-              
-                </div>
-                  <div class="col">
-                    <div class="row align-items-center">
-                      <div class="col-md-8">
-                    <h2 class="mb-0"><b><%= @user.first_name %> </b> <%= @user.last_name %> </h2>
-                    <span class="text-muted"><%= @user.bio %> </span>
-                      </div>
-                    </div>
-                  </div>
-                </div>
+  <div class="container">
+    <div class="row justify-content-center align-items-end vh-50 mb-5">
+      <div class="col col-md-10 col-lg-8">
+        <div class="row align-items-center">
+          <div class="col-4 col-lg-3">
+            <%if @user.avatar.attached?%>
+              <%= image_tag @user.avatar, alt: 'avatar', class:'mr-3 avatar avatar-xl rounded' %>
+            <%else%>
+              <p>No avatar </p>
+            <%end%>
+          </div>
+          <div class="col">
+            <div class="row align-items-center">
+              <div class="col-md-8">
+                <h2 class="mb-0"><b><%= @user.first_name %> </b> <%= @user.last_name %> </h2>
+                <span class="text-muted"><%= @user.bio %> </span>
               </div>
-           </div>
-        </div>
-    </section>
-
-
-    <section class="bg-light p-0">
-      <div class="container">
-        <div class="row justify-content-center">
-          <div class="col col-md-10 col-lg-8">
-            <div class="nav nav-tabs mb-1">
-              <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-1"> Artworks</a>
-              <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Avatar</a>
-              <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Password</a>
-              <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-4"> Settings </a>
-              
             </div>
           </div>
         </div>
       </div>
+    </div>
+  </div>
+</section>
+<section class="bg-light p-0">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col col-md-10 col-lg-8">
+        <div class="nav nav-tabs mb-1">
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-1"> Artworks</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Avatar</a>
+          <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Password</a>
+          <a class="nav-item nav-link active" data-toggle="tab" href="#demo-2-4"> Settings </a>
     </section>
 
 
@@ -106,186 +84,177 @@
 
         </div>
       </div>
-    </section>
-    
-    <!-- / pricing →
-                
-                <!-- stats -->
-                <div class="row gutter-1 mb-2">
-                </div>
-                <!-- / stats -->
-
-
-
-                
-
-              </div>
-            </div>
-          </div>
-          <!-- / tab -->
-
-
-          <!-- tab connections -->
-          <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2">
-          <h3></h3>
-
-
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="row gutter-1">
-                  <div class="col-12">
-                    <div class="boxed p-2">
-                      <div class="row align-items-center justify-content-between">
-                      <h3>Create or update your avatar</h3>
-                        <div class="col-10">
-                          <div class="media align-items-center">
-                          
-                              <%if @user.avatar.attached?%>
-                                <%= image_tag @user.avatar, alt: 'avatar' %>
-                              <%else%>
-                                <p> No avatar attached</p>
-                              <%end%>
-                          <%= form_tag user_avatars_path(@user), multipart: true do %>
-                          <div class="btn btn-secondary btn-block">
-                          <%= file_field_tag :avatar %>
-                          </div>
-                          <%= submit_tag "mettre à jour", class:"btn btn-secondary btn-block" %>
-                          <% end %>
+    </div>
+  </div>
+</section>
+<section class="bg-light pt-2">
+  <div class="container">
+    <div class="tab-content" id="demo-2">
+      <!-- tab info -->
+      <div class="tab-pane" id="demo-2-1" role="tabpanel" aria-labelledby="demo-2-1">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <!-- pricing -->
+            <section class="bg-light">
+              <div class="container">
+                <div class="row justify-content-center">
+                  <% @artworks.each do |u| %>
+                    <div class="col-md-6">
+                      <div class="card card-price rising mb-5">
+                        <div class="card-body">
+                          <img src="<%=u.picture_url%>" alt="Image">
+                          <h5 class="card-title pt-1"><%= u.name %> | <%= u.price %> € </h5>
+                          <div class="card-title font-italic" style="margin-top: -1em">in <%= u.categorie %> </div>
+                          <ul class="list-group list-group-minimal pt-0 pb-0">
+                            <li class="list-group-item text-muted"><%= u.description %> </li>
+                            <li class="list-group-item text-orange"> -> <%= u.weight %> grams -> <%= u.size %> cm</li>
+                          </ul>
+                          <div class="tag-cloud pt-2">
+                            <a href=""> <%= u.tag %> </a>
                           </div>
                         </div>
+                        <%= link_to 'Edit', edit_artwork_path(@artwork), method: :get %>
+                        <%= link_to 'Delete', artwork_path(@artwork), method: :delete %>
+                        <a href="" class="card-footer">
+                        </a>
+                      </div>
+                    </div>
+                  <% end %>
+                </div>
+              </div>
+            </section>
+                
+            <div class="row gutter-1 mb-2">
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / tab -->
+      <!-- tab connections -->
+      <div class="tab-pane" id="demo-2-2" role="tabpanel" aria-labelledby="demo-2-2">
+        <h3></h3>
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <div class="row gutter-1">
+              <div class="col-12">
+                <div class="boxed p-2">
+                  <div class="row align-items-center justify-content-between">
+                    <h3>Create or update your avatar</h3>
+                    <div class="col-10">
+                      <div class="media align-items-center">
+                        <%if @user.avatar.attached?%>
+                          <%= image_tag @user.avatar, alt: 'avatar' %>
+                        <%else%>
+                          <p> No avatar attached</p>
+                        <%end%>
+                        <%= form_tag user_avatars_path(@user), multipart: true do %>
+                          <div class="btn btn-secondary btn-block">
+                            <%= file_field_tag :avatar %>
+                          </div>
+                          <%= submit_tag "mettre à jour", class:"btn btn-secondary btn-block" %>
+                        <% end %>
                       </div>
                     </div>
                   </div>
-                  
-                  
-
                 </div>
               </div>
-            </div>
-          </div>
-          <!-- / tab -->
-
-          <!-- tab groups -->
-
-          
-        
-
-          <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="row gutter-2">
-                  <%= render "devise/passwords/password" %>  
-                </div>
-              </div>
-            </div>
-          </div>
-          <!-- / tab -->
-
-          <!-- tab settings -->
-          <div class="tab-pane show active" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
-            <div class="row justify-content-center">
-              <div class="col-md-10 col-lg-8">
-                <div class="container">
-
-    <%= form_for @user do |f| %>
-      
-      <div class="accordion-group accordion-group-highlight" data-accordion-group>
-              <div class="accordion open" data-accordion data-aos-anchor-placement="bottom-bottom">
-                <div class="accordion-control" data-control>
-                  <h5 style="font-size: 1rem">General informations</h5>
-                </div>
-                <div class="accordion-content" data-content>
-                  <div class="accordion-content-wrapper">
-                  <label for="exampleFormControlInput3">Username</label>
-                  <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
-                  
-                  <label for="exampleFormControlInput3">Biography</label>
-                  <%= f.text_area :bio, autofocus: true, autocomplete: "username", class: "form-control" %>
-                  </div>
-                </div>
-              </div>
-           </div> 
-            
-        <div class="accordion-group accordion-group-highlight" data-accordion-group>
-           <div class="accordion" data-accordion data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-             <div class="accordion-control" data-control>
-               <h5 style="font-size: 1rem">More about me </h5>
-             </div>
-             <div class="accordion-content" data-content>
-               <div class="accordion-content-wrapper">
-               <label for="exampleFormControlInput3">First name</label>
-                  <%= f.text_field :first_name, autofocus: true, autocomplete: "username", class: "form-control" %>
-      
-                   <label for="exampleFormControlInput3">Last name</label>
-                  <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control" %>
-      
-                  <label for="exampleFormControlInput3">Birthday ( ex: 1987-09-18) </label>
-                  <%= f.text_area :dateofbirth, autofocus: true, autocomplete: "username", class: "form-control" %>
-               </div>
-             </div>
-           </div>
-        </div> 
-    
-        <div class="accordion-group accordion-group-highlight" data-accordion-group>
-        <div class="accordion" data-accordion data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
-          <div class="accordion-control" data-control>
-            <h5 style="font-size: 1rem"> Contact informations </h5>
-          </div>
-          <div class="accordion-content" data-content>
-            <div class="accordion-content-wrapper">
-            <label for="exampleFormControlInput3">Mobile</label>
-      <%= f.phone_field :mobile, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">E-mail</label>
-      <%= f.email_field :email, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Adress</label>
-      <%= f.text_area :adress, autofocus: true, autocomplete: "username", class: "form-control" %>
-
-      <label for="exampleFormControlInput3">Zipcode</label>
-      <%= f.text_field :zipcode, autofocus: true, autocomplete: "username", class: "form-control" %>
-            
-      <label for="exampleFormControlInput3">Siret</label>
-      <%= f.text_field :siret, autofocus: true, autocomplete: "username", class: "form-control" %>
-            </div>
-          </div>
-        </div>
-     </div> 
-
-      
-
-      
-
-    </div>
-      <div class="container">
-        <div class="row">
-
-          <div class="col-6">
-            <%= f.submit "Save change", class: "btn btn-primary btn-block" %>
-            </br>
-          </div>
-
-          <div class="col-6">
-            <div class ="btn btn-primary text-white col-12">
-              <%= link_to "Go to the homepage", artworks_path %>
             </div>
           </div>
         </div>
       </div>
-
-
+      <!-- / tab -->
+      <!-- tab groups -->
+      <div class="tab-pane" id="demo-2-3" role="tabpanel" aria-labelledby="demo-2-3">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <div class="row gutter-2">
+              <%= render "devise/passwords/password" %>
+            </div>
+          </div>
+        </div>
+      </div>
+      <!-- / tab -->
+      <!-- tab settings -->
+      <div class="tab-pane show active" id="demo-2-4" role="tabpanel" aria-labelledby="demo-2-4">
+        <div class="row justify-content-center">
+          <div class="col-md-10 col-lg-8">
+            <div class="container">
+              <%= form_for @user do |f| %>
+                <div class="accordion-group accordion-group-highlight" data-accordion-group>
+                  <div class="accordion open" data-accordion data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                    <div class="accordion-control" data-control>
+                      <h5 style="font-size: 1rem">General informations</h5>
+                    </div>
+                    <div class="accordion-content" data-content>
+                      <div class="accordion-content-wrapper">
+                        <label for="exampleFormControlInput3">Username</label>
+                        <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">Biography</label>
+                        <%= f.text_area :bio, autofocus: true, autocomplete: "username", class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group accordion-group-highlight" data-accordion-group>
+                  <div class="accordion" data-accordion data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                    <div class="accordion-control" data-control>
+                      <h5 style="font-size: 1rem">More about me </h5>
+                    </div>
+                    <div class="accordion-content" data-content>
+                      <div class="accordion-content-wrapper">
+                        <label for="exampleFormControlInput3">First name</label>
+                        <%= f.text_field :first_name, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">Last name</label>
+                        <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">Birthday ( ex: 1987-09-18) </label>
+                        <%= f.text_area :dateofbirth, autofocus: true, autocomplete: "username", class: "form-control" %>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <div class="accordion-group accordion-group-highlight" data-accordion-group>
+                  <div class="accordion" data-accordion data-aos="fade-up" data-aos-anchor-placement="bottom-bottom">
+                    <div class="accordion-control" data-control>
+                      <h5 style="font-size: 1rem"> Contact informations </h5>
+                    </div>
+                    <div class="accordion-content" data-content>
+                      <div class="accordion-content-wrapper">
+                        <label for="exampleFormControlInput3">Mobile</label>
+                        <%= f.phone_field :mobile, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">E-mail</label>
+                        <%= f.email_field :email, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">Adress</label>
+                        <%= f.text_area :adress, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">Zipcode</label>
+                        <%= f.text_field :zipcode, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">Siret</label>
+                        <%= f.text_field :siret, autofocus: true, autocomplete: "username", class: "form-control" %>
+                      </div>
                     </div>
                   </div>
                 </div>
               </div>
+              <div class="container">
+                <div class="row">
+                  <div class="col-6">
+                    <%= f.submit "Save change", class: "btn btn-primary btn-block" %>
+                  <br>
+                </div>
+                <div class="col-6">
+                  <div class ="btn btn-primary text-white col-12">
+                    <%= link_to "Go to the homepage", artworks_path %>
+                  </div>
+                </div>
+              </div>
             </div>
           </div>
-          <!-- / tab -->
         </div>
       </div>
-    </section>
-    
-    
-    <% end %>
-
- 
+    </div>
+  </div>
+</div>
+<!-- / tab -->
+</div>
+</div>
+</section>
+<% end %>
