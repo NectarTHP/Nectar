@@ -1,5 +1,8 @@
 Rails.application.routes.draw do
   
+  get 'static_pages/about_us'
+  get 'static_pages/contact_us'
+  get 'static_pages/legal_information'
   root 'home#index'
   devise_for :users
   resources :charges
