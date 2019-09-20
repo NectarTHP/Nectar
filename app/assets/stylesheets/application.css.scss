@@ -15,7 +15,18 @@
  *= require css/vendor.css
  *= require css/style.css
 
-
  */
+ @import "font-awesome-sprockets";
+ @import "font-awesome";
 
+ .nec-bg-light {
+  background-color: rgb(0, 145, 212) !important; }
  
+  .nec-alert {
+    position: relative;
+    padding: 0.75rem 0.75rem;
+    margin-bottom: 1rem;
+    border: 0px solid transparent;
+    border-radius: 0.25rem;
+  }
+
