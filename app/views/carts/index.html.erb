@@ -42,6 +42,6 @@ data-description="Artwork from Nectar website"
 data-amount="<%=@cart_total*100%>"
 data-currency="eur"
 data-locale="auto"></script>
-<!-- returns to previous navigated page -->
+
 <%= link_to "Back", request.referer.present? ? request.referer : root_path %>
 </section>
