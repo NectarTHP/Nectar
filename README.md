@@ -77,10 +77,6 @@ Step 4: heroku run rake db:seed (if you have seed)
 ----------
 ## Notes:
 
-
- - after_create for Sendgrid was dissactivated, as it created a conflict with the sign-up function.
-
-
 Dependencies and gems used :
 
 ```
