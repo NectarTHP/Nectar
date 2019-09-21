@@ -6,6 +6,10 @@ class UsersController < ApplicationController
   def index
     puts '$'*60; puts "'users#index' has been called";puts '$'*60
     @users = User.all
+    unless current_user.is_admin
+      flash[:danger] = "Please log in."
+      redirect_to root_path
+    end
   end
 
   def show
@@ -15,6 +19,7 @@ class UsersController < ApplicationController
           @artwork = Artwork.find(params[:id])
         end
         @artwork = nil
+        
         
   end
 
