@@ -3,10 +3,12 @@ class ArtworksController < ApplicationController
   before_action :set_artwork, only: [:show, :edit, :update, :destroy]
   before_action :is_owner_or_admin, only: [:edit, :update, :destroy]
 
+  
   def index
     @artworks = Artwork.unsold
+    @artwork = Artwork.new
   end
-
+  
   def show
     #Already set by set_artwork
   end
