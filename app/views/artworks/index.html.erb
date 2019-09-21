@@ -45,10 +45,6 @@
                               </ul>
                             </div>
                           <% end %>
-                        
-                          <div class="field">
-                            <%= form.hidden_field :user_id, value: current_user.id %>
-                          </div>
                     
                           <div class="field">
                             <%= form.label :name %>
@@ -147,8 +143,9 @@
       <% @artworks.each do |artwork| %>
         <li class="col-6 col-md-4" data-aos="zoom-in">
           <figure class="photo equal">
-            <a href="artwork_path(artwork.id)" 
+            <a href="artwork_path(artwork.id)">
 						    style="background-image: url(<%=artwork.picture_url%>);">
+              </a>
               <span class="photo-caption">
                 <h4><%= artwork.name %></h4>
                 <p class="text-light">by <%= artwork.user.artistname %></p>
