@@ -54,7 +54,7 @@ end
   end
 
     def is_logged_user
-      *60
+     
       unless current_user.id == params[:id].to_i
         flash[:danger] = "You can only visit your profile."
         redirect_to root_path
@@ -78,8 +78,6 @@ end
       render :action => 'new'
     end
   end
-
-  private
 
 
   private
