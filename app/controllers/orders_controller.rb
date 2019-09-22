@@ -17,7 +17,7 @@ class OrdersController < ApplicationController
 
   def create
     @cart = Cart.find_by(user_id: current_user)
-    puts "$"*60;puts "beginning of orders#create";puts "$"*60
+  
   end
 
 
