@@ -79,8 +79,6 @@ end
     end
   end
 
-  private
-
 
   private
   def list_params
