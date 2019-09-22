@@ -1,4 +1,4 @@
-<!-- footer -->
+
 <footer>
 <hr>
   <div class="container py-5">
@@ -6,28 +6,31 @@
       <div class="col-md-5 text-center text-md-left">
         <ul class="nav">
           <li class="nav-item">
-            <a class="nav-link" href="#">Contacts</a>
+            <a class="nav-link" href="<%=contact_path%>">Contacts</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">About Us</a>
+            <a class="nav-link" href="<%=about_path%>">About Us</a>
           </li>
           <li class="nav-item">
-            <a class="nav-link" href="#">Legal Information</a>
+            <a class="nav-link" href="<%=legal_information_path%>">Legal Information</a>
           </li>
         </ul>
       </div>
       <div class="col-md-2 text-center">
+      <%= link_to root_path do %>
         <img class="logo-sm" src="../../assets/demo/logo/nectar-dark6.png" alt="Logo">
+        <% end %>
+        
       </div>
       <div class="col-md-5 text-center text-md-right">
         <ul class="socials">
-          <li><a href="" class="icon-facebook text-facebook fs-20"></a></li>
-          <li><a href="" class="icon-instagram text-instagram fs-20"></a></li>
-          <li><a href="" class="icon-twitter text-twitter fs-20"></a></li>
-          <li><a href="" class="icon-linkedin text-linkedin fs-20"></a></li>
+          <li><a href="https://fr-fr.facebook.com" class="fab fa-facebook-square"></a></li>
+          <li><a href="https://www.instagram.com/?hl=fr" class="fab fa-instagram"></a></li>
+          <li><a href="https://twitter.com/?lang=fr" class="fab fa-twitter-square"></a></li>
+          <li><a href="https://fr.linkedin.com" class="fab fa-linkedin"></a></li>
         </ul>
       </div>
     </div>
   </div>
 </footer>
-<!-- / footer -->
+

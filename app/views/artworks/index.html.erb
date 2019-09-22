@@ -1,4 +1,4 @@
-<!-- cover -->
+
 <section class="hero">
   <div class="container">
     <div class="row">
@@ -45,6 +45,10 @@
                               </ul>
                             </div>
                           <% end %>
+
+                          <div class="field">
+                          <%= form.hidden_field :user_id, value: current_user.id %>
+                          </div>
                         
                           
                     
@@ -133,10 +137,10 @@
 
         </div>
       </div>
-    <!-- / faq -->
+ 
 
     <% end %>
-<!-- / cover -->
+
 
 
 <section class="p-0 m-1">
@@ -145,6 +149,7 @@
       <% @artworks.each do |artwork| %>
         <li class="col-6 col-md-4" data-aos="zoom-in">
           <figure class="photo equal">
+          
             <a href="<%=artwork_path(artwork.id)%>" 
 						    style="background-image: url(<%=artwork.picture_url%>);">
               <span class="photo-caption">
@@ -158,8 +163,11 @@
           <div class="text-center">
             <%= link_to 'Add to cart', new_line_item_path(artwork.id), class: "btn btn-outline-success btn-sm mt-1"%>
             <%= link_to 'Show me', artwork_path(artwork.id), class: "btn btn-outline-dark btn-sm mt-1"%>
+
+            <% if current_user.id == artwork.user_id %>
             <%= link_to 'Edit details', edit_artwork_path(artwork), class: "btn btn-outline-dark btn-sm mt-1"%>
             <%= link_to 'Delete it', artwork, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm mt-1"%>
+            <% end %>
           </div>
         </li>
       <%end%>
