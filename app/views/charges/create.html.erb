@@ -1,3 +1,10 @@
-<h2>Thank you for your order!</h2>
-
-<%=current_user.first_name%> <%=current_user.last_name%>
+<section class="hero hero-with-header">
+  <div class="container">
+    <div class="row justify-content-center">
+      <div class="col-md-8">
+        <h1 class="text-decorated">Hello, <b><%=current_user.first_name%> <%=current_user.last_name%></b></h1>
+        <p>Thank you for shopping from our store and for your order.</p>
+      </div>
+    </div>
+  </div>    
+</section>
