@@ -133,6 +133,8 @@
                         <%= f.text_field :username, autofocus: true, autocomplete: "username", class: "form-control" %>
                         <label for="exampleFormControlInput3">Biography</label>
                         <%= f.text_area :bio, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">I am an artist</label>
+                        <%= f.check_box :is_artist, autofocus: true, autocomplete: @user.is_artist, class: "form-control" %>
                      </div>
                   </div>
                </div>
