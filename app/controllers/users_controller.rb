@@ -13,14 +13,19 @@ class UsersController < ApplicationController
   end
 
   def show
-        @user = User.find(params[:id])
-        @artworks = @user.artworks
-        if current_user.is_artist
-          @artwork = Artwork.find(params[:id])
-        end
-        @artwork = nil
-        
-        
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      print e
+    end
+    if e.nil? == false
+      redirect_to root_path
+    else
+    @artworks = @user.artworks
+      unless current_user.id == @user.id
+        redirect_to root_path
+      end
+    end
   end
 
   def update
