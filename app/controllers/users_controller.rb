@@ -1,10 +1,10 @@
 class UsersController < ApplicationController
-  puts '$'*60; puts "'users_controller' has been called"; puts '$'*60
+  
 
   before_action :authenticate_user!
 
   def index
-    puts '$'*60; puts "'users#index' has been called";puts '$'*60
+    
     @users = User.all
     unless current_user.is_admin
       flash[:danger] = "Please log in."
@@ -13,14 +13,19 @@ class UsersController < ApplicationController
   end
 
   def show
-        @user = User.find(params[:id])
-        @artworks = @user.artworks
-        if current_user.is_artist
-          @artwork = Artwork.find(params[:id])
-        end
-        @artwork = nil
-        
-        
+    begin
+      @user = User.find(params[:id])
+    rescue ActiveRecord::RecordNotFound => e
+      print e
+    end
+    if e.nil? == false
+      redirect_to root_path
+    else
+    @artworks = @user.artworks
+      unless current_user.id == @user.id
+        redirect_to root_path
+      end
+    end
   end
 
   def update
@@ -46,7 +51,7 @@ end
   end
 
   def authenticate_user
-    puts '$'*60; puts "users_controller#authenticate_user' has been called"; puts '$'*60
+    
     unless current_user
       flash[:danger] = "Please log in."
       redirect_to root_path
@@ -54,7 +59,7 @@ end
   end
 
     def is_logged_user
-      puts '$'*60; puts "users_controller#is_logged_user' has been called"; puts '$'*60
+     
       unless current_user.id == params[:id].to_i
         flash[:danger] = "You can only visit your profile."
         redirect_to root_path
@@ -78,8 +83,6 @@ end
       render :action => 'new'
     end
   end
-
-  private
 
 
   private
