@@ -149,7 +149,7 @@
                         <label for="exampleFormControlInput3">Last name</label>
                         <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control" %>
                         <label for="exampleFormControlInput3">Birthday ( ex: 1987-09-18) </label>
-                        <%= f.text_area :dateofbirth, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <%= f.date_field :dateofbirth, as: :date, value: f.object.try(:strftime,"%Y/%d/%m"), autofocus: true, autocomplete: "username", class: "form-control" %>
                      </div>
                   </div>
                </div>
