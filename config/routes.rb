@@ -4,7 +4,9 @@ Rails.application.routes.draw do
   devise_for :users
   resources :charges
 
-  resources :artworks
+  resources :artworks do
+    resources :images, only:[:create]
+  end
   resources :users do
     resources :avatars, only: [:create]
   end
