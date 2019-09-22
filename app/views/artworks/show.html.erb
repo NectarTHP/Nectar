@@ -32,43 +32,37 @@
               <span><b>Size:</b><%= @artwork.size %></span>
             </li>
           </ul>
-          <a href="<%=new_line_item_path(@artwork.id)%>"role="button" class="btn btn-orange text-white "> <i class="fas fa-shopping-cart fs-20 mr-1"></i> Add to cart</a>
-        </div>
+          <a href="<%=new_line_item_path(@artwork.id)%>"role="button" class="btn btn-orange text-white "> <i class="fas fa-shopping-cart fs-20 mr-1 mb-1"></i> Add to cart</a>
+          <div> <%= link_to " < Browse artwork collection", artworks_path, class: "btn btn-orange text-white btn-sm mt-1"%></div>
+          </div>
         <div class="col-md-8">
           <ul class="masonry gallery row gutter-1">
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal equal-double">
-                <a href="<%=@artwork.picture_url%>" 
-						        style="background-image: url(<%=@artwork.picture_url%>);">
-                  <span class="photo-caption">
-                    <span>Photo Caption</span>
+              <a href=<%= image_tag @artwork.image if @artwork.image.attached? %>
+              <%= image_tag @artwork.image if @artwork.image.attached? %>
                   </span>
                 </a>
               </figure>
             </li>
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal">
-                <a href="<%=@artwork.picture_url%>" 
-						        style="background-image: url(<%=@artwork.picture_url%>);">
-                  <span class="photo-caption">
-                    <span>Photo Caption</span>
-                  </span>
+              <a href=<%= image_tag @artwork.image if @artwork.image.attached? %>
+              <%= image_tag @artwork.image if @artwork.image.attached? %>
                 </a>
               </figure>
             </li>
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal">
-                <a href="<%=@artwork.picture_url%>" 
-						        style="background-image: url(<%=@artwork.picture_url%>);">
-                  <span class="photo-caption">
-                    <span>Photo Caption</span>
-                  </span>
+              <a href=<%= image_tag @artwork.image if @artwork.image.attached? %>
+              <%= image_tag @artwork.image if @artwork.image.attached? %>
                 </a>
               </figure>
             </li>
           </ul>
         </div>
       </div>
+      
     </div>
   </div>
 </section>
@@ -106,4 +100,5 @@
         </div>
       </div>
     </div>
+
 

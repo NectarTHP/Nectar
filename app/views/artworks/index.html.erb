@@ -29,11 +29,13 @@
                   <div class="accordion-group accordion-group-steps" data-accordion-group>
                     <div class="accordion open" data-accordion>
                       <div class="accordion-control" data-control>
+                      <%= form_with(model: @artwork, local: true) do |form| %>
                         <h5>Upload pictures of your artwork</h5>
+                        <div class="field">
+                        <%= form.file_field :image %>
                       </div>
                       <div class="accordion-content" data-content>
                         <div class="accordion-content-wrapper">
-                        <%= form_with(model: @artwork, local: true) do |form| %>
                           <% if @artwork.errors.any? %>
                             <div id="error_explanation">
                               <h2><%= pluralize(artwork.errors.count, "error") %> prohibited this artwork from being saved:</h2>
@@ -49,12 +51,7 @@
                           <div class="field">
                           <%= form.hidden_field :user_id, value: current_user.id %>
                           </div>
-                        
-                          
-                    
-                          <div class="field">
-                            <%= form.label :name %>
-                            <%= form.file_field :name %>
+  
                           </div>
                         </div>
                       </div>
@@ -149,12 +146,20 @@
       <% @artworks.each do |artwork| %>
         <li class="col-6 col-md-4" data-aos="zoom-in">
           <figure class="photo equal">
-          
+
+          <% if artwork.image.attached? %>
+          <%= image_tag  artwork.image %>
+            <a href="<%=image_tag artwork.image %>
+              <%= image_tag artwork.image %>
+          <% else %>
             <a href="<%=artwork_path(artwork.id)%>" 
-						    style="background-image: url(<%=artwork.picture_url%>);">
+                style="background-image: url(<%=artwork.picture_url%>);">
+          <% end %>
+              
+
               <span class="photo-caption">
                 <h4><%= artwork.name %></h4>
-                <p class="text-light">by <%= artwork.user.artistname %></p>
+                <p class="text-light">by <%= artwork.user.artistname %></ap>
                 <p><%= artwork.description %></p>
                 <p class="text-light"><%= number_with_delimiter(artwork.price, delimiter: " " ) %> €</p>
               </span>
