@@ -152,8 +152,8 @@
                         <%= f.text_field :first_name, autofocus: true, autocomplete: "username", class: "form-control" %>
                         <label for="exampleFormControlInput3">Last name</label>
                         <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control" %>
-                        <label for="exampleFormControlInput3">Birthday ( ex: 1987-09-18) </label>
-                        <%= f.text_area :dateofbirth, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">Birthday ( ex: 18-09-1987) </label>
+                        <%= f.date_field :dateofbirth, as: :date, value: f.object.try(:strftime,"%d/%m/%Y"), autofocus: true, autocomplete: "username", class: "form-control" %>
                      </div>
                   </div>
                </div>
@@ -168,17 +168,52 @@
                         <label for="exampleFormControlInput3">Mobile</label>
                         <%= f.phone_field :mobile, autofocus: true, autocomplete: "username", class: "form-control" %>
                         <label for="exampleFormControlInput3">E-mail</label>
-                        <%= f.email_field :email, autofocus: true, autocomplete: "username", class: "form-control" %>
-                        <label for="exampleFormControlInput3">Adress</label>
-                        <%= f.text_area :adress, autofocus: true, autocomplete: "username", class: "form-control" %>
-                        <label for="exampleFormControlInput3">Zipcode</label>
+                        <%= f.email_field :email, autofocus: true, autocomplete: "username", class: "form-control" %> 
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-group accordion-group-highlight" data-accordion-group>
+               <div class="accordion" data-accordion data-aos-anchor-placement="bottom-bottom">
+                  <div class="accordion-control" data-control>
+                     <h5 style="font-size: 1rem"> My active delivery address </h5>
+                  </div>
+                  <div class="accordion-content" data-content>
+                     <div class="accordion-content-wrapper">
+                        <label for="exampleFormControlInput3">Your postal address</label>
+                        <%= f.text_field :adress, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">City</label>
+                        <%= f.text_area :city, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">County/state</label>
+                        <%= f.text_area :country, autofocus: true, autocomplete: "username", class: "form-control" %>
+                        <label for="exampleFormControlInput3">Zip/Postal Code</label>
                         <%= f.text_field :zipcode, autofocus: true, autocomplete: "username", class: "form-control" %>
-                        <label for="exampleFormControlInput3">Siret</label>
+                        
+                     </div>
+                  </div>
+               </div>
+            </div>
+            <div class="accordion-group accordion-group-highlight" data-accordion-group>
+               <div class="accordion" data-accordion data-aos-anchor-placement="bottom-bottom">
+                  <div class="accordion-control" data-control>
+                     <h5 style="font-size: 1rem"> For professionals only </h5>
+                  </div>
+                  <div class="accordion-content" data-content>
+                     <div class="accordion-content-wrapper">
+                        <label for="exampleFormControlInput3">SIRET number</label>
                         <%= f.text_field :siret, autofocus: true, autocomplete: "username", class: "form-control" %>
                      </div>
                   </div>
                </div>
             </div>
+
+
+
+
+
+
+
+
          </div>
          <div class="container">
             <div class="row">
