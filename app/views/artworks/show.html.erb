@@ -39,23 +39,38 @@
           <ul class="masonry gallery row gutter-1">
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal equal-double">
-              <a href=<%= image_tag @artwork.image if @artwork.image.attached? %>
-              <%= image_tag @artwork.image if @artwork.image.attached? %>
-                  </span>
+              <% if @artwork.image.attached? %>
+              <a href=<%= image_tag @artwork.image %>
+              <%= image_tag @artwork.image %>
+              <% else %>
+              <a href="<%=@artwork.picture_url%>" 
+              style="background-image: url(<%=@artwork.picture_url%>);">
+              <% end %>
+              
                 </a>
               </figure>
             </li>
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal">
-              <a href=<%= image_tag @artwork.image if @artwork.image.attached? %>
-              <%= image_tag @artwork.image if @artwork.image.attached? %>
+              <% if @artwork.image.attached? %>
+              <a href=<%= image_tag @artwork.image %>
+              <%= image_tag @artwork.image %>
+              <% else %>
+              <a href="<%=@artwork.picture_url%>" 
+              style="background-image: url(<%=@artwork.picture_url%>);">
+              <% end %>
                 </a>
               </figure>
             </li>
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal">
-              <a href=<%= image_tag @artwork.image if @artwork.image.attached? %>
-              <%= image_tag @artwork.image if @artwork.image.attached? %>
+              <% if @artwork.image.attached? %>
+              <a href=<%= image_tag @artwork.image %>
+              <%= image_tag @artwork.image %>
+              <% else %>
+              <a href="<%=@artwork.picture_url%>" 
+              style="background-image: url(<%=@artwork.picture_url%>);">
+              <% end %>
                 </a>
               </figure>
             </li>
