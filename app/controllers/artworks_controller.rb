@@ -6,6 +6,7 @@ class ArtworksController < ApplicationController
   
   def index
     @artworks = Artwork.unsold
+    @artwork_img = Artwork.with_attached_image
     @artwork = Artwork.new
   end
   
@@ -18,7 +19,7 @@ class ArtworksController < ApplicationController
   end
 
   def edit
-    @artwork = Artwork.find(params[:id])
+    @artwork = Artwork.with_attached_image.find(params[:id])
   end
 
   def create
@@ -50,7 +51,7 @@ class ArtworksController < ApplicationController
   def destroy
     @artwork.destroy
     respond_to do |format|
-      format.html { redirect_to artworks_url, notice: 'Artwork was successfully destroyed.' }
+      format.html {redirect_back fallback_location: artworks_path, notice: 'Artwork was successfully destroyed.' }
       format.json { head :no_content }
     end
   end
@@ -63,7 +64,7 @@ class ArtworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_params
-      params.require(:artwork).permit(:user_id, :name, :description, :price, :picture_url, :categorie, :weight, :size, :sale, :tag)
+      params.require(:artwork).permit(:user_id, :name, :description, :price, :picture_url, :categorie, :weight, :size, :sale, :tag, :image)
     end
 
     def is_owner_or_admin

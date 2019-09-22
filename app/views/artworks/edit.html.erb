@@ -1,7 +1,75 @@
+<div class="container">
 <% content_for :title, "Edit artwork" %>
 <h1>Editing Artwork</h1>
 
-<%= render 'form', artwork: @artwork %>
+<%= form_with(model: @artwork, local: true) do |form| %>
+    <% if @artwork.errors.any? %>
+      <div id="error_explanation">
+        <h2><%= pluralize(artwork.errors.count, "error") %> prohibited this artwork from being saved:</h2>
+  
+        <ul>
+        <% artwork.errors.full_messages.each do |message| %>
+          <li><%= message %></li>
+        <% end %>
+        </ul>
+      </div>
+    <% end %>
+  
+    <div class="field">
+      <%= form.hidden_field :user_id, value: current_user.id %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :name %>
+      <%= form.text_field :name, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :description %>
+      <%= form.text_area :description, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :price %>
+      <%= form.number_field :price, class: "form-control"%>
+    </div>
+  
+    <div class="field">
+      <%= form.label :categorie %>
+      <%= form.text_field :categorie, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :weight %>
+      <%= form.number_field :weight, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :size %>
+      <%= form.number_field :size, class: "form-control" %>
+    </div>
+  
+    <div class="field">
+      <%= form.label :tag %>
+      <%= form.text_field :tag, class: "form-control" %>
+    </div>
+  
+    
+  
+  <div class="field">
+  <%= form.label :image %>
+  <%= form.file_field :image, class:"form-control mb-2 pb-2 " %>
 
-<%= link_to 'Show', @artwork %> |
-<%= link_to 'Back', artworks_path %>
+  
+
+</div>
+<%= image_tag @artwork.image if @artwork.image.attached? %>
+
+<div class="actions mt-1">
+      <%= form.submit %>
+</div>
+
+  <% end %>
+
+<%= link_to "< Browse artwork collection", artworks_path, class: "btn btn-primary btn-sm mt-1"%>
+</div>
