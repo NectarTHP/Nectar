@@ -35,7 +35,7 @@
                 <div class="col-md-10">
                   <div class="nav nav-tabs mb-2">
                     <%if current_user.is_artist%>
-                    <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-1">Artwork</a>
+                    <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-1">Artworks</a>
                     <%end%>
                     <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-2">Avatar</a>
                     <a class="nav-item nav-link" data-toggle="tab" href="#demo-2-3">Password</a>
@@ -57,15 +57,18 @@
                                     <div class="card-body">
                             <img src="<%=u.picture_url%>" alt="Image">
                                   <h5 class="card-title pt-1"><%= u.name %> | <%= u.price %> € </h5>
-                                      <div class="card-title font-italic" style="margin-top: -1em">in <%= u.categorie %> </div>
+                                      <div class="card-title font-italic" style="margin-top: -1em"><%= u.categorie %>. <%= u.tag %>.</div>
                                   <ul class="list-group list-group-minimal pt-0 pb-0">
                                   <li class="list-group-item text-muted"><%= u.description %> </li>
                                   <li class="list-group-item text-orange"> -> <%= u.weight %> grams -> <%= u.size %> cm</li>
                                   </ul>
-                                  <div class="tag-cloud pt-2">
-                                  <a href=""> <%= u.tag %> </a>
-                      
-                                   </div>
+                                  <hr class="my-1">
+                                  <div class="text-center">
+                                  <%= link_to 'Modify', edit_artwork_path(u), class: "btn btn-outline-dark btn-sm btn-rounded mr-1"%>
+                                  <%= link_to 'Delete', u, method: :delete, data: { confirm: 'Are you sure?' }, class: "btn btn-outline-danger btn-sm btn-rounded"%>
+                                  </div>
+
+
                               </div>
                             </div>
                           </div>
