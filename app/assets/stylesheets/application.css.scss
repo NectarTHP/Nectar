@@ -18,7 +18,16 @@
  */
  @import "font-awesome-sprockets";
  @import "font-awesome";
-
+ @font-face {
+  font-family: 'icomoon';
+  src:font-url('icomoon.eot');
+  src:font-url('icomoon.eot?#iefix') format('embedded-opentype'),
+    font-url('icomoon.svg#icomoon') format('svg'),
+    font-url('icomoon.woff') format('woff'),
+    font-url('icomoon.ttf') format('truetype');
+  font-weight: normal;
+  font-style: normal;
+}
  .nec-bg-light {
   background-color: rgb(0, 145, 212) !important; }
  
