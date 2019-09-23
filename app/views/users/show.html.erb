@@ -165,10 +165,13 @@
                                   <div class="card card-price rising mb-5">
                                     <div class="card-body">
                                     <% if u.image.attached? %>
-                                    <a href=<%= image_tag u.image %>
+                                    <a href="<%=artwork_path(u)%>"> 
                                     <%= image_tag u.image %>
+                                    </a>
                                     <% else %>
+                                    <a href="<%=artwork_path(u)%>"> 
                                     <%= image_tag u.picture_url %>
+                                    </a>
                                     <% end %>
                                   <h5 class="card-title pt-1"><%= u.name %> | <%= u.price %> € </h5>
                                       <div class="card-title font-italic" style="margin-top: -1em"><%= u.categorie %>. <%= u.tag %>.</div>
