@@ -8,145 +8,139 @@
     </div>
   </div>
 </section>
-
 <%if user_signed_in? and current_user.is_artist%>
-      <div class="container">
-        <div class="row d-flex justify-content-center">
-          <div class="col-md-6">
-            <div class="accordion-group accordion-group-highlight" data-accordion-group>
-              <div class="accordion" data-accordion data-aos-anchor-placement="bottom-bottom">
-                <div class="" data-control>
-                  <div class="text-center">
-                  <button type="button" class="btn btn-primary mb-3">  Add my new Artwork </button>
-                  </div>
-                </div>
-                  <div class="accordion-content" data-content>
-                    <div class="tab-pane show active" id="component-2-1" role="tabpanel" aria-labelledby="component-2-1">
-                      <div class="">
-                        <div class="container">
-                          <div class="row">
-                            <div class="col-md-12">
-                              <div class="accordion-group accordion-group-steps" data-accordion-group>
-
-                                <div class="accordion open" data-accordion>
-                                  <div class="accordion-control" data-control>
-                                  <%= form_with(model: @artwork, local: true) do |form| %>
-                                  <h5>Upload pictures of your artwork</h5>
-                                    <div class="field">
-                                    <%= form.file_field :image %>
-                                    </div>
-                                    <div class="accordion-content" data-content>
-                                      <div class="accordion-content-wrapper">
-                                      <% if @artwork.errors.any? %>
-                                        <div id="error_explanation">
+  <div class="container">
+    <div class="row d-flex justify-content-center">
+      <div class="col-md-6">
+        <div class="accordion-group accordion-group-highlight" data-accordion-group>
+          <div class="accordion" data-accordion data-aos-anchor-placement="bottom-bottom">
+            <div class="" data-control>
+              <div class="text-center">
+                <button type="button" class="btn btn-primary mb-3">  Add my new Artwork </button>
+              </div>
+            </div>
+            <div class="accordion-content" data-content>
+              <div class="tab-pane show active" id="component-2-1" role="tabpanel" aria-labelledby="component-2-1">
+                <div class="">
+                  <div class="container">
+                    <div class="row">
+                      <div class="col-md-12">
+                        <div class="accordion-group accordion-group-steps" data-accordion-group>
+                          <div class="accordion open" data-accordion>
+                            <div class="accordion-control" data-control>
+                              <%= form_with(model: @artwork, local: true) do |form| %>
+                                <h5>Upload pictures of your artwork</h5>
+                                <div class="field">
+                                  <%= form.file_field :image %>
+                                </div>
+                                <div class="accordion-content" data-content>
+                                  <div class="accordion-content-wrapper">
+                                    <% if @artwork.errors.any? %>
+                                      <div id="error_explanation">
                                         <h2><%= pluralize(artwork.errors.count, "error") %> prohibited this artwork from being saved:</h2>
                                         <ul>
-                                        <% @artwork.errors.full_messages.each do |message| %>
-                                        <li><%= message %></li>
-                                        <% end %>
+                                          <% @artwork.errors.full_messages.each do |message| %>
+                                            <li><%= message %></li>
+                                          <% end %>
                                         </ul>
                                       </div>
-                                      <% end %>
-                                      <div class="field">
-                                        <%= form.hidden_field :user_id, value: current_user.id %>
-                                        </div>
-                                      </div>
+                                    <% end %>
+                                    <div class="field">
+                                      <%= form.hidden_field :user_id, value: current_user.id %>
+                                    </div>
                                   </div>
                                 </div>
                               </div>
-
-                                <div class="accordion open" data-accordion>
-                                  <div class="accordion-control" data-control>
-                                  <h5>Choose a good name</h5>
+                            </div>
+                            <div class="accordion open" data-accordion>
+                              <div class="accordion-control" data-control>
+                                <h5>Choose a good name</h5>
+                              </div>
+                              <div class="accordion-content" data-content style="max-height: 150px">
+                                <div class="accordion-content-wrapper">
+                                  <div class="field">
+                                    <%= form.label :name %>
+                                    <%= form.text_field :name, class: "form-control" %>
                                   </div>
-                                  <div class="accordion-content" data-content style="max-height: 150px">
-                                    <div class="accordion-content-wrapper">
-                                      <div class="field">
-                                      <%= form.label :name %>
-                                      <%= form.text_field :name, class: "form-control" %>
-                                      </div>
-                                      <div class="field">
-                                      <%= form.label :description %>
-                                      <%= form.text_area :description, class: "form-control" %>
-                                      </div>
-                                      <div class="field">
-                                      <%= form.label :categorie %>
-                                      <%= form.text_field :categorie, class: "form-control" %>
-                                      </div>
-                                      <div class="field">
-                                      <%= form.label :tag %>
-                                      <%= form.text_field :tag, class: "form-control" %>
-                                      </div>
-                                    </div>
+                                  <div class="field">
+                                    <%= form.label :description %>
+                                    <%= form.text_area :description, class: "form-control" %>
+                                  </div>
+                                  <div class="field">
+                                    <%= form.label :categorie %>
+                                    <%= form.text_field :categorie, class: "form-control" %>
+                                  </div>
+                                  <div class="field">
+                                    <%= form.label :tag %>
+                                    <%= form.text_field :tag, class: "form-control" %>
                                   </div>
                                 </div>
-                                
-                                  <div class="accordion open" data-accordion>
-                                    <div class="accordion-control" data-control>
-                                    <h5>How big is your talent ?</h5>
-                                    </div>
-                                    <div class="accordion-content" data-content>
-                                      <div class="accordion-content-wrapper">
-                                        <div class="field">
-                                        <%= form.label :price %>
-                                        <%= form.number_field :price, class: "form-control" %>
-                                        </div>
-                                        <div class="field">
-                                        <%= form.label :weight %>
-                                        <%= form.number_field :weight, class: "form-control" %>
-                                        </div>
-                                        <div class="field">
-                                        <%= form.label :size %>
-                                        <%= form.number_field :size, class: "form-control" %>
-                                        </div>
-                                        <div class="actions">
-                                        <%= form.submit "Save my artwork", class: "btn btn-primary mt-2 ml-10" %>
-                                        </div>
-                                      </div>
-                                    </div>
+                              </div>
+                            </div>
+                            <div class="accordion open" data-accordion>
+                              <div class="accordion-control" data-control>
+                                <h5>How big is your talent ?</h5>
+                              </div>
+                              <div class="accordion-content" data-content>
+                                <div class="accordion-content-wrapper">
+                                  <div class="field">
+                                    <%= form.label :price %>
+                                    <%= form.number_field :price, class: "form-control" %>
                                   </div>
-
+                                  <div class="field">
+                                    <%= form.label :weight %>
+                                    <%= form.number_field :weight, class: "form-control" %>
+                                  </div>
+                                  <div class="field">
+                                    <%= form.label :size %>
+                                    <%= form.number_field :size, class: "form-control" %>
+                                  </div>
+                                  <div class="actions">
+                                    <%= form.submit "Save my artwork", class: "btn btn-primary mt-2 ml-10" %>
+                                  </div>
                                 </div>
                               </div>
                             </div>
                           </div>
                         </div>
                       </div>
-                      <div class="accordion-content-wrapper">
-                      </div>
                     </div>
                   </div>
                 </div>
+                <div class="accordion-content-wrapper">
+                </div>
+              </div>
             </div>
           </div>
         </div>
-     <% end %>
-    <% end %>
+      </div>
+    </div>
+  <% end %>
+<% end %>
 <section class="p-0 m-1">
   <div class="container-full">
     <ul class="masonry row gallery gutter-1 mb-0">
       <% @artworks.each do |artwork| %>
         <li class="col-6 col-md-4" data-aos="zoom-in">
-          <figure class="photo equal">
+          <a href="<%=artwork_path(artwork.id)%>">
+            <figure class="photo equal">
+              <% if artwork.image.attached? %>
+                <%=image_tag artwork.image %>
+              <% else %>
+                <%=image_tag artwork.picture_url%>
+              <% end %>
+              <div class="align-bottom">
+                <span class="photo-caption">
 
-          <% if artwork.image.attached? %>
-          <%= image_tag  artwork.image %>
-            <a href="<%=image_tag artwork.image %> </a>
-          <% else %>
+                    <h4><mark><%= artwork.name %></mark></h4>
+                    <p class="text-light"><mark>by <%= artwork.user.artistname %></mark></p>
+                    <p><mark><%= artwork.description %></mark></p>
+                    <p class="text-light"><mark><%= number_with_delimiter(artwork.price, delimiter: " " ) %> €</mark></p>
 
-            <a href="<%=artwork_path(artwork.id)%>" 
-                style="background-image: url(<%=artwork.picture_url%>);">
-          <% end %>
-              
-
-              <span class="photo-caption">
-                <h4><%= artwork.name %></h4>
-                <p class="text-light">by <%= artwork.user.artistname %></ap>
-                <p><%= artwork.description %></p>
-                <p class="text-light"><%= number_with_delimiter(artwork.price, delimiter: " " ) %> €</p>
-              </span>
-            </a>
-          </figure>
+                </span>
+              </div>
+            </figure>
+          </a>
           <div class="text-center">
             <%= link_to 'Add to cart', new_line_item_path(artwork.id), class: "btn btn-outline-success btn-sm mt-1"%>
             <%= link_to 'Show me', artwork_path(artwork.id), class: "btn btn-outline-dark btn-sm mt-1"%>
@@ -154,12 +148,12 @@
         </li>
       <%end%>
     </ul>
-    <div class="row" style="margin-top: 5px;">
-      <div class="col">
-        <a href="" class="btn btn-block btn-light btn-lg text-center">
-          Load More
-        </a>
-      </div>
-    </div>
   </div>
 </section>
+<div class="row" style="margin-top: 5px;">
+  <div class="col">
+    <a href="" class="btn btn-block btn-light btn-lg text-center">
+      Load More
+    </a>
+  </div>
+</div>
