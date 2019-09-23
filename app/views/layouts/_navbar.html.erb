@@ -24,7 +24,7 @@
           <ul class="navbar-nav align-items-center mr-0">
             <li class="nav-item dropdown">
               <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown-2" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                <%if current_user.first_name == nil or ""%>
+                <%if current_user.first_name == nil or current_user.first_name == ""%>
                   Menu
                 <%else%>
                   <%=current_user.first_name%> <%=current_user.last_name%>
