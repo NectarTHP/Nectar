@@ -2,23 +2,10 @@
   <div class="container">
     <div class="row justify-content-center">
       <div class="col-md-8">
-        <h1 class="text-decorated">Hello, <b><%=current_user.first_name%> <%=current_user.last_name%></b></h1>
-        <p>Thank you for shopping from our store and for your order.</p>
+        <h2 class="text-decorated">Thank you <b><%=current_user.first_name%> <%=current_user.last_name%></b></h2>
+        <p>Your payment and your order have just been confirmed. You should receive the artwork you've selected within 1 to 3 weeks, depending on its size and how busy the artist is. Be assured we keep an eye on your order to make sure everything goes as quickly as possible.</p>
+      <a class="btn btn-blue btn-lg btn-rounded px-5", href="<%=root_path %>">Go back to homepage</a>
       </div>
     </div>
   </div>    
 </section>
-
-<div class="swiper-wrapper">
-  <div class="swiper-slide vh-100">
-    <div class="caption">
-      <div class="container">
-        <div class="row vh-100">
-          <div class="col-md-12 align-self-center text-center" data-swiper-parallax-y="-250%">
-            <a class="btn btn-white btn-lg btn-rounded px-5", href="<%=root_path %>">Homepage</a>
-         </div>
-       </div>
-     </div>
-   </div>
- </div>
-</div>
