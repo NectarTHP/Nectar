@@ -130,18 +130,22 @@
           <figure class="photo equal">
 
           <% if artwork.image.attached? %>
-          <%= image_tag  artwork.image %>
-            <a href="<%=image_tag artwork.image %> </a>
+         
+            <a href="#">
+            <%=image_tag artwork.image %>
+            </a>
           <% else %>
 
-            <a href="<%=artwork_path(artwork.id)%>" 
-                style="background-image: url(<%=artwork.picture_url%>);">
+            <a href="#" >
+                
+                <%=image_tag artwork.picture_url%>
+                </a>
           <% end %>
               
 
               <span class="photo-caption">
                 <h4><%= artwork.name %></h4>
-                <p class="text-light">by <%= artwork.user.artistname %></ap>
+                <p class="text-light">by <%= artwork.user.artistname %></p>
                 <p><%= artwork.description %></p>
                 <p class="text-light"><%= number_with_delimiter(artwork.price, delimiter: " " ) %> €</p>
               </span>
