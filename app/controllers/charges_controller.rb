@@ -35,7 +35,6 @@ class ChargesController < ApplicationController
         
     flash[:notice] = 'You payment was successfuly processed'
 
-    redirect_to artworks_path
 
   end #create
 
