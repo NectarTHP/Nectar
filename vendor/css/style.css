@@ -14506,6 +14506,11 @@ body {
   .container-fluid {
     max-width: 1770px; } }
 
+
+.rotated {
+  transform: rotate(90deg);
+}
+
 .pattern::before, .pattern::after {
   -webkit-transform: rotate(-45deg);
   -moz-transform: rotate(-45deg);
