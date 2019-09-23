@@ -13,6 +13,10 @@ class UsersController < ApplicationController
   end
 
   def show
+    @artwork = Artwork.with_attached_image
+    @artworkss = Artwork.new
+    
+
     begin
       @user = User.find(params[:id])
     rescue ActiveRecord::RecordNotFound => e
@@ -71,6 +75,14 @@ end
       return true
     end
     false
+  end
+
+  def destroy
+    @artwork.destroy
+    respond_to do |format|
+      format.html {redirect_back fallback_location: artworks_path, notice: 'Artwork was successfully destroyed.' }
+      format.json { head :no_content }
+    end
   end
 
   def create
