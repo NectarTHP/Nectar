@@ -40,28 +40,38 @@
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal equal-double">
               <% if @artwork.image.attached? %>
+              <a href=<%= image_tag @artwork.image %>
               <%= image_tag @artwork.image %>
               <% else %>
-              <%=image_tag @artwork.picture_url%>
+              <a href="<%=@artwork.picture_url%>" 
+              style="background-image: url(<%=@artwork.picture_url%>);">
               <% end %>
+              
+                </a>
               </figure>
             </li>
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal">
               <% if @artwork.image.attached? %>
+              <a href=<%= image_tag @artwork.image %>
               <%= image_tag @artwork.image %>
               <% else %>
-              <%=image_tag @artwork.picture_url%>
+              <a href="<%=@artwork.picture_url%>" 
+              style="background-image: url(<%=@artwork.picture_url%>);">
               <% end %>
+                </a>
               </figure>
             </li>
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal">
               <% if @artwork.image.attached? %>
+              <a href=<%= image_tag @artwork.image %>
               <%= image_tag @artwork.image %>
               <% else %>
-              <%=image_tag @artwork.picture_url%>
+              <a href="<%=@artwork.picture_url%>" 
+              style="background-image: url(<%=@artwork.picture_url%>);">
               <% end %>
+                </a>
               </figure>
             </li>
           </ul>
