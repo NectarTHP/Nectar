@@ -22,15 +22,17 @@
           </li>
           <li class="list-group-item d-flex align-items-center">
             <i class="fas fa-money-bill-wave fs-24 text-orange mr-1"></i>
-            <span><b>Price</b>: <%= @artwork.price %></span>
+            <span><b>Price</b>: <%= number_to_currency(@artwork.price, unit:'€', precision: 4, delimiter: ",", precision: 4, strip_insignificant_zeros: true) %></span>
           </li>
           <li class="list-group-item d-flex align-items-center">
             <i class="fas fa-weight-hanging mr-2 fs-22 text-orange"></i>
-            <span><b>Weight:</b><%=  @artwork.weight %></span>
+            <span><b>Weight</b>: <%= number_to_human(@artwork.weight, units: {unit: "g", thousand: "kg"}, strip_insignificant_zeros: true ) %></span>
+          </li>
             <li class="list-group-item d-flex align-items-center">
               <i class="fas fa-box-open mr-1 fs-22 text-orange"></i>
-              <span><b>Size:</b><%= @artwork.size %></span>
-            </li>
+              <span><b>Size</b>: <%= number_to_human(@artwork.height, units: {unit: "cm", hundred: "m"}, strip_insignificant_zeros: true ) %> </span> <p>&nbsp;x&nbsp;</p> 
+              <%= number_to_human(@artwork.width, units: {unit: "cm", hundred: "m"}, strip_insignificant_zeros: true ) %>           
+              </li>
           </ul>
           <a href="<%=new_line_item_path(@artwork.id)%>"role="button" class="btn btn-orange text-white "> <i class="fas fa-shopping-cart fs-20 mr-1 mb-1"></i> Add to cart</a>
           <div> <%= link_to " < Browse artwork collection", artworks_path, class: "btn btn-orange text-white btn-sm mt-1"%></div>

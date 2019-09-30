@@ -1,14 +1,27 @@
 <section class="p-0 bg-light">
-  <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-17.jpg)"
+  <div class="image image-overlay image-cover" style="background-image:url(../../assets/images/demo/coworking/coworking-small-13.jpg)"
       data-top-top="transform: translateY(0px);" 
       data-top-bottom="transform: translateY(-250px);"></div>
-  <div class="container">
-    <div class="row justify-content-center align-items-end mt-10 mb-5">
-      <div class="col col-md-10 col-lg-8">
-        <div class="row align-items-center">
-          <div class="col-4 col-lg-12">
-            <h2>Your cart</h2>
-            <%if @cart.line_items == []%>
+<div class="container">
+  <div class="row justify-content-left align-items-end vh-30 mb-5">
+    <div class="col col-md-10 col-lg-8">
+      <div class="row align-items-center">
+        <div class="col">
+          <div class="row align-items-center">
+            <div class="col-md-8">
+            <h2 class="mb-0">Your cart</h2>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+</section>
+
+<section>
+  <div class="container bg-light">
+  <%if @cart.line_items == []%>
               <div class="text-center">Your cart is empty, but you can...</div>
               <div class="text-center"><%= link_to "Browse artwork collection", artworks_path, class: "btn btn-primary btn-sm"%></div>
             </div>
@@ -46,10 +59,5 @@
 
 
             <%end%>
-          </div>
-        </div>
-      </div>
-    </div>
-  </div>
 </div>
 </section>
