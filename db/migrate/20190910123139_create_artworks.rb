@@ -4,11 +4,12 @@ class CreateArtworks < ActiveRecord::Migration[5.2]
       t.belongs_to :user, foreign_key: true
       t.string :name
       t.text :description
-      t.integer :price
+      t.decimal :price, :precision => 10, :scale => 2
       t.string :picture_url
       t.string :categorie
-      t.integer :weight
-      t.integer :size
+      t.decimal :weight
+      t.decimal :width
+      t.decimal :height
       t.date :sale
       t.string :tag
 

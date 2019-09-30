@@ -2,19 +2,19 @@ Rails.application.routes.draw do
   
   root 'home#index'
   devise_for :users
-  resources :charges
+  resources :charges, only:[:create]
 
   resources :artworks do
     resources :images, only:[:create]
   end
   resources :users do
-    resources :avatars, only: [:create]
+    resources :avatars, only:[:create]
   end
-  resources :comments
-  resources :favorites
+  resources :comments, only:[:create]
+  resources :favorites, only:[:create]
   resources :line_items
   resources :carts
-  resources :likes
+  resources :likes, only:[:create]
   resources :orders
 # routes for static_pages :
 

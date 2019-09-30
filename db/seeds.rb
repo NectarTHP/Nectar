@@ -43,7 +43,8 @@ Artwork.create(
   picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/e/ec/Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg/800px-Mona_Lisa%2C_by_Leonardo_da_Vinci%2C_from_C2RMF_retouched.jpg",
   categorie: "Oil on canvas",
   weight: 23,
-  size: 9500,
+  height: 9500,
+  width: 7800,
   sale: Date.today,
   tag: "Portrait"
   )
@@ -55,7 +56,8 @@ Artwork.create(
   picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/a/aa/Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg/800px-Vincent_van_Gogh_-_Self-portrait_with_grey_felt_hat_-_Google_Art_Project.jpg",
   categorie: "Oil on canvas",
   weight: 11,
-  size: 111,
+  height: 9500,
+  width: 7800,
   sale: Date.today,
   tag: "Portrait",
   )
@@ -67,7 +69,8 @@ Artwork.create(
   picture_url: "https://upload.wikimedia.org/wikipedia/commons/thumb/7/75/Narcissus-Caravaggio_%281594-96%29.jpg/800px-Narcissus-Caravaggio_%281594-96%29.jpg",
   categorie: "Oil on canvas",
   weight: 11,
-  size: 111,
+  height: 9500,
+  width: 7800,
   sale: Date.today,
   tag: "Oil on wood"
   )
@@ -82,7 +85,8 @@ Artwork.create(
     picture_url: "https://picsum.photos/id/#{picsum_id}/600/600",
     categorie: Faker::Hacker.adjective,
     weight: 11,
-    size: 111,
+    height: 9500,
+    width: 7800,
     sale: Date.today,
     tag: Faker::Hacker.adjective
     )
@@ -124,7 +128,8 @@ puts "9 random artists created"
     picture_url: "https://picsum.photos/id/#{picsum_id}/600/600",
     categorie: Faker::Hacker.adjective,
     weight: 11,
-    size: 111,
+    height: 9500,
+    width: 7800,
     sale: Date.today,
     tag: Faker::Hacker.adjective
     )
