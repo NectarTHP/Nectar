@@ -35,7 +35,7 @@ class UsersController < ApplicationController
   def update
     @users = User.find(params[:id])
       if @users.update(list_params)
-        redirect_to user_path
+        redirect_back(fallback_location: root_path)
       else
         render :edit
     end

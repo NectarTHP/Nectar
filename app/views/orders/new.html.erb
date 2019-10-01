@@ -17,11 +17,35 @@
                 <div class="card-body">
                   <h5 class="card-title">Your order will be shipped to this adress :</h5>
                   <p class="card-text">
+
+                    <% if current_user.first_name == "" || current_user.last_name == "" || current_user.adress == "" || current_user.country == "" || current_user.zipcode == "" || current_user.city == "" %>
+                    <%= form_with(model: current_user, local: true) do |f| %>
+                    <label for="exampleFormControlInput3">First name</label>
+                    <%= f.text_field :first_name, autofocus: true, autocomplete: "username", class: "form-control", required: true %>
+                    <label for="exampleFormControlInput3">Last name</label>
+                    <%= f.text_field :last_name, autofocus: true, autocomplete: "username", class: "form-control", required: true %>
+                    <label for="exampleFormControlInput3">Your postal address</label>
+                    <%= f.text_field :adress, autofocus: true, autocomplete: "username", class: "form-control", required: true %>
+                    <label for="exampleFormControlInput3">City</label>
+                    <%= f.text_area :city, autofocus: true, autocomplete: "username", class: "form-control", required: true %>
+                    <label for="exampleFormControlInput3">County/state</label>
+                    <%= f.text_area :country, autofocus: true, autocomplete: "username", class: "form-control", required: true %>
+                    <label for="exampleFormControlInput3">Zip/Postal Code</label>
+                    <%= f.text_field :zipcode, autofocus: true, autocomplete: "username", class: "form-control", required: true %>
+                    <br>
+                    
+                    <%= f.submit "Save change", class: "btn btn-primary btn-block" %>
+                    
+                    <% end %>
+                    <% else %>
                     <%= current_user.first_name %> <%= current_user.last_name %><br>
                     <%= current_user.adress %><br>
-                    <%= current_user.zipcode %> <%= current_user.city %>
-                  </p>
-                  <a href="<%=user_path(current_user.id)%>" class="btn btn-primary">Change delivery address</a>
+                    <%= current_user.zipcode %> <%= current_user.city %><br>
+                    <a href="<%=user_path(current_user.id)%>" class="btn btn-primary mt-1">Change delivery address</a>
+                    </p>
+                    <% end %>
+                  
+                  
                 </div>
               </div>
             </div>
