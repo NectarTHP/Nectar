@@ -33,7 +33,7 @@
                                   <%= form_with(model: @artwork, local: true) do |form| %>
                                   <h5>Upload pictures of your artwork</h5>
                                     <div class="field">
-                                    <%= form.file_field :image %>
+                                    <%= form.file_field :image, required: true %>
                                     </div>
                                     <div class="accordion-content" data-content>
                                       <div class="accordion-content-wrapper">
@@ -63,7 +63,7 @@
                                     <div class="accordion-content-wrapper">
                                       <div class="field">
                                       <%= form.label :name %>
-                                      <%= form.text_field :name, class: "form-control" %>
+                                      <%= form.text_field :name, class: "form-control", required: true %>
                                       </div>
                                       <div class="field">
                                       <%= form.label :description %>
@@ -89,7 +89,7 @@
                                       <div class="accordion-content-wrapper">
                                         <div class="field">
                                         <%= form.label :price %>
-                                        <%= form.number_field :price, class: "form-control", step: :any %>
+                                        <%= form.number_field :price, class: "form-control", step: :any, required: true %>
                                         </div>
                                         <div class="field">
                                         <%= form.label :weight %>
