@@ -63,13 +63,17 @@
     
   
   <div class="field">
-  <%= form.label :image %>
-  <%= form.file_field :image, class:"form-control mb-2 pb-2 " %>
+  <%= form.label :images %>
+  <%= form.file_field :images, class:"form-control mb-2 pb-2 " %>
 
   
 
 </div>
-<%= image_tag @artwork.image if @artwork.image.attached? %>
+<% if @artwork.images.attached? %>
+<%= image_tag @artwork.images[0] %>
+<% else %>
+<%= image_tag @artwork.picture_url %>
+<% end %>
 
 <div class="actions mt-1">
       <%= form.submit %>

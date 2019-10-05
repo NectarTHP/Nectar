@@ -41,9 +41,10 @@
           <ul class="masonry gallery row gutter-1">
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal equal-double">
-              <% if @artwork.image.attached? %>
-              <a href=<%= image_tag @artwork.image %>
-              <%= image_tag @artwork.image %>
+              <% if @artwork.images.attached? %>
+              <a href="<%=artwork_path(@artwork.id)%>" 
+              style="background-image: url(<%=rails_blob_url(@artwork.images[0])%>);">
+
               <% else %>
               <a href="<%=@artwork.picture_url%>" 
               style="background-image: url(<%=@artwork.picture_url%>);">
@@ -54,9 +55,17 @@
             </li>
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal">
-              <% if @artwork.image.attached? %>
-              <a href=<%= image_tag @artwork.image %>
-              <%= image_tag @artwork.image %>
+              <% if @artwork.images.attached? %>
+              <% if @artwork.images[1] == nil %>
+
+              <a href="<%=artwork_path(@artwork.id)%>" 
+              style="background-image: url(<%=rails_blob_url(@artwork.images[0])%>);">
+
+                <% else %>
+              <a href="<%=artwork_path(@artwork.id)%>" 
+              style="background-image: url(<%=rails_blob_url(@artwork.images[1])%>);">
+                <% end %>
+
               <% else %>
               <a href="<%=@artwork.picture_url%>" 
               style="background-image: url(<%=@artwork.picture_url%>);">
@@ -66,9 +75,17 @@
             </li>
             <li class="col-6" data-aos="zoom-in">
               <figure class="photo equal">
-              <% if @artwork.image.attached? %>
-              <a href=<%= image_tag @artwork.image %>
-              <%= image_tag @artwork.image %>
+              <% if @artwork.images.attached? %>
+              <% if @artwork.images[2] == nil %>
+
+              <a href="<%=artwork_path(@artwork.id)%>" 
+              style="background-image: url(<%=rails_blob_url(@artwork.images[0])%>);">
+
+                <% else %>
+              <a href="<%=artwork_path(@artwork.id)%>" 
+              style="background-image: url(<%=rails_blob_url(@artwork.images[2])%>);">
+                <% end %>
+
               <% else %>
               <a href="<%=@artwork.picture_url%>" 
               style="background-image: url(<%=@artwork.picture_url%>);">

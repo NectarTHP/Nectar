@@ -6,7 +6,7 @@ class ArtworksController < ApplicationController
   
   def index
     @artworks = Artwork.unsold
-    @artwork_img = Artwork.with_attached_image
+    @artwork_img = Artwork.with_attached_images
     @artwork = Artwork.new
   end
   
@@ -19,7 +19,7 @@ class ArtworksController < ApplicationController
   end
 
   def edit
-    @artwork = Artwork.with_attached_image.find(params[:id])
+    @artwork = Artwork.with_attached_images.find(params[:id])
   end
 
   def create
@@ -64,7 +64,7 @@ class ArtworksController < ApplicationController
 
     # Never trust parameters from the scary internet, only allow the white list through.
     def artwork_params
-      params.require(:artwork).permit(:user_id, :name, :description, :price, :picture_url, :categorie, :weight, :height, :width, :sale, :tag, :image)
+      params.require(:artwork).permit(:user_id, :name, :description, :price, :picture_url, :categorie, :weight, :height, :width, :sale, :tag, images:[])
     end
 
     def is_owner_or_admin
