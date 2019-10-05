@@ -1,7 +1,7 @@
 class Artwork < ApplicationRecord
   belongs_to :user
   has_many :line_items
-  has_one_attached :image
+  has_many_attached :images
 
   def is_sold?
     self.is_sold

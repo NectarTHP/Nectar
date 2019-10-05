@@ -33,7 +33,7 @@
                                   <%= form_with(model: @artwork, local: true) do |form| %>
                                   <h5>Upload pictures of your artwork</h5>
                                     <div class="field">
-                                    <%= form.file_field :image, required: true %>
+                                    <%= form.file_field :images, required: true,  multiple: true %>
                                     </div>
                                     <div class="accordion-content" data-content>
                                       <div class="accordion-content-wrapper">
@@ -140,11 +140,9 @@
         <li class="col-6 col-md-4">
           <figure class="photo equal">
 
-          <% if artwork.image.attached? %>
-
-          
-            <a href="<%=artwork_path(artwork.id)%>" 
-              style="background-image: url(<%=rails_blob_url(artwork.image)%>);">
+          <% if artwork.images.attached? %>
+              <a href="<%=artwork_path(artwork.id)%>" 
+              style="background-image: url(<%=rails_blob_url(artwork.images[0])%>);">
           
           <% else %>
 
