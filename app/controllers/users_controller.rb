@@ -13,7 +13,7 @@ class UsersController < ApplicationController
   end
 
   def show
-    @artwork = Artwork.with_attached_image
+    @artwork = Artwork.with_attached_images
     @artworkss = Artwork.new
     
 

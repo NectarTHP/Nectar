@@ -69,7 +69,7 @@
                                                                            <%= form_with(model: @artworkss, local: true) do |form| %>
                                                                            <h5>Upload pictures of your artwork</h5>
                                                                               <div class="field">
-                                                                              <%= form.file_field :image, required: true %>
+                                                                              <%= form.file_field :images, required: true %>
                                                                               </div>
                                                                                  <div class="accordion-content" data-content>
                                                                                     <div class="accordion-content-wrapper">
@@ -168,15 +168,14 @@
                                 <div class="col-md-6">
                                   <div class="card card-price rising mb-5">
                                     <div class="card-body">
-                                    <% if u.image.attached? %>
-                                    <a href="<%=artwork_path(u)%>"> 
-                                    <%= image_tag u.image %>
-                                    </a>
-                                    <% else %>
-                                    <a href="<%=artwork_path(u)%>"> 
-                                    <%= image_tag u.picture_url %>
-                                    </a>
-                                    <% end %>
+
+                                 <% if u.images.attached? %>
+                                    <%= image_tag u.images[0] %>
+                                 <% else %>
+                                    <%= u.picture_url %>
+                                    <%= image_tag @artwork.picture_url %>
+                                 <% end %>
+
                                   <h5 class="card-title pt-1"><%= u.name %> | <%= number_to_currency(u.price, unit:'€', precision: 4, delimiter: ",", strip_insignificant_zeros: true) %> </h5>
                                       <div class="card-title font-italic" style="margin-top: -1em"><%= u.categorie %>. <%= u.tag %>.</div>
                                   <ul class="list-group list-group-minimal pt-0 pb-0">
